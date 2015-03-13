@@ -1,6 +1,16 @@
 # Science
 
-My science work
+My (public) science work.
+
+## 2015-03-13
+
+I worked hard to replicate the likelihood calculations by Nee at al. (1994) and put my calculations in the folder NeeEtAl1994. I ended up using the likelihood functions of the DDD (Etienne & Haegeman) and LASER (Rabosky & Schliep) packages. Unsurprisingly, they give the same results. The expoTree package, however, I could not put it to good use.
+
+ * [My R script][NeeEtAl1994/Nee1994.R]
+
+### References
+
+ * Nee, Sean, Robert M. May, and Paul H. Harvey. "The reconstructed evolutionary process." Philosophical Transactions of the Royal Society B: Biological Sciences 344.1309 (1994): 305-311.
 
 ## 2015-01-20
 
