@@ -1,10 +1,13 @@
 # Science
 
 My (public) science work.
+## 2015-03-17
+
+Thanks Wikipedia for this [list of mathematical operators](https://en.wikipedia.org/wiki/List_of_mathematical_symbols_by_subject)!
 
 ## 2015-03-13
 
-I worked hard to replicate the likelihood calculations by Nee at al. (1994) and put my calculations in the folder NeeEtAl1994. I ended up using the likelihood functions of the DDD (Etienne & Haegeman) and LASER (Rabosky & Schliep) packages. Unsurprisingly, they give the same results. The expoTree package, however, I could not put it to good use.
+I worked hard to replicate the likelihood calculations by Nee at al. (1994) and put my calculations in the folder NeeEtAl1994. I ended up using the likelihood functions of the DDD (Etienne & Haegeman) and LASER (Rabosky & Schliep) packages. Unsurprisingly, they give the same results (note that DDD uses a proxy for the likelihood, instead of the true likelihood). The expoTree package, however, I could not put it to good use.
 
  * [My R script](NeeEtAl1994/Nee1994.R)
 
