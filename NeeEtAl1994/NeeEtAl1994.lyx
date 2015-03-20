@@ -82,14 +82,14 @@ Richel Bilderbeek
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="2">
+<lyxtabular version="3" rows="14" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -100,7 +100,7 @@ Symbol
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -115,16 +115,31 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+mathcal{L}
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Likelihood
 \end_layout
 
 \end_inset
@@ -147,7 +162,7 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-speciation rate
+Speciation rate
 \end_layout
 
 \end_inset
@@ -166,11 +181,11 @@ speciation rate
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-extinction rate
+Extinction rate
 \end_layout
 
 \end_inset
@@ -181,6 +196,9 @@ extinction rate
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $N$
+\end_inset
+
 
 \end_layout
 
@@ -190,26 +208,10 @@ extinction rate
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
+number of lineages at the current time, time 
+\begin_inset Formula $T$
 \end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -221,15 +223,72 @@ extinction rate
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $t_{1}$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+Root time
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Crown age, time of first branching
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time of 
+\begin_inset Formula $(i-1)$
+\end_inset
+
+th branching, 
+\begin_inset Formula $i\in[1,N]$
+\end_inset
+
 
 \end_layout
 
@@ -241,15 +300,150 @@ extinction rate
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $ts$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+Vector of branching time, 
+\begin_inset Formula $ts=\{t_{1},t_{2},...t_{n}\}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Current time
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time between 
+\begin_inset Formula $t_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $T$
+\end_inset
+
+, time since first branching, 
+\begin_inset Formula $i\in[1,N]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time between 
+\begin_inset Formula $t_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $T$
+\end_inset
+
+, branch length of branch originating at 
+\begin_inset Formula $t_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time between 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $T$
+\end_inset
+
+, branch length of branch originating at 
+\begin_inset Formula $t_{i}$
+\end_inset
+
 
 \end_layout
 
@@ -261,15 +455,22 @@ extinction rate
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $xs$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+Vector of branch lengths, 
+\begin_inset Formula $xs=\{x_{1},x_{2},...x_{n}\}$
+\end_inset
+
 
 \end_layout
 
@@ -307,15 +508,431 @@ name "tab:Symbol-descriptions"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Original number
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Original form
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Equation number
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Form used here
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $u_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NeeEtAlEq1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $u\left(\lambda,\mu,x\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\left(t,T\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NeeEtAlEq2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\left(\lambda,\mu,t,T\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $lik$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NeeEtAlEq20"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathcal{L}(\lambda,\mu,ts,T)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Equation comparisons of the original equations by Nee et al., 1994 and the
+ numbers and form used here
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Likelihood
 \end_layout
 
 \begin_layout Standard
-Equation 20:
+The likelihood calculation is based on Nee et al., 1994.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  % Draw the tree
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) node[anchor=east] {$t_1$}  -- (2, 0.0) -- (12,-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (2, 0.5) node[anchor=south] {$t_2$}  -- (12, 4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[ultra thick] (5,-1.0) node[anchor=south] {$t_3$}  -- (12,-0.8);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[ultra thick] (7, 2.0) node[anchor=north] {$t_4$}  -- (12,-0.4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  % Draw the arrows underneath
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[<->] (2,-7) -- (   7,-7) node[anchor=south] {$x_2$} -- (12,-7);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[<->] (5,-6) -- ( 8.5,-6) node[anchor=south] {$x_3$} -- (12,-6);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[<->] (7,-5) -- (10.5,-5) node[anchor=south] {$x_4$} -- (12,-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tree similar to figure 2 of Nee et al.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:NeeAtAlFig2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To calculate the likelihood of a phylogeny and parameters, the phylogeny
+ is cut into pieces (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:NeeAtAlFig2"
+
+\end_inset
+
+), as all we need are braching times (
+\begin_inset Formula $ts$
+\end_inset
+
+) and branch lengths (
+\begin_inset Formula $xs$
+\end_inset
+
+).
+ The shape of the tree is unimportant for this model.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u\left(\lambda,\mu,x\right)=\frac{\lambda\left(1-exp\left(-\left(\lambda-\mu\right)x\right)\right)}{\lambda-\mu\left(-\left(\lambda-\mu\right)x\right)}\label{eq:NeeEtAlEq1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P\left(\lambda,\mu,t,T\right)=\frac{\lambda-\mu}{\lambda-\mu exp\left(-\left(\lambda-\mu\right)\left(T-t\right)\right)}\label{eq:NeeEtAlEq2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P\left(\lambda,\mu,t,T\right)$
+\end_inset
+
+ is the chance a lineage alive at time 
+\begin_inset Formula $t$
+\end_inset
+
+ is still present at time 
+\begin_inset Formula $T$
+\end_inset
+
+.
+ The likelihood function, equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NeeEtAlEq20"
+
+\end_inset
+
+, is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}(\lambda,\mu,ts,T)=\left(N-1\right)!\left[\prod_{i=3}^{N}P(\lambda,\mu,t_{i},T)\right]\left(1-u(\lambda,\mu,x_{2})\right)^{2}\left[\prod_{i=3}^{N}\left(1-u(\lambda,\mu,x_{i})\right)\right]\label{eq:NeeEtAlEq20}
+\end{equation}
+
+\end_inset
+
 
 \end_layout
 
@@ -324,8 +941,19 @@ Acknowledgements
 \end_layout
 
 \begin_layout Standard
-Thanks to César Martinez for demonstrating the derivation.
- Thanks to Guillaume Achaz for his document 'Introduction a la coalesce'.
+Thanks to César Martinez for helpfull discussion.
+\end_layout
+
+\begin_layout Section
+References
+\end_layout
+
+\begin_layout Itemize
+Nee, Sean, Robert M.
+ May, and Paul H.
+ Harvey.
+ "The reconstructed evolutionary process." Philosophical Transactions of
+ the Royal Society B: Biological Sciences 344.1309 (1994): 305-311.
 \end_layout
 
 \end_body
