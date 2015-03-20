@@ -89,7 +89,7 @@ status open
 <lyxtabular version="3" rows="9" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -100,7 +100,7 @@ Symbol
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -115,16 +115,19 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Likelihood
 \end_layout
 
 \end_inset
@@ -143,11 +146,19 @@ Description
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-number of lineages, l=n at t=0
+Number of lineages, 
+\begin_inset Formula $l=n$
+\end_inset
+
+ at 
+\begin_inset Formula $t=0$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -166,11 +177,11 @@ number of lineages, l=n at t=0
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-sample size, number of individuals sampled
+Sample size, number of individuals sampled
 \end_layout
 
 \end_inset
@@ -189,7 +200,7 @@ sample size, number of individuals sampled
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -212,11 +223,11 @@ sample size, number of individuals sampled
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-time, the generation number
+Time, the generation number
 \end_layout
 
 \end_inset
@@ -235,11 +246,11 @@ time, the generation number
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-current, present-day generation
+Current, present-day generation
 \end_layout
 
 \end_inset
@@ -258,11 +269,11 @@ current, present-day generation
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-previous generation, parents of present-day generation
+Previous generation, parents of present-day generation
 \end_layout
 
 \end_inset
@@ -273,7 +284,7 @@ previous generation, parents of present-day generation
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $T$
+\begin_inset Formula $ts$
 \end_inset
 
 
@@ -281,11 +292,15 @@ previous generation, parents of present-day generation
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-vector of branch lengths
+Vector of branching times, 
+\begin_inset Formula $ts=\left\{ t_{0},t_{1},t_{n}\right\} $
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -656,40 +671,40 @@ draw (-12,0) -- (0,0);
 
   
 \backslash
-draw (-12,-0.5) node {$t=0$} [anchor=south] -- (-12,0.5) node {$l=n$} [anchor=nort
-h]; 
+draw (-12,-0.5) node[anchor=north] {$t=0$}  -- (-12,0.5) node[anchor=south]
+ {$l=n$}; 
 \end_layout
 
 \begin_layout Plain Layout
 
   
 \backslash
-draw (- 9,-0.5) node {$t=1$} [anchor=south] -- (- 9,0.5) node {$l=n-1$} [anchor=no
-rth]; 
+draw (- 9,-0.5) node[anchor=north] {$t=1$} -- (- 9,0.5) node[anchor=south]
+ {$l=n-1$}; 
 \end_layout
 
 \begin_layout Plain Layout
 
   
 \backslash
-draw (- 6,-0.5) node {$t=2$} [anchor=south] -- (- 6,0.5) node {$l=n-2$} [anchor=no
-rth]; 
+draw (- 6,-0.5) node[anchor=north] {$t=2$} -- (- 6,0.5) node[anchor=south]
+ {$l=n-2$}; 
 \end_layout
 
 \begin_layout Plain Layout
 
   
 \backslash
-draw (- 3,-0.5) node {$t=3$} [anchor=south] -- (- 3,0.5) node {$l=n-3$} [anchor=no
-rth]; 
+draw (- 3,-0.5) node[anchor=north] {$t=3$} -- (- 3,0.5) node[anchor=south]
+ {$l=n-3$}; 
 \end_layout
 
 \begin_layout Plain Layout
 
   
 \backslash
-draw (- 0,-0.5) node {$t=n-1$} [anchor=south] -- (-0,0.5) node {$l=1$} [anchor=nor
-th]; 
+draw (- 0,-0.5) node[anchor=north] {$t=n-1$} -- (-0,0.5) node[anchor=south]
+ {$l=1$}; 
 \end_layout
 
 \begin_layout Plain Layout
@@ -736,7 +751,7 @@ This results in the likelihood of finding this structure (i represents the
 \begin_layout Standard
 \begin_inset Formula 
 \[
-p(n,N,T)=\prod_{i=2}^{n}\left[\frac{1}{N}\left(\begin{array}{c}
+\mathcal{L}(n,N,ts)=\prod_{i=2}^{n}\left[\frac{1}{N}\left(\begin{array}{c}
 i\\
 2
 \end{array}\right)e^{-\left(\begin{array}{c}
