@@ -347,7 +347,7 @@ Wright-Fisher model.
  Each (horizontal) generation consists out of ten individuals.
  In this example there are twenty generations, going from the current time
  (top) into the past (bottom).
- The grey lines show the inheritance of alleles from parents to offspring
+ The grey lines show the inheritance of genes from parents to offspring.
 \begin_inset Note Note
 status collapsed
 
@@ -751,13 +751,60 @@ i\\
 \end_layout
 
 \begin_layout Section
+Adding mutation
+\end_layout
+
+\begin_layout Standard
+The change to find a certain number of mutations after some generations
+ follows a Poisson distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Poisson(k,\lambda)=\frac{\lambda^{k}.e^{-\lambda}}{k!}=\left[e^{-\lambda}\right]\frac{\lambda^{k}}{k!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The change P to find k mutations after t generations is (equation [12])(which
+ is the Poisson distribution with 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ replaced by 
+\begin_inset Formula $\mu t$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(k|t)=\left[e^{-\mu t}\right]\frac{\left(\mu t\right)^{k}}{k!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The expected number of mutation
+\end_layout
+
+\begin_layout Section
 Acknowledgements
 \end_layout
 
 \begin_layout Standard
 Thanks to César Martinez for demonstrating the derivation.
- Thanks to Guillaume Achaz for his document 'Introduction a la coalesce'
- that César used.
+ Thanks to Guillaume Achaz for his document 'Introduction a la coalesce'.
 \end_layout
 
 \end_body

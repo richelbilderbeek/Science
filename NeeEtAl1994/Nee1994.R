@@ -21,25 +21,152 @@ CalcChanceSurvival <- function(lambda,mu,T)
   return (chance)
 }
 
+# lambda: birth rate
+# mu: death rate
+# T: later time, the present, the time the tree ends
+# branching_times: times that nodes branch, up to the user what the branching time of 0 is, but all these must be less than T
+# Equation 20 from Nee et al., 1994
+#
+#  +----+----+----+----+
+#  |
+# -+    +----+----+----+
+#  |    |
+#  +----+
+#       |
+#       +----+----+----+
+#
+#  +----+----+----+----+ time
+#  0    1    2    3    4
+#
+#  lambda = 0.2 (speciation rate)
+#  mu = 0.01 (extinction rate)
+#
+#  What is the log(likelihood) of this tree?
+#
+#  From calculations by hand (thanks to Cesar Martinez), 
+#  following Nee et al. (1996) we found 
+#  (when conditioning on crown age and survival):
+#
+#  likelihood = 0.04474506
+#  log(likelihood) = -3.106774
+#
+#  Equation 20, from Nee et al. (1996):
+#
+#  lik = (N-1)!*(lambda^(N-2))*PRODUCT{i=3,N}(P(t_i,T))*((1-u_x_2)^2)*PRODUCT{i=3,N}(1 - u_x_i)
+#
+#  lambda <- 0.2
+#  mu <- 0.01
+#  result20 <- 2 * lambda * CalcP(lambda,mu,t=1,T=4) 
+#    * ((1 - CalcU(lambda,mu,t = 4)) ^ 2) * (1 - CalcU(lambda,mu,t=3))
+#  r <- lambda - mu
+#  a <- mu / lambda
+Equation20 <- function(lambda,mu,branching_times)
+{
+  assert("LikelihoodBirthDeath: Birth rate is above zero (would result in a division by zero when defining a)",lambda > 0) 
+  assert("LikelihoodBirthDeath: Birth rate is at most one",lambda <= 1)
+  assert("LikelihoodBirthDeath: Death rate is at least zero",mu >= 0)
+  assert("LikelihoodBirthDeath: Death rate is at most one",mu <= 1)
+  T <- max(branching_times)
 
+  # Construct xs, as that xs[i] == x_i
+  xs <- c(T,branching_times,0)
+  # Construct ts, as that ts[i] == t_i
+  ts <- T - xs
+  
+ 
+  N <- length(branching_times) + 1
+  assert("LikelihoodBirthDeath: There must be at least two lineages (otherwise we would not oberve a tree)",N >= 2) 
+
+  first_term <- factorial(N-1)*(lambda^(N-2))
+
+  first_product <- 1.0
+  if (2 < N)
+  {
+    for (i in seq(3,N)) 
+    { 
+      assert("Must be a valid index",i >= 1 && i <= length(ts)) 
+      first_product <- first_product * CalcP(lambda=lambda,mu=mu,t=ts[i],T=T)
+    }
+  }
+
+  third_term <- (1.0 - CalcU(lambda,mu,t=T)) ^ 2
+
+  second_product <- 1.0
+
+  if (2 < N)
+  {
+    for (i in seq(3,N)) 
+    { 
+      assert("Must be a valid index",i >= 1 && i <= length(xs))
+      second_product <- second_product * (1.0 - CalcU(lambda,mu,xs[i]))
+    }
+  }
+  likelihood <- first_term * first_product * third_term * second_product
+  
+  return (likelihood)
+}
 
 # lambda: birth rate
 # mu: death rate
 # T: later time, the present, the time the tree ends
 # branching_times: times that nodes branch, up to the user what the branching time of 0 is, but all these must be less than T
 # Equation 21 from Nee et al., 1994
-CalcLikelihoodBirthDeath <- function(lambda,mu,branching_times,T)
+#
+#  +----+----+----+----+
+#  |
+# -+    +----+----+----+
+#  |    |
+#  +----+
+#       |
+#       +----+----+----+
+#
+#  +----+----+----+----+ time
+#  0    1    2    3    4
+#
+#  lambda = 0.2 (speciation rate)
+#  mu = 0.01 (extinction rate)
+#
+#  What is the log(likelihood) of this tree?
+#
+#  From calculations by hand (thanks to Cesar Martinez), 
+#  following Nee et al. (1996) we found 
+#  (when conditioning on crown age and survival):
+#
+#  likelihood = 0.04474506
+#  log(likelihood) = -3.106774
+#
+#  I think it is correct, as I calculated it twice, 
+#  using equations 20 and 21 from Nee et al. (1996).
+#
+#  Equation 20, from Nee et al. (1996):
+#
+#  lik = (N-1)!*(lambda^(N-2))*PRODUCT{i=3,N}(P(t_i,T))*((1-u_x_2)^2)*PRODUCT{i=3,N}(1 - u_x_i)
+#
+#  lambda <- 0.2
+#  mu <- 0.01
+#  r <- lambda - mu
+#  a <- mu / lambda
+#  result21 <- 2 * r 
+#    * exp(3 * r) *((1-a)^3) 
+#    * (1 /( (exp(4*r)-a)^2) ) 
+#    * (1 /( (exp(3*r)-a)^2) )
+Equation21 <- function(lambda,mu,branching_times)
 {
-  assert("DO NOT USE, USE CalcLikelihoodDdd instead",1==2)
+  #assert("DO NOT USE, THERE IS A BUG IN THIS FUNCTION",1==2)
   assert("LikelihoodBirthDeath: Birth rate is above zero (would result in a division by zero when defining a)",lambda > 0) 
   assert("LikelihoodBirthDeath: Birth rate is at most one",lambda <= 1)
   assert("LikelihoodBirthDeath: Death rate is at least zero",mu >= 0)
   assert("LikelihoodBirthDeath: Death rate is at most one",mu <= 1)
-  for (branching_time in branching_times) { assert("All branching times must be before time T",branching_time < T) }
+  T <- max(branching_times)
 
   # Construct xs, as that x[i] == x_i
-  xs <- T - branching_times
-  xs <- c(NA,xs)
+  #OLD xs <- T - branching_times
+  #OLD xs <- c(NA,xs)
+
+  # Construct xs, as that xs[i] == x_i
+  xs <- c(T,branching_times,0)
+  # Construct ts, as that ts[i] == t_i
+  ts <- T - xs
 
   a <- mu / lambda
   r <- lambda - mu
@@ -52,7 +179,7 @@ CalcLikelihoodBirthDeath <- function(lambda,mu,branching_times,T)
   first_term <- factorial(N-1)*(r^(N-2))
 
   sum <- 0.0
-  if (2 < N - 1)
+  if (2 <= N - 1)
   {
     for (n in seq(2,N-1)) 
     { 
@@ -61,6 +188,7 @@ CalcLikelihoodBirthDeath <- function(lambda,mu,branching_times,T)
       sum <- sum + xs[index] 
     }
   }
+  second_term <- exp(sum*r)
   
   third_term <- ((1-a) ^ N)
 
@@ -70,9 +198,7 @@ CalcLikelihoodBirthDeath <- function(lambda,mu,branching_times,T)
     product <- product * (1.0 / ((exp(r * xs[n]) - a) ^ 2)) 
   }
 
-  likelihood <- first_term * exp(sum) * third_term * product
-  
-  print(paste(first_term,sum,third_term,product))
+  likelihood <- first_term * second_term * third_term * product
   
   return (likelihood)
 }
@@ -721,12 +847,12 @@ Test <- function()
     }
   }
   # CalcLikelihoodBirthDeath
-  {
-    assert(
-      "With negligible birth and death, the probability of finding a two-clade tree is close to one",
-      CalcLikelihoodBirthDeath(lambda = 0.00000001, mu = 0.000000000001, branching_times = c(0.0), T = 1.0) > 0.9999999
-    )
-  }
+  #{
+  #  assert(
+  #    "With negligible birth and death, the probability of finding a two-clade tree is close to one",
+  #    CalcLikelihoodBirthDeath(lambda = 0.00000001, mu = 0.000000000001, branching_times = c(0.0), T = 1.0) > 0.9999999
+  #  )
+  #}
   # bd_loglik
   {
     #
@@ -870,29 +996,31 @@ branching_times_from_crown <- c(0.0,1.0)
 T <- 4.0
 branch_lengths <- T - branching_times_from_crown
 
+
 likelihood_ddd <- CalcLikelihoodDdd(lambda,mu,branch_lengths)
 log_likelihood_ddd <- log(likelihood_ddd)
 log_likelihood_laser <- calcLHbd(x = branch_lengths, r = lambda - mu, a = mu / lambda)
 likelihood_laser <- exp(log_likelihood_laser)
 
+likelihood_equation20 <- Equation20(lambda,mu,branch_lengths)
+log_likelihood_equation20 <- log(likelihood_equation20)
+
+likelihood_equation21 <- Equation21(lambda,mu,branch_lengths)
+log_likelihood_equation21 <- log(likelihood_equation21)
+
+print(paste("DDD: likelihood: ",likelihood_ddd,", log likelihood: ",log_likelihood_ddd,sep=""))
+print(paste("LASER: likelihood: ",likelihood_laser,", log likelihood: ",log_likelihood_laser,sep=""))
+print(paste("Equation20: likelihood: ",likelihood_equation20,", log likelihood: ",log_likelihood_equation20,sep=""))
+print(paste("Equation21: likelihood: ",likelihood_equation21,", log likelihood: ",log_likelihood_equation21,sep=""))
+
 assert("DDD and LASER package must give the same result",abs(likelihood_ddd - likelihood_laser) < 0.0000000000001)
 assert("DDD and LASER package must give the same result",abs(log_likelihood_ddd - log_likelihood_laser) < 0.0000000000001)
-print(likelihood_ddd)
-print(likelihood_laser)
-print(log_likelihood_ddd)
-print(log_likelihood_laser)
+assert("Equation 20 and other packages must give the same result",abs(likelihood_equation20 - likelihood_laser) < 0.0000000000001)
+assert("Equation 21 and other packages must give the same result",abs(likelihood_equation21 - likelihood_laser) < 0.0000000000001)
 
 assert("DONE!",1 == 2)
 
-# Use my implementation, from Nee et al., 1994
-# Reduce the tree to two branching times, at t=0 and t=1, and a final time, T=4
-# My implementation does not work, but feel free to fix it :-)
-my_likelihood <- CalcLikelihoodBirthDeath(
-    lambda = lambda, 
-    mu = mu, 
-    branching_times = branching_times_from_crown, 
-    T = T
-)
+
 
 # Use the expoTree package
 #
@@ -909,7 +1037,6 @@ loglik_expoTree3 <- runExpoTree(pars,times=rev(branch_lengths),ttypes) # 'times'
 loglik_expoTree4 <- runExpoTree(pars,times=c(rev(branch_lengths),T),ttypes) # 'times' must be sorted
 print(paste(loglik_expoTree1,loglik_expoTree2,loglik_expoTree3,loglik_expoTree4))
 print(paste(exp(loglik_expoTree1),exp(loglik_expoTree2),exp(loglik_expoTree3),exp(loglik_expoTree4)))
-?runExpoTree
 
 #
 # References
