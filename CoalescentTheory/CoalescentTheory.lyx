@@ -86,7 +86,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="2">
+<lyxtabular version="3" rows="12" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0">
 <column alignment="left" valignment="top" width="0">
@@ -159,6 +159,16 @@ Number of lineages,
 \end_inset
 
 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Warning: off-by-one error?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -181,7 +191,11 @@ Number of lineages,
 \begin_inset Text
 
 \begin_layout Plain Layout
-Sample size, number of individuals sampled
+Sample size, number of individuals sampled, the size of 
+\begin_inset Formula $ts$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -280,6 +294,103 @@ Previous generation, parents of present-day generation
 </cell>
 </row>
 <row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time of common ancenstor of all lineages, the root age
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Warning: off-by-one error?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time of first branching, the crown age, equals 
+\begin_inset Formula $t=0$
+\end_inset
+
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Warning: off-by-one error?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $t_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time of 
+\begin_inset Formula $(i-1)$
+\end_inset
+
+th branching
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -298,6 +409,16 @@ Previous generation, parents of present-day generation
 \begin_layout Plain Layout
 Vector of branching times, 
 \begin_inset Formula $ts=\left\{ t_{0},t_{1},t_{n}\right\} $
+\end_inset
+
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Warning: off-by-one error?
+\end_layout
+
 \end_inset
 
 
@@ -647,7 +768,7 @@ reference "fig:Timeline"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -751,13 +872,228 @@ This results in the likelihood of finding this structure (i represents the
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\mathcal{L}(n,N,ts)=\prod_{i=2}^{n}\left[\frac{1}{N}\left(\begin{array}{c}
+\mathcal{L}(N,ts)=\prod_{i=2}^{n}\left[\frac{1}{N}\left(\begin{array}{c}
 i\\
 2
 \end{array}\right)e^{-\left(\begin{array}{c}
 i\\
 2
 \end{array}\right)\frac{t_{i}}{N}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Example
+\end_layout
+
+\begin_layout Standard
+In this example, we will use a simple phylogeny, as depicted in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Example-phylogeny"
+
+\end_inset
+
+, that has three branches in the present time 
+\begin_inset Formula $T$
+\end_inset
+
+.
+ Three branches means two branching times, which are 
+\begin_inset Formula $ts=\{t_{2},t_{3}\}=\{0,1\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture} 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (-1, 0) node[anchor=south] {$t_1$}  -- (0, 0) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw ( 0, 1) node[anchor=south] {$t_2$}  -- (2, 1) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw ( 0, 1) node               {     }  -- (0,-1) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw ( 0,-1) node               {     }  -- (8,-1) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw ( 2, 2) node[anchor=south] {$t_3$}  -- (8, 2) node[anchor=south] {$T$};
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw ( 2, 2) node               {     }  -- (2, 0) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw ( 2, 0) node               {     }  -- (8, 0) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  % Bars underneath
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0, -2) node {}  -- (8, -2) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0, -1.75) node[anchor=south] {$0$}  -- (0, -2.25) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (2, -1.75) node[anchor=south] {$1$}  -- (2, -2.25) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (4, -1.75) node[anchor=south] {$2$}  -- (4, -2.25) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (6, -1.75) node[anchor=south] {$3$}  -- (6, -2.25) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (8, -1.75) node[anchor=south] {$4$}  -- (8, -2.25) node {}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example phylogeny
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Example-phylogeny"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}(N,ts)=\prod_{i=2}^{n}\left[\frac{1}{N}\left(\begin{array}{c}
+i\\
+2
+\end{array}\right)e^{-\left(\begin{array}{c}
+i\\
+2
+\end{array}\right)\frac{t_{i}}{N}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}(N,ts=\{t_{2},t_{3}\}=\{0,1\})=\left[\frac{1}{N}\left(\begin{array}{c}
+2\\
+2
+\end{array}\right)e^{-\left(\begin{array}{c}
+2\\
+2
+\end{array}\right)\frac{0}{N}}\right]\left[\frac{1}{N}\left(\begin{array}{c}
+3\\
+2
+\end{array}\right)e^{-\left(\begin{array}{c}
+3\\
+2
+\end{array}\right)\frac{1}{N}}\right]
 \]
 
 \end_inset
@@ -820,6 +1156,18 @@ Acknowledgements
 \begin_layout Standard
 Thanks to César Martinez for demonstrating the derivation.
  Thanks to Guillaume Achaz for his document 'Introduction a la coalesce'.
+\end_layout
+
+\begin_layout Section
+References
+\end_layout
+
+\begin_layout Itemize
+Nee, Sean, Robert M.
+ May, and Paul H.
+ Harvey.
+ "The reconstructed evolutionary process." Philosophical Transactions of
+ the Royal Society B: Biological Sciences 344.1309 (1994): 305-311.
 \end_layout
 
 \end_body
