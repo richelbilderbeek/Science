@@ -229,7 +229,8 @@ Equation21 <- function(lambda,mu,branching_times)
 CalcLikelihoodDdd <- function(lambda,mu,branch_lengths)
 {
   # Use the DDD package
-
+  N <- length(branch_lengths) + 1
+ 
   # model of time-dependence: 
   # - 0: no time dependence 
   # - 1: speciation and/or extinction rate is exponentially declining with time 
@@ -259,6 +260,7 @@ CalcLikelihoodDdd <- function(lambda,mu,branch_lengths)
   # - 2: crown age
   first_data_point_is <- 2
 
+  
   # I call the result of bd_loglik 'log_likelihood_ddd_without_combinational_term', because
   # it is not the true likelihood (true as in: when integrated over all parameters these probabilities sum up to one).
   # The true likelihood is given in Nee et al., 1994:
@@ -289,7 +291,7 @@ CalcLikelihoodDdd <- function(lambda,mu,branch_lengths)
   )
 
   likelihood_ddd_without_combinational_term  <- exp(log_likelihood_ddd_without_combinational_term )
-  likelihood_ddd <- likelihood_ddd_without_combinational_term * 2
+  likelihood_ddd <- likelihood_ddd_without_combinational_term * factorial(N -1)
   return (likelihood_ddd)
 }
 
@@ -983,40 +985,71 @@ Test <- function()
     assert("CalcLikelihoodDdd must match the one calculated by hand",abs(likelihood_ddd - expected_likelihood) < 0.0001)
     assert("CalcLikelihoodDdd must match the one calculated by hand",abs(likelihood_ddd - expected_likelihood) < 0.0001)
   }
+  # Compare all, for example above
+  {
+    lambda <- 0.2
+    mu <- 0.01
+    branching_times_from_crown <- c(0.0,1.0)
+    T <- 8.0
+    branch_lengths <- T - branching_times_from_crown
+
+
+    likelihood_ddd <- CalcLikelihoodDdd(lambda,mu,branch_lengths)
+    log_likelihood_ddd <- log(likelihood_ddd)
+    log_likelihood_laser <- calcLHbd(x = branch_lengths, r = lambda - mu, a = mu / lambda)
+    likelihood_laser <- exp(log_likelihood_laser)
+
+    likelihood_equation20 <- Equation20(lambda,mu,branch_lengths)
+    log_likelihood_equation20 <- log(likelihood_equation20)
+
+    likelihood_equation21 <- Equation21(lambda,mu,branch_lengths)
+    log_likelihood_equation21 <- log(likelihood_equation21)
+
+    # print(paste("DDD: likelihood: ",likelihood_ddd,", log likelihood: ",log_likelihood_ddd,sep=""))
+    # print(paste("LASER: likelihood: ",likelihood_laser,", log likelihood: ",log_likelihood_laser,sep=""))
+    # print(paste("Equation20: likelihood: ",likelihood_equation20,", log likelihood: ",log_likelihood_equation20,sep=""))
+    # print(paste("Equation21: likelihood: ",likelihood_equation21,", log likelihood: ",log_likelihood_equation21,sep=""))
+
+    assert("DDD and LASER package must give the same result",abs(likelihood_ddd - likelihood_laser) < 0.0000000000001)
+    assert("DDD and LASER package must give the same result",abs(log_likelihood_ddd - log_likelihood_laser) < 0.0000000000001)
+    assert("Equation 20 and other packages must give the same result",abs(likelihood_equation20 - likelihood_laser) < 0.0000000000001)
+    assert("Equation 21 and other packages must give the same result",abs(likelihood_equation21 - likelihood_laser) < 0.0000000000001)
+  }
+  # Compare all, for some new values
+  {
+    lambda <- 0.3
+    mu <- 0.01
+    branching_times_from_crown <- c(0.0,1.0,4.0)
+    T <- 8.0
+    branch_lengths <- T - branching_times_from_crown
+
+
+    likelihood_ddd <- CalcLikelihoodDdd(lambda,mu,branch_lengths)
+    log_likelihood_ddd <- log(likelihood_ddd)
+    log_likelihood_laser <- calcLHbd(x = branch_lengths, r = lambda - mu, a = mu / lambda)
+    likelihood_laser <- exp(log_likelihood_laser)
+
+    likelihood_equation20 <- Equation20(lambda,mu,branch_lengths)
+    log_likelihood_equation20 <- log(likelihood_equation20)
+
+    likelihood_equation21 <- Equation21(lambda,mu,branch_lengths)
+    log_likelihood_equation21 <- log(likelihood_equation21)
+
+    # print(paste("DDD: likelihood: ",likelihood_ddd,", log likelihood: ",log_likelihood_ddd,sep=""))
+    # print(paste("LASER: likelihood: ",likelihood_laser,", log likelihood: ",log_likelihood_laser,sep=""))
+    # print(paste("Equation20: likelihood: ",likelihood_equation20,", log likelihood: ",log_likelihood_equation20,sep=""))
+    # print(paste("Equation21: likelihood: ",likelihood_equation21,", log likelihood: ",log_likelihood_equation21,sep=""))
+
+    assert("DDD and LASER package must give the same result",abs(likelihood_ddd - likelihood_laser) < 0.0000000000001)
+    assert("DDD and LASER package must give the same result",abs(log_likelihood_ddd - log_likelihood_laser) < 0.0000000000001)
+    assert("Equation 20 and other packages must give the same result",abs(likelihood_equation20 - likelihood_laser) < 0.0000000000001)
+    assert("Equation 21 and other packages must give the same result",abs(likelihood_equation21 - likelihood_laser) < 0.0000000000001)
+  }
 }
 
 
 
 Test()
-
-
-lambda <- 0.2
-mu <- 0.01
-branching_times_from_crown <- c(0.0,1.0)
-T <- 4.0
-branch_lengths <- T - branching_times_from_crown
-
-
-likelihood_ddd <- CalcLikelihoodDdd(lambda,mu,branch_lengths)
-log_likelihood_ddd <- log(likelihood_ddd)
-log_likelihood_laser <- calcLHbd(x = branch_lengths, r = lambda - mu, a = mu / lambda)
-likelihood_laser <- exp(log_likelihood_laser)
-
-likelihood_equation20 <- Equation20(lambda,mu,branch_lengths)
-log_likelihood_equation20 <- log(likelihood_equation20)
-
-likelihood_equation21 <- Equation21(lambda,mu,branch_lengths)
-log_likelihood_equation21 <- log(likelihood_equation21)
-
-print(paste("DDD: likelihood: ",likelihood_ddd,", log likelihood: ",log_likelihood_ddd,sep=""))
-print(paste("LASER: likelihood: ",likelihood_laser,", log likelihood: ",log_likelihood_laser,sep=""))
-print(paste("Equation20: likelihood: ",likelihood_equation20,", log likelihood: ",log_likelihood_equation20,sep=""))
-print(paste("Equation21: likelihood: ",likelihood_equation21,", log likelihood: ",log_likelihood_equation21,sep=""))
-
-assert("DDD and LASER package must give the same result",abs(likelihood_ddd - likelihood_laser) < 0.0000000000001)
-assert("DDD and LASER package must give the same result",abs(log_likelihood_ddd - log_likelihood_laser) < 0.0000000000001)
-assert("Equation 20 and other packages must give the same result",abs(likelihood_equation20 - likelihood_laser) < 0.0000000000001)
-assert("Equation 21 and other packages must give the same result",abs(likelihood_equation21 - likelihood_laser) < 0.0000000000001)
 
 assert("DONE!",1 == 2)
 
