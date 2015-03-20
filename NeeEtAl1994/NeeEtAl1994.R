@@ -460,51 +460,51 @@ Count <- function(list,search_value)
 
 PlotAll <- function()
 {
-  svg(filename="Nee1994P.svg")
+  svg(filename="NeeEtAl1994P.svg")
   PlotP(lambda = 0.2,mu = 0.1,T = 10)
   dev.off()
 
-  pdf(file="Nee1994P.pdf")
+  pdf(file="NeeEtAl1994P.pdf")
   PlotP(lambda = 0.2,mu = 0.1,T = 10)
   dev.off()
 
-  svg(filename="Nee1994U.svg")
+  svg(filename="NeeEtAl1994U.svg")
   PlotU(lambda,mu,10)
   dev.off()
 
-  pdf(file="Nee1994U.pdfg")
+  pdf(file="NeeEtAl1994U.pdfg")
   PlotU(lambda,mu,10)
   dev.off()
 
-  svg(filename="Nee1994Pr1.svg")
+  svg(filename="NeeEtAl1994Pr1.svg")
   PlotPr1(lambda = 0.15, mu = 0.1, T = 10)
   dev.off()
 
-  pdf(file="Nee1994Pr1.pdf")
+  pdf(file="NeeEtAl1994Pr1.pdf")
   PlotPr1(lambda = 0.15, mu = 0.1, T = 10)
   dev.off()
 
-  svg(filename="Nee1994Pr2.svg")
+  svg(filename="NeeEtAl1994Pr2.svg")
   PlotPr2(lambda = 0.15, mu = 0.1, T = 10)
   dev.off()
 
-  pdf(file="Nee1994Pr2.pdf")
+  pdf(file="NeeEtAl1994Pr2.pdf")
   PlotPr2(lambda = 0.15, mu = 0.1, T = 10)
   dev.off()
 
-  svg(filename="Nee1994Pr3.svg")
+  svg(filename="NeeEtAl1994Pr3.svg")
   PlotPr3(lambda = 0.15, mu = 0.1, T = 10)
   dev.off()
 
-  pdf(file="Nee1994Pr3.pdf")
+  pdf(file="NeeEtAl1994Pr3.pdf")
   PlotPr3(lambda = 0.15, mu = 0.1, T = 10)
   dev.off()
 
-  svg(filename="Nee1994Pr4.svg")
+  svg(filename="NeeEtAl1994Pr4.svg")
   PlotPr3(lambda = 0.15, mu = 0.1, T = 10)
   dev.off()
 
-  pdf(file="Nee1994Pr4.pdf")
+  pdf(file="NeeEtAl1994Pr4.pdf")
   PlotPr3(lambda = 0.15, mu = 0.1, T = 10)
   dev.off()
 }
