@@ -82,7 +82,7 @@ Richel Bilderbeek
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Tabular
@@ -903,11 +903,6 @@ reference "fig:Example-phylogeny"
 \end_inset
 
 .
- Three branches means two branching times, which are 
-\begin_inset Formula $ts=\{t_{2},t_{3}\}=\{0,1\}$
-\end_inset
-
-.
  
 \end_layout
 
@@ -915,7 +910,7 @@ reference "fig:Example-phylogeny"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -1062,6 +1057,125 @@ name "fig:Example-phylogeny"
 \end_layout
 
 \begin_layout Standard
+Three branches means two branching times, which are 
+\begin_inset Formula $ts=\{t_{2},t_{3}\}=\{4,3\}$
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+RCode:
+\end_layout
+
+\begin_layout Plain Layout
+N <- 2 
+\end_layout
+
+\begin_layout Plain Layout
+term1 <- (1/N)*choose(2,2)*exp(-choose(2,2)*(4/N)) 
+\end_layout
+
+\begin_layout Plain Layout
+term2 <- (1/N)*choose(3,2)*exp(-choose(3,2)*(3/N)) 
+\end_layout
+
+\begin_layout Plain Layout
+term <- term1 * term2 
+\end_layout
+
+\begin_layout Plain Layout
+print(term)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}(N,ts)=\prod_{i=2}^{n}\left[\frac{1}{N}\left(\begin{array}{c}
+i\\
+2
+\end{array}\right)e^{-\left(\begin{array}{c}
+i\\
+2
+\end{array}\right)\frac{t_{i}}{N}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}(N,ts=\{t_{2},t_{3}\}=\{4,3\})=\left[\frac{1}{N}\left(\begin{array}{c}
+2\\
+2
+\end{array}\right)e^{-\left(\begin{array}{c}
+2\\
+2
+\end{array}\right)\frac{4}{N}}\right]\left[\frac{1}{N}\left(\begin{array}{c}
+3\\
+2
+\end{array}\right)e^{-\left(\begin{array}{c}
+3\\
+2
+\end{array}\right)\frac{3}{N}}\right]=0.001127579
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I THINK THIS IS INCORRECT: Three branches means two branching times, which
+ are 
+\begin_inset Formula $ts=\{t_{2},t_{3}\}=\{0,1\}$
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+RCode:
+\end_layout
+
+\begin_layout Plain Layout
+N <- 2 
+\end_layout
+
+\begin_layout Plain Layout
+term1 <- (1/N)*choose(2,2)*exp(-choose(2,2)*(0/N)) 
+\end_layout
+
+\begin_layout Plain Layout
+term2 <- (1/N)*choose(3,2)*exp(-choose(3,2)*(1/N)) 
+\end_layout
+
+\begin_layout Plain Layout
+term <- term1 * term2 
+\end_layout
+
+\begin_layout Plain Layout
+print(term)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \mathcal{L}(N,ts)=\prod_{i=2}^{n}\left[\frac{1}{N}\left(\begin{array}{c}
@@ -1093,7 +1207,7 @@ i\\
 \end{array}\right)e^{-\left(\begin{array}{c}
 3\\
 2
-\end{array}\right)\frac{1}{N}}\right]
+\end{array}\right)\frac{1}{N}}\right]=0.1673476
 \]
 
 \end_inset
