@@ -2,6 +2,12 @@
 
 My (public) science work.
 
+## 2015-03-26
+
+Luke Harmon sent me his excellent presentation he gave at 
+a minisymposium for the thesis defence of Thijs Janzen. You
+can get the PDF [here](Harmon2015/groningen_harmon_2015.pdf).
+
 ## 2015-03-20
 
 I replicated the likelihood calculations by Nee at al. (1994) in R
