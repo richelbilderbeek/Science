@@ -2,6 +2,10 @@
 
 My (public) science work.
 
+## 2015-06-16
+
+Reminder to self: [Statistical Retrinking](http://xcelab.net/rm/statistical-rethinking) by Richard McElreath appears to become an awesome statistics book! 
+
 ## 2015-03-26
 
 Luke Harmon sent me his excellent presentation he gave at 
