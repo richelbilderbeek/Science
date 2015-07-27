@@ -2,6 +2,10 @@
 
 My (public) science work.
 
+## 2016-06-27 
+
+I created a BEAST2 tutorial to add a tree prior [here ](https://github.com/richelbilderbeek/Java/blob/master/Beast2TutorialCreateNewTreePrior/CreateNewTreePrior.md). I also notified the original BEAST2 authors to let them use it as well.
+
 ## 2015-06-16
 
 Reminder to self: [Statistical Retrinking](http://xcelab.net/rm/statistical-rethinking) by Richard McElreath appears to become an awesome statistics book! 
