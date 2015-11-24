@@ -1,0 +1,11 @@
+#!/bin/bash
+
+FILENAME_BASE=20151123PresentationTresMeeting
+FILENAME_MD=$FILENAME_BASE".md"
+FILENAME_PDF_DOC=$FILENAME_BASE"_doc.pdf"
+FILENAME_PDF_PRESENTATION=$FILENAME_BASE"_presentation.pdf"
+
+pandoc -t beamer $FILENAME_MD -V theme:Warsaw -o $FILENAME_PDF_PRESENTATION
+
+pandoc $FILENAME_MD -o $FILENAME_PDF_DOC
+

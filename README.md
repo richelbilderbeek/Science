@@ -2,7 +2,16 @@
 
 My (public) science work.
 
-## 2016-06-27 
+## TRESentation by Bilderbeek 
+
+I gave a TRES presentation at November 23rd 2015, you can view it [here](Bilderbeek20151123TresMeeting/20151123TresMeeting.pdf).
+
+## Article discussion Cadotte 2015 by Bisschop and Bilderbeek 
+
+We, as TECE, discussed the article `Phylogenetic diversity–ecosystem function relationships are insensitive to phylogenetic edge lengths` by Marc W. Cadotte. Presentation [here](BisschopAndBilderbeek20150630ArticleDiscussionCadotte2015/Cadotte2015.pdf).
+
+
+## 2015-06-27 
 
 I created a BEAST2 tutorial to add a tree prior [here ](https://github.com/richelbilderbeek/Java/blob/master/Beast2TutorialCreateNewTreePrior/CreateNewTreePrior.md). I also notified the original BEAST2 authors to let them use it as well.
 
