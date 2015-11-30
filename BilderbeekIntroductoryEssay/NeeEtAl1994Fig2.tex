@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+  % Draw the tree
+  \draw (0,0) node[anchor=east] {$t_1$}  -- (2, 0.0) -- (12,-4);
+  \draw (2, 0.5) node[anchor=south] {$t_2$}  -- (12, 4);
+  \draw[ultra thick] (5,-1.0) node[anchor=south] {$t_3$}  -- (12,-0.8);
+  \draw[ultra thick] (7, 2.0) node[anchor=north] {$t_4$}  -- (12,-0.4);
+  % Draw the arrows underneath
+  \draw[<->] (2,-7) -- (   7,-7) node[anchor=south] {$x_2$} -- (12,-7);
+  \draw[<->] (5,-6) -- ( 8.5,-6) node[anchor=south] {$x_3$} -- (12,-6);
+  \draw[<->] (7,-5) -- (10.5,-5) node[anchor=south] {$x_4$} -- (12,-5);
+\end{tikzpicture}

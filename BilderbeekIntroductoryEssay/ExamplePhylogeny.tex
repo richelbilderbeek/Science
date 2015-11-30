@@ -1,0 +1,20 @@
+\begin{tikzpicture} 
+  \draw[ultra thick] (-1, 0) node[anchor=south] {$t_1$}  -- (0, 0) node {}; 
+  \draw[ultra thick] ( 0, 1) node[anchor=south] {$t_2$}  -- (2, 1) node {}; 
+  \draw[ultra thick] ( 0, 1) node               {     }  -- (0,-1) node {}; 
+  \draw[ultra thick] ( 0,-1) node               {     }  -- (8,-1) node {}; 
+  \draw[ultra thick] ( 2, 2) node[anchor=south] {$t_3$}  -- (8, 2) node[anchor=south] {$T$}; 
+  \draw[ultra thick] ( 2, 2) node               {     }  -- (2, 0) node {}; 
+  \draw[ultra thick] ( 2, 0) node               {     }  -- (8, 0) node {}; 
+  % xs
+  \draw[<->] (0, -1.5) node {} -- (4, -1.5) node[anchor=south] {$x_2$} -- (8,-1.5) node {}; 
+  \draw[<->] (2, -2.0) node {} -- (5, -2.0) node[anchor=south] {$x_3$} -- (8,-2.0) node {}; 
+  % Bars underneath
+  \shade[left color=red,right color=yellow] (0,-3-0.125) rectangle (8,-3+0.125);
+  \draw (0, -3) node[anchor=east] {time}  -- (8, -3) node {}; 
+  \draw (0, -2.75) node[anchor=south] {$0$}  -- (0, -3.25) node {}; 
+  \draw (2, -2.75) node[anchor=south] {$1$}  -- (2, -3.25) node {}; 
+  \draw (4, -2.75) node[anchor=south] {$2$}  -- (4, -3.25) node {}; 
+  \draw (6, -2.75) node[anchor=south] {$3$}  -- (6, -3.25) node {}; 
+  \draw (8, -2.75) node[anchor=south] {$4$}  -- (8, -3.25) node {}; 
+\end{tikzpicture}

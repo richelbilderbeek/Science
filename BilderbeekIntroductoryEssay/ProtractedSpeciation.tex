@@ -1,0 +1,14 @@
+\begin{tikzpicture} 
+  % Right species phylogeny
+  \draw[ultra thick] ( 0.0, 0.0) node {} -- ( 0.0,-1.0) node {}; 
+  \draw[ultra thick] (-1.0,-4.0) node {} -- (-1.0,-1.0) node {} -- (1.0,-1.0) node {}; 
+  \draw[ultra thick,dotted] (1.0,-1.0) node {} -- (1.0,-3.0) node {};
+  \draw[ultra thick] (1.0,-3.0) node {} -- (1.0,-4.0) node {}; 
+  % Triangle
+  \fill[top color=gray,bottom color=white] (1.5,-1.0) node {} -- (1.5,-3.0) node {} -- (2.5,-1.0) node {} -- cycle;
+  \draw (1.5,-1.0) node {} -- (1.5,-3.0) node {} -- (2.5,-1.0) node {} -- cycle;
+  % Text above triangle
+  \draw[<->] (1.5,-0.5) node {} -- (2.0,-0.5) node[anchor=south] {interbreeding} -- (2.5,-0.5) node {};
+
+  
+\end{tikzpicture}
