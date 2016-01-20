@@ -1,0 +1,1175 @@
+<?xml version='1.0'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN'
+  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1'
+      width='2048' height='2048' viewBox='0 0 2048 2048'>
+<rect fill='#fff' width='2048' height='2048'/>
+<circle cx='1195' cy='812' r='5' fill='rgb(205,244,54)'/>
+<text x='1195' y='812' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>chainLength=10000000</text>
+
+<circle cx='1195' cy='819' r='5' fill='rgb(205,244,54)'/>
+<text x='1195' y='819' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>state</text>
+
+<circle cx='1195' cy='826' r='5' fill='rgb(205,244,54)'/>
+<text x='1195' y='826' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>init</text>
+
+<circle cx='1195' cy='833' r='5' fill='rgb(205,244,54)'/>
+<text x='1195' y='833' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>distribution</text>
+
+<circle cx='1195' cy='840' r='5' fill='rgb(205,244,54)'/>
+<text x='1195' y='840' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>operator</text>
+
+<circle cx='1195' cy='847' r='5' fill='rgb(205,244,54)'/>
+<text x='1195' y='847' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>logger</text>
+
+<circle cx='1195' cy='854' r='5' fill='rgb(205,244,54)'/>
+<text x='1195' y='854' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>operatorschedule</text>
+
+<defs>
+  <linearGradient id='gradmcmc' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(205,244,54);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='mcmc' d='M 1200 854 l 50 0  a 50 -25 0 0,0 0,-50 l -50 0 z' fill='url(#gradmcmc)' />
+<text x='1250' y='829' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>mcmc</text>
+
+<circle cx='1075' cy='444' r='5' fill='rgb(224,134,88)'/>
+<text x='1075' y='444' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>stateNode</text>
+
+<circle cx='1075' cy='464' r='5' fill='rgb(224,134,88)'/>
+<text x='1075' y='464' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>storeEvery=1000</text>
+
+<defs>
+  <linearGradient id='gradstate' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(224,134,88);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='state' d='M 1080 469 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradstate)' />
+<text x='1120' y='449' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>state</text>
+
+<circle cx='475' cy='411' r='5' fill='rgb(70,198,23)'/>
+<text x='475' y='411' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>taxonset</text>
+
+<defs>
+  <linearGradient id='gradTree.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(70,198,23);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='Tree.t:alignment' d='M 480 426 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradTree.t:alignment)' />
+<text x='520' y='406' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>Tree.t:alignment</text>
+
+<circle cx='355' cy='419' r='5' fill='rgb(51,196,20)'/>
+<text x='355' y='419' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>alignment</text>
+
+<defs>
+  <linearGradient id='gradTaxonSet.alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(51,196,20);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='TaxonSet.alignment' d='M 360 434 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradTaxonSet.alignment)' />
+<text x='400' y='414' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>TaxonSet.alignment</text>
+
+<circle cx='235' cy='331' r='5' fill='rgb(171,155,77)'/>
+<text x='235' y='331' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>sequence</text>
+
+<defs>
+  <linearGradient id='gradalignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(171,155,77);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='alignment' d='M 240 346 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradalignment)' />
+<text x='280' y='326' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>alignment</text>
+
+<circle cx='115' cy='571' r='5' fill='rgb(77,139,20)'/>
+<text x='115' y='571' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>totalcount=4</text>
+
+<circle cx='115' cy='584' r='5' fill='rgb(77,139,20)'/>
+<text x='115' y='584' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>taxon=human</text>
+
+<circle cx='115' cy='597' r='5' fill='rgb(77,139,20)'/>
+<text x='115' y='597' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value=            AGAAATATGTCTGATAAAAGAGTTACTTTGATAGAGTAAATAATAGGAGCTTAAACCCCCTTATTTCTACTAGGACTATGAGAATCGAACCCATCCCTGAGAATCCAAAATTCTCCGTGCCACCTATCACACCCCATCCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTTATACCCTTCCCGTACTAAGAAATTTAGGTTAAATACAGACCAAGAGCCTTCAAAGCCCTCAGTAAGTTG-CAATACTTAATTTCTGTAAGGACTGCAAAACCCCACTCTGCATCAACTGAACGCAAATCAGCCACTTTAATTAAGCTAAGCCCTTCTAGACCAATGGGACTTAAACCCACAAACACTTAGTTAACAGCTAAGCACCCTAATCAAC-TGGCTTCAATCTAAAGCCCCGGCAGG-TTTGAAGCTGCTTCTTCGAATTTGCAATTCAATATGAAAA-TCACCTCGGAGCTTGGTAAAAAGAGGCCTAACCCCTGTCTTTAGATTTACAGTCCAATGCTTCA-CTCAGCCATTTTACCACAAAAAAGGAAGGAATCGAACCCCCCAAAGCTGGTTTCAAGCCAACCCCATGGCCTCCATGACTTTTTCAAAAGGTATTAGAAAAACCATTTCATAACTTTGTCAAAGTTAAATTATAGGCT-AAATCCTATATATCTTA-CACTGTAAAGCTAACTTAGCATTAACCTTTTAAGTTAAAGATTAAGAGAACCAACACCTCTTTACAGTGA        </text>
+
+<defs>
+  <linearGradient id='gradSequence.0' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(77,139,20);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='Sequence.0' d='M 120 600 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradSequence.0)' />
+<text x='160' y='580' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>Sequence.0</text>
+
+<circle cx='115' cy='491' r='5' fill='rgb(252,173,46)'/>
+<text x='115' y='491' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>totalcount=4</text>
+
+<circle cx='115' cy='504' r='5' fill='rgb(252,173,46)'/>
+<text x='115' y='504' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>taxon=chimp</text>
+
+<circle cx='115' cy='517' r='5' fill='rgb(252,173,46)'/>
+<text x='115' y='517' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value=            AGAAATATGTCTGATAAAAGAATTACTTTGATAGAGTAAATAATAGGAGTTCAAATCCCCTTATTTCTACTAGGACTATAAGAATCGAACTCATCCCTGAGAATCCAAAATTCTCCGTGCCACCTATCACACCCCATCCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTTACACCCTTCCCGTACTAAGAAATTTAGGTTAAGCACAGACCAAGAGCCTTCAAAGCCCTCAGCAAGTTA-CAATACTTAATTTCTGTAAGGACTGCAAAACCCCACTCTGCATCAACTGAACGCAAATCAGCCACTTTAATTAAGCTAAGCCCTTCTAGATTAATGGGACTTAAACCCACAAACATTTAGTTAACAGCTAAACACCCTAATCAAC-TGGCTTCAATCTAAAGCCCCGGCAGG-TTTGAAGCTGCTTCTTCGAATTTGCAATTCAATATGAAAA-TCACCTCAGAGCTTGGTAAAAAGAGGCTTAACCCCTGTCTTTAGATTTACAGTCCAATGCTTCA-CTCAGCCATTTTACCACAAAAAAGGAAGGAATCGAACCCCCTAAAGCTGGTTTCAAGCCAACCCCATGACCTCCATGACTTTTTCAAAAGATATTAGAAAAACTATTTCATAACTTTGTCAAAGTTAAATTACAGGTT-AACCCCCGTATATCTTA-CACTGTAAAGCTAACCTAGCATTAACCTTTTAAGTTAAAGATTAAGAGGACCGACACCTCTTTACAGTGA        </text>
+
+<defs>
+  <linearGradient id='gradSequence.01' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(252,173,46);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='Sequence.01' d='M 120 520 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradSequence.01)' />
+<text x='160' y='500' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>Sequence.01</text>
+
+<circle cx='115' cy='171' r='5' fill='rgb(30,234,80)'/>
+<text x='115' y='171' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>totalcount=4</text>
+
+<circle cx='115' cy='184' r='5' fill='rgb(30,234,80)'/>
+<text x='115' y='184' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>taxon=bonobo</text>
+
+<circle cx='115' cy='197' r='5' fill='rgb(30,234,80)'/>
+<text x='115' y='197' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value=            AGAAATATGTCTGATAAAAGAATTACTTTGATAGAGTAAATAATAGGAGTTTAAATCCCCTTATTTCTACTAGGACTATGAGAGTCGAACCCATCCCTGAGAATCCAAAATTCTCCGTGCCACCTATCACACCCCATCCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTTATACCCTTCCCGTACTAAGAAATTTAGGTTAAACACAGACCAAGAGCCTTCAAAGCTCTCAGTAAGTTA-CAATACTTAATTTCTGTAAGGACTGCAAAACCCCACTCTGCATCAACTGAACGCAAATCAGCCACTTTAATTAAGCTAAGCCCTTCTAGATTAATGGGACTTAAACCCACAAACATTTAGTTAACAGCTAAACACCCTAATCAGC-TGGCTTCAATCTAAAGCCCCGGCAGG-TTTGAAGCTGCTTCTTTGAATTTGCAATTCAATATGAAAA-TCACCTCAGAGCTTGGTAAAAAGAGGCTTAACCCCTGTCTTTAGATTTACAGTCCAATGCTTCA-CTCAGCCATTTTACCACAAAAAAGGAAGGAATCGAACCCCCTAAAGCTGGTTTCAAGCCAACCCCATGACCCCCATGACTTTTTCAAAAGATATTAGAAAAACTATTTCATAACTTTGTCAAAGTTAAATTACAGGTT-AAACCCCGTATATCTTA-CACTGTAAAGCTAACCTAGCATTAACCTTTTAAGTTAAAGATTAAGAGGACCAACACCTCTTTACAGTGA        </text>
+
+<defs>
+  <linearGradient id='gradSequence.02' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(30,234,80);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='Sequence.02' d='M 120 200 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradSequence.02)' />
+<text x='160' y='180' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>Sequence.02</text>
+
+<circle cx='115' cy='331' r='5' fill='rgb(67,250,60)'/>
+<text x='115' y='331' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>totalcount=4</text>
+
+<circle cx='115' cy='344' r='5' fill='rgb(67,250,60)'/>
+<text x='115' y='344' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>taxon=gorilla</text>
+
+<circle cx='115' cy='357' r='5' fill='rgb(67,250,60)'/>
+<text x='115' y='357' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value=            AGAAATATGTCTGATAAAAGAGTTACTTTGATAGAGTAAATAATAGAGGTTTAAACCCCCTTATTTCTACTAGGACTATGAGAATTGAACCCATCCCTGAGAATCCAAAATTCTCCGTGCCACCTGTCACACCCCATCCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTCACATCCTTCCCGTACTAAGAAATTTAGGTTAAACATAGACCAAGAGCCTTCAAAGCCCTTAGTAAGTTA-CAACACTTAATTTCTGTAAGGACTGCAAAACCCTACTCTGCATCAACTGAACGCAAATCAGCCACTTTAATTAAGCTAAGCCCTTCTAGATCAATGGGACTCAAACCCACAAACATTTAGTTAACAGCTAAACACCCTAGTCAAC-TGGCTTCAATCTAAAGCCCCGGCAGG-TTTGAAGCTGCTTCTTCGAATTTGCAATTCAATATGAAAT-TCACCTCGGAGCTTGGTAAAAAGAGGCCCAGCCTCTGTCTTTAGATTTACAGTCCAATGCCTTA-CTCAGCCATTTTACCACAAAAAAGGAAGGAATCGAACCCCCCAAAGCTGGTTTCAAGCCAACCCCATGACCTTCATGACTTTTTCAAAAGATATTAGAAAAACTATTTCATAACTTTGTCAAGGTTAAATTACGGGTT-AAACCCCGTATATCTTA-CACTGTAAAGCTAACCTAGCGTTAACCTTTTAAGTTAAAGATTAAGAGTATCGGCACCTCTTTGCAGTGA        </text>
+
+<defs>
+  <linearGradient id='gradSequence.03' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(67,250,60);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='Sequence.03' d='M 120 360 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradSequence.03)' />
+<text x='160' y='340' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>Sequence.03</text>
+
+<circle cx='115' cy='91' r='5' fill='rgb(161,209,120)'/>
+<text x='115' y='91' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>totalcount=4</text>
+
+<circle cx='115' cy='104' r='5' fill='rgb(161,209,120)'/>
+<text x='115' y='104' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>taxon=orangutan</text>
+
+<circle cx='115' cy='117' r='5' fill='rgb(161,209,120)'/>
+<text x='115' y='117' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value=            AGAAATATGTCTGACAAAAGAGTTACTTTGATAGAGTAAAAAATAGAGGTCTAAATCCCCTTATTTCTACTAGGACTATGGGAATTGAACCCACCCCTGAGAATCCAAAATTCTCCGTGCCACCCATCACACCCCATCCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTTACACCCTTCCCGTACTAAGAAATTTAGGTTA--CACAGACCAAGAGCCTTCAAAGCCCTCAGCAAGTCA-CAGCACTTAATTTCTGTAAGGACTGCAAAACCCCACTTTGCATCAACTGAGCGCAAATCAGCCACTTTAATTAAGCTAAGCCCTCCTAGACCGATGGGACTTAAACCCACAAACATTTAGTTAACAGCTAAACACCCTAGTCAAT-TGGCTTCAGTCCAAAGCCCCGGCAGGCCTTAAAGCTGCTCCTTCGAATTTGCAATTCAACATGACAA-TCACCTCAGGGCTTGGTAAAAAGAGGTCTGACCCCTGTTCTTAGATTTACAGCCTAATGCCTTAACTCGGCCATTTTACCGCAAAAAAGGAAGGAATCGAACCTCCTAAAGCTGGTTTCAAGCCAACCCCATAACCCCCATGACTTTTTCAAAAGGTACTAGAAAAACCATTTCGTAACTTTGTCAAAGTTAAATTACAGGTC-AGACCCTGTGTATCTTA-CATTGCAAAGCTAACCTAGCATTAACCTTTTAAGTTAAAGACTAAGAGAACCAGCCTCTCTTTGCAATGA        </text>
+
+<defs>
+  <linearGradient id='gradSequence.04' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(161,209,120);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='Sequence.04' d='M 120 120 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradSequence.04)' />
+<text x='160' y='100' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>Sequence.04</text>
+
+<circle cx='115' cy='251' r='5' fill='rgb(121,136,66)'/>
+<text x='115' y='251' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>totalcount=4</text>
+
+<circle cx='115' cy='264' r='5' fill='rgb(121,136,66)'/>
+<text x='115' y='264' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>taxon=siamang</text>
+
+<circle cx='115' cy='277' r='5' fill='rgb(121,136,66)'/>
+<text x='115' y='277' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value=            AGAAATACGTCTGACGAAAGAGTTACTTTGATAGAGTAAATAACAGGGGTTTAAATCCCCTTATTTCTACTAGAACCATAGGAGTCGAACCCATCCTTGAGAATCCAAAACTCTCCGTGCCACCCGTCGCACCCTGTTCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTTATACCCTTCCCATACTAAGAAATTTAGGTTAAACACAGACCAAGAGCCTTCAAAGCCCTCAGTAAGTTAACAAAACTTAATTTCTGCAAGGGCTGCAAAACCCTACTTTGCATCAACCGAACGCAAATCAGCCACTTTAATTAAGCTAAGCCCTTCTAGATCGATGGGACTTAAACCCATAAAAATTTAGTTAACAGCTAAACACCCTAAACAACCTGGCTTCAATCTAAAGCCCCGGCAGA-GTTGAAGCTGCTTCTTTGAACTTGCAATTCAACGTGAAAAATCACTTCGGAGCTTGGCAAAAAGAGGTTTCACCTCTGTCCTTAGATTTACAGTCTAATGCTTTA-CTCAGCCACTTTACCACAAAAAAGGAAGGAATCGAACCCTCTAAAACCGGTTTCAAGCCAGCCCCATAACCTTTATGACTTTTTCAAAAGATATTAGAAAAACTATTTCATAACTTTGTCAAAGTTAAATCACAGGTCCAAACCCCGTATATCTTATCACTGTAGAGCTAGACCAGCATTAACCTTTTAAGTTAAAGACTAAGAGAACTACCGCCTCTTTACAGTGA        </text>
+
+<defs>
+  <linearGradient id='gradSequence.05' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(121,136,66);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='Sequence.05' d='M 120 280 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradSequence.05)' />
+<text x='160' y='260' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>Sequence.05</text>
+
+<circle cx='235' cy='95' r='5' fill='rgb(226,234,43)'/>
+<text x='235' y='95' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>lower=0.0</text>
+
+<circle cx='235' cy='115' r='5' fill='rgb(226,234,43)'/>
+<text x='235' y='115' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<defs>
+  <linearGradient id='gradkappa.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(226,234,43);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='kappa.s:alignment' d='M 240 120 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradkappa.s:alignment)' />
+<text x='280' y='100' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>kappa.s:alignment</text>
+
+<circle cx='475' cy='491' r='5' fill='rgb(68,155,70)'/>
+<text x='475' y='491' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<defs>
+  <linearGradient id='gradbirthRateY.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(68,155,70);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='birthRateY.t:alignment' d='M 480 506 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradbirthRateY.t:alignment)' />
+<text x='520' y='486' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>birthRateY.t:alignment</text>
+
+<circle cx='355' cy='179' r='5' fill='rgb(233,234,31)'/>
+<text x='355' y='179' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<defs>
+  <linearGradient id='gradclockRate.c:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(233,234,31);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='clockRate.c:alignment' d='M 360 194 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradclockRate.c:alignment)' />
+<text x='400' y='174' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>clockRate.c:alignment</text>
+
+<circle cx='115' cy='411' r='5' fill='rgb(110,175,61)'/>
+<text x='115' y='411' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>lower=0.0</text>
+
+<circle cx='115' cy='423' r='5' fill='rgb(110,175,61)'/>
+<text x='115' y='423' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>upper=1.0</text>
+
+<circle cx='115' cy='435' r='5' fill='rgb(110,175,61)'/>
+<text x='115' y='435' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<circle cx='115' cy='447' r='5' fill='rgb(110,175,61)'/>
+<text x='115' y='447' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>dimension=4</text>
+
+<defs>
+  <linearGradient id='gradfreqParameter.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(110,175,61);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='freqParameter.s:alignment' d='M 120 448 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradfreqParameter.s:alignment)' />
+<text x='160' y='424' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>freqParameter.s:alignment</text>
+
+<circle cx='1075' cy='360' r='5' fill='rgb(47,165,4)'/>
+<text x='1075' y='360' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>taxa</text>
+
+<circle cx='1075' cy='372' r='5' fill='rgb(47,165,4)'/>
+<text x='1075' y='372' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>populationModel</text>
+
+<circle cx='1075' cy='384' r='5' fill='rgb(47,165,4)'/>
+<text x='1075' y='384' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>initial</text>
+
+<circle cx='1075' cy='396' r='5' fill='rgb(47,165,4)'/>
+<text x='1075' y='396' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>estimate=false</text>
+
+<defs>
+  <linearGradient id='gradRandomTree.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(47,165,4);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='RandomTree.t:alignment' d='M 1080 397 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradRandomTree.t:alignment)' />
+<text x='1120' y='373' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>RandomTree.t:alignment</text>
+
+<circle cx='955' cy='151' r='5' fill='rgb(35,170,47)'/>
+<text x='955' y='151' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>popSize</text>
+
+<defs>
+  <linearGradient id='gradConstantPopulation0.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(35,170,47);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='ConstantPopulation0.t:alignment' d='M 960 166 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradConstantPopulation0.t:alignment)' />
+<text x='1000' y='146' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>ConstantPopulation0.t:alignment</text>
+
+<circle cx='835' cy='185' r='5' fill='rgb(218,245,72)'/>
+<text x='835' y='185' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<defs>
+  <linearGradient id='gradrandomPopSize.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(218,245,72);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='randomPopSize.t:alignment' d='M 840 200 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradrandomPopSize.t:alignment)' />
+<text x='880' y='180' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>randomPopSize.t:alignment</text>
+
+<circle cx='835' cy='432' r='5' fill='rgb(229,172,105)'/>
+<text x='835' y='432' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>distribution</text>
+
+<defs>
+  <linearGradient id='gradposterior' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(229,172,105);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='posterior' d='M 840 447 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradposterior)' />
+<text x='880' y='427' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>posterior</text>
+
+<circle cx='715' cy='505' r='5' fill='rgb(9,183,84)'/>
+<text x='715' y='505' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>distribution</text>
+
+<defs>
+  <linearGradient id='gradprior' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(9,183,84);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='prior' d='M 720 520 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradprior)' />
+<text x='760' y='500' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>prior</text>
+
+<circle cx='595' cy='430' r='5' fill='rgb(11,249,52)'/>
+<text x='595' y='430' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>birthRate</text>
+
+<circle cx='595' cy='450' r='5' fill='rgb(11,249,52)'/>
+<text x='595' y='450' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<defs>
+  <linearGradient id='gradCalibratedYuleModel.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(11,249,52);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='CalibratedYuleModel.t:alignment' d='M 600 455 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradCalibratedYuleModel.t:alignment)' />
+<text x='640' y='435' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>CalibratedYuleModel.t:alignment</text>
+
+<circle cx='595' cy='697' r='5' fill='rgb(210,247,70)'/>
+<text x='595' y='697' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>x</text>
+
+<circle cx='595' cy='717' r='5' fill='rgb(210,247,70)'/>
+<text x='595' y='717' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>distr</text>
+
+<defs>
+  <linearGradient id='gradCalibratedYuleBirthRatePrior.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(210,247,70);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='CalibratedYuleBirthRatePrior.t:alignment' d='M 600 722 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradCalibratedYuleBirthRatePrior.t:alignment)' />
+<text x='640' y='702' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>CalibratedYuleBirthRatePrior.t:alignment</text>
+
+<circle cx='475' cy='811' r='5' fill='rgb(110,159,96)'/>
+<text x='475' y='811' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>upper=1000.0</text>
+
+<defs>
+  <linearGradient id='gradUniform.0' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(110,159,96);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='Uniform.0' d='M 480 826 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradUniform.0)' />
+<text x='520' y='806' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>Uniform.0</text>
+
+<circle cx='595' cy='197' r='5' fill='rgb(248,141,74)'/>
+<text x='595' y='197' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>x</text>
+
+<circle cx='595' cy='217' r='5' fill='rgb(248,141,74)'/>
+<text x='595' y='217' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>distr</text>
+
+<defs>
+  <linearGradient id='gradClockPrior.c:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(248,141,74);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='ClockPrior.c:alignment' d='M 600 222 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradClockPrior.c:alignment)' />
+<text x='640' y='202' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>ClockPrior.c:alignment</text>
+
+<circle cx='475' cy='257' r='5' fill='rgb(59,182,122)'/>
+<text x='475' y='257' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>upper=Infinity</text>
+
+<defs>
+  <linearGradient id='gradUniform.01' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(59,182,122);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='Uniform.01' d='M 480 272 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradUniform.01)' />
+<text x='520' y='252' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>Uniform.01</text>
+
+<circle cx='595' cy='537' r='5' fill='rgb(243,167,106)'/>
+<text x='595' y='537' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>x</text>
+
+<circle cx='595' cy='557' r='5' fill='rgb(243,167,106)'/>
+<text x='595' y='557' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>distr</text>
+
+<defs>
+  <linearGradient id='gradKappaPrior.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(243,167,106);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='KappaPrior.s:alignment' d='M 600 562 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradKappaPrior.s:alignment)' />
+<text x='640' y='542' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>KappaPrior.s:alignment</text>
+
+<circle cx='475' cy='997' r='5' fill='rgb(115,198,44)'/>
+<text x='475' y='997' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>M</text>
+
+<circle cx='475' cy='1010' r='5' fill='rgb(115,198,44)'/>
+<text x='475' y='1010' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>S</text>
+
+<circle cx='475' cy='1023' r='5' fill='rgb(115,198,44)'/>
+<text x='475' y='1023' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>meanInRealSpace=true</text>
+
+<defs>
+  <linearGradient id='gradLogNormalDistributionModel.0' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(115,198,44);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='LogNormalDistributionModel.0' d='M 480 1026 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradLogNormalDistributionModel.0)' />
+<text x='520' y='1006' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>LogNormalDistributionModel.0</text>
+
+<circle cx='355' cy='1049' r='5' fill='rgb(195,161,19)'/>
+<text x='355' y='1049' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<circle cx='355' cy='1069' r='5' fill='rgb(195,161,19)'/>
+<text x='355' y='1069' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>estimate=false</text>
+
+<defs>
+  <linearGradient id='gradRealParameter.0' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(195,161,19);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='RealParameter.0' d='M 360 1074 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradRealParameter.0)' />
+<text x='400' y='1054' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>RealParameter.0</text>
+
+<circle cx='355' cy='969' r='5' fill='rgb(225,248,69)'/>
+<text x='355' y='969' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<circle cx='355' cy='989' r='5' fill='rgb(225,248,69)'/>
+<text x='355' y='989' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>estimate=false</text>
+
+<defs>
+  <linearGradient id='gradRealParameter.01' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(225,248,69);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='RealParameter.01' d='M 360 994 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradRealParameter.01)' />
+<text x='400' y='974' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>RealParameter.01</text>
+
+<circle cx='595' cy='613' r='5' fill='rgb(132,191,120)'/>
+<text x='595' y='613' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<circle cx='595' cy='625' r='5' fill='rgb(132,191,120)'/>
+<text x='595' y='625' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>taxonset</text>
+
+<circle cx='595' cy='637' r='5' fill='rgb(132,191,120)'/>
+<text x='595' y='637' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>monophyletic=true</text>
+
+<circle cx='595' cy='649' r='5' fill='rgb(132,191,120)'/>
+<text x='595' y='649' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>distr</text>
+
+<defs>
+  <linearGradient id='gradchimpgroup.prior' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(132,191,120);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='chimpgroup.prior' d='M 600 650 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradchimpgroup.prior)' />
+<text x='640' y='626' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>chimpgroup.prior</text>
+
+<circle cx='475' cy='731' r='5' fill='rgb(10,145,25)'/>
+<text x='475' y='731' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>taxon</text>
+
+<defs>
+  <linearGradient id='gradchimpgroup' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(10,145,25);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='chimpgroup' d='M 480 746 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradchimpgroup)' />
+<text x='520' y='726' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>chimpgroup</text>
+
+<defs>
+  <linearGradient id='gradbonobo' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(170,165,86);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='bonobo' d='M 360 514 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradbonobo)' />
+<text x='400' y='494' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>bonobo</text>
+
+<defs>
+  <linearGradient id='gradchimp' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(142,185,45);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='chimp' d='M 360 674 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradchimp)' />
+<text x='400' y='654' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>chimp</text>
+
+<defs>
+  <linearGradient id='gradhuman' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(12,205,87);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='human' d='M 360 594 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradhuman)' />
+<text x='400' y='574' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>human</text>
+
+<circle cx='475' cy='637' r='5' fill='rgb(75,143,38)'/>
+<text x='475' y='637' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>M</text>
+
+<circle cx='475' cy='650' r='5' fill='rgb(75,143,38)'/>
+<text x='475' y='650' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>S</text>
+
+<circle cx='475' cy='663' r='5' fill='rgb(75,143,38)'/>
+<text x='475' y='663' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>meanInRealSpace=true</text>
+
+<defs>
+  <linearGradient id='gradLogNormalDistributionModel.01' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(75,143,38);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='LogNormalDistributionModel.01' d='M 480 666 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradLogNormalDistributionModel.01)' />
+<text x='520' y='646' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>LogNormalDistributionModel.01</text>
+
+<circle cx='355' cy='249' r='5' fill='rgb(157,225,63)'/>
+<text x='355' y='249' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<circle cx='355' cy='269' r='5' fill='rgb(157,225,63)'/>
+<text x='355' y='269' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>estimate=false</text>
+
+<defs>
+  <linearGradient id='gradRealParameter.02' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(157,225,63);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='RealParameter.02' d='M 360 274 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradRealParameter.02)' />
+<text x='400' y='254' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>RealParameter.02</text>
+
+<circle cx='355' cy='805' r='5' fill='rgb(14,217,121)'/>
+<text x='355' y='805' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>lower=0.0</text>
+
+<circle cx='355' cy='817' r='5' fill='rgb(14,217,121)'/>
+<text x='355' y='817' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>upper=5.0</text>
+
+<circle cx='355' cy='829' r='5' fill='rgb(14,217,121)'/>
+<text x='355' y='829' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<circle cx='355' cy='841' r='5' fill='rgb(14,217,121)'/>
+<text x='355' y='841' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>estimate=false</text>
+
+<defs>
+  <linearGradient id='gradRealParameter.03' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(14,217,121);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='RealParameter.03' d='M 360 842 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradRealParameter.03)' />
+<text x='400' y='818' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>RealParameter.03</text>
+
+<circle cx='715' cy='360' r='5' fill='rgb(87,215,11)'/>
+<text x='715' y='360' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>distribution</text>
+
+<defs>
+  <linearGradient id='gradlikelihood' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(87,215,11);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='likelihood' d='M 720 375 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradlikelihood)' />
+<text x='760' y='355' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>likelihood</text>
+
+<circle cx='595' cy='346' r='5' fill='rgb(233,205,74)'/>
+<text x='595' y='346' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>data</text>
+
+<circle cx='595' cy='358' r='5' fill='rgb(233,205,74)'/>
+<text x='595' y='358' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<circle cx='595' cy='370' r='5' fill='rgb(233,205,74)'/>
+<text x='595' y='370' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>siteModel</text>
+
+<circle cx='595' cy='382' r='5' fill='rgb(233,205,74)'/>
+<text x='595' y='382' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>branchRateModel</text>
+
+<defs>
+  <linearGradient id='gradtreeLikelihood.alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(233,205,74);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='treeLikelihood.alignment' d='M 600 383 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradtreeLikelihood.alignment)' />
+<text x='640' y='359' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>treeLikelihood.alignment</text>
+
+<circle cx='475' cy='557' r='5' fill='rgb(88,198,24)'/>
+<text x='475' y='557' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>mutationRate</text>
+
+<circle cx='475' cy='569' r='5' fill='rgb(88,198,24)'/>
+<text x='475' y='569' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>shape</text>
+
+<circle cx='475' cy='581' r='5' fill='rgb(88,198,24)'/>
+<text x='475' y='581' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>proportionInvariant</text>
+
+<circle cx='475' cy='593' r='5' fill='rgb(88,198,24)'/>
+<text x='475' y='593' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>substModel</text>
+
+<defs>
+  <linearGradient id='gradSiteModel.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(88,198,24);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='SiteModel.s:alignment' d='M 480 594 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradSiteModel.s:alignment)' />
+<text x='520' y='570' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>SiteModel.s:alignment</text>
+
+<circle cx='355' cy='729' r='5' fill='rgb(210,250,127)'/>
+<text x='355' y='729' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<circle cx='355' cy='749' r='5' fill='rgb(210,250,127)'/>
+<text x='355' y='749' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>estimate=false</text>
+
+<defs>
+  <linearGradient id='gradmutationRate.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(210,250,127);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='mutationRate.s:alignment' d='M 360 754 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradmutationRate.s:alignment)' />
+<text x='400' y='734' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>mutationRate.s:alignment</text>
+
+<circle cx='355' cy='889' r='5' fill='rgb(114,166,116)'/>
+<text x='355' y='889' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<circle cx='355' cy='909' r='5' fill='rgb(114,166,116)'/>
+<text x='355' y='909' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>estimate=false</text>
+
+<defs>
+  <linearGradient id='gradgammaShape.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(114,166,116);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='gammaShape.s:alignment' d='M 360 914 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradgammaShape.s:alignment)' />
+<text x='400' y='894' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>gammaShape.s:alignment</text>
+
+<circle cx='355' cy='85' r='5' fill='rgb(165,149,6)'/>
+<text x='355' y='85' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>lower=0.0</text>
+
+<circle cx='355' cy='97' r='5' fill='rgb(165,149,6)'/>
+<text x='355' y='97' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>upper=1.0</text>
+
+<circle cx='355' cy='109' r='5' fill='rgb(165,149,6)'/>
+<text x='355' y='109' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>value</text>
+
+<circle cx='355' cy='121' r='5' fill='rgb(165,149,6)'/>
+<text x='355' y='121' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>estimate=false</text>
+
+<defs>
+  <linearGradient id='gradproportionInvariant.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(165,149,6);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='proportionInvariant.s:alignment' d='M 360 122 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradproportionInvariant.s:alignment)' />
+<text x='400' y='98' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>proportionInvariant.s:alignment</text>
+
+<circle cx='355' cy='329' r='5' fill='rgb(69,142,26)'/>
+<text x='355' y='329' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>kappa</text>
+
+<circle cx='355' cy='349' r='5' fill='rgb(69,142,26)'/>
+<text x='355' y='349' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>frequencies</text>
+
+<defs>
+  <linearGradient id='gradhky.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(69,142,26);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='hky.s:alignment' d='M 360 354 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradhky.s:alignment)' />
+<text x='400' y='334' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>hky.s:alignment</text>
+
+<circle cx='235' cy='425' r='5' fill='rgb(15,136,115)'/>
+<text x='235' y='425' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>frequencies</text>
+
+<defs>
+  <linearGradient id='gradestimatedFreqs.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(15,136,115);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='estimatedFreqs.s:alignment' d='M 240 440 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradestimatedFreqs.s:alignment)' />
+<text x='280' y='420' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>estimatedFreqs.s:alignment</text>
+
+<circle cx='475' cy='171' r='5' fill='rgb(148,254,22)'/>
+<text x='475' y='171' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>clock.rate</text>
+
+<defs>
+  <linearGradient id='gradStrictClock.c:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(148,254,22);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='StrictClock.c:alignment' d='M 480 186 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradStrictClock.c:alignment)' />
+<text x='520' y='166' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>StrictClock.c:alignment</text>
+
+<circle cx='1075' cy='600' r='5' fill='rgb(95,135,68)'/>
+<text x='1075' y='600' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>windowSize=1.0</text>
+
+<circle cx='1075' cy='613' r='5' fill='rgb(95,135,68)'/>
+<text x='1075' y='613' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<circle cx='1075' cy='626' r='5' fill='rgb(95,135,68)'/>
+<text x='1075' y='626' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=0.0</text>
+
+<defs>
+  <linearGradient id='gradallTipDatesRandomWalker.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(95,135,68);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='allTipDatesRandomWalker.t:alignment' d='M 1080 629 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradallTipDatesRandomWalker.t:alignment)' />
+<text x='1120' y='609' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>allTipDatesRandomWalker.t:alignment</text>
+
+<circle cx='1075' cy='1000' r='5' fill='rgb(99,252,32)'/>
+<text x='1075' y='1000' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<circle cx='1075' cy='1012' r='5' fill='rgb(99,252,32)'/>
+<text x='1075' y='1012' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>scaleFactor=0.5</text>
+
+<circle cx='1075' cy='1024' r='5' fill='rgb(99,252,32)'/>
+<text x='1075' y='1024' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>degreesOfFreedom=1</text>
+
+<circle cx='1075' cy='1036' r='5' fill='rgb(99,252,32)'/>
+<text x='1075' y='1036' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=3.0</text>
+
+<defs>
+  <linearGradient id='gradtreeScaler.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(99,252,32);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='treeScaler.t:alignment' d='M 1080 1037 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradtreeScaler.t:alignment)' />
+<text x='1120' y='1013' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>treeScaler.t:alignment</text>
+
+<circle cx='1075' cy='1160' r='5' fill='rgb(18,163,27)'/>
+<text x='1075' y='1160' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<circle cx='1075' cy='1172' r='5' fill='rgb(18,163,27)'/>
+<text x='1075' y='1172' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>scaleFactor=0.5</text>
+
+<circle cx='1075' cy='1184' r='5' fill='rgb(18,163,27)'/>
+<text x='1075' y='1184' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>degreesOfFreedom=1</text>
+
+<circle cx='1075' cy='1196' r='5' fill='rgb(18,163,27)'/>
+<text x='1075' y='1196' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>rootOnly=true</text>
+
+<circle cx='1075' cy='1208' r='5' fill='rgb(18,163,27)'/>
+<text x='1075' y='1208' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=3.0</text>
+
+<defs>
+  <linearGradient id='gradtreeRootScaler.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(18,163,27);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='treeRootScaler.t:alignment' d='M 1080 1209 l 40 0  a 40 -30 0 0,0 0,-60 l -40 0 z' fill='url(#gradtreeRootScaler.t:alignment)' />
+<text x='1120' y='1179' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>treeRootScaler.t:alignment</text>
+
+<circle cx='1075' cy='764' r='5' fill='rgb(177,149,75)'/>
+<text x='1075' y='764' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<circle cx='1075' cy='784' r='5' fill='rgb(177,149,75)'/>
+<text x='1075' y='784' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=30.0</text>
+
+<defs>
+  <linearGradient id='gradUniformOperator.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(177,149,75);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='UniformOperator.t:alignment' d='M 1080 789 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradUniformOperator.t:alignment)' />
+<text x='1120' y='769' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>UniformOperator.t:alignment</text>
+
+<circle cx='1075' cy='684' r='5' fill='rgb(39,178,109)'/>
+<text x='1075' y='684' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<circle cx='1075' cy='704' r='5' fill='rgb(39,178,109)'/>
+<text x='1075' y='704' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=15.0</text>
+
+<defs>
+  <linearGradient id='gradSubtreeSlide.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(39,178,109);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='SubtreeSlide.t:alignment' d='M 1080 709 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradSubtreeSlide.t:alignment)' />
+<text x='1120' y='689' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>SubtreeSlide.t:alignment</text>
+
+<circle cx='1075' cy='924' r='5' fill='rgb(198,149,0)'/>
+<text x='1075' y='924' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<circle cx='1075' cy='944' r='5' fill='rgb(198,149,0)'/>
+<text x='1075' y='944' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=15.0</text>
+
+<defs>
+  <linearGradient id='gradnarrow.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(198,149,0);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='narrow.t:alignment' d='M 1080 949 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradnarrow.t:alignment)' />
+<text x='1120' y='929' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>narrow.t:alignment</text>
+
+<circle cx='1075' cy='840' r='5' fill='rgb(36,166,63)'/>
+<text x='1075' y='840' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>isNarrow=false</text>
+
+<circle cx='1075' cy='853' r='5' fill='rgb(36,166,63)'/>
+<text x='1075' y='853' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<circle cx='1075' cy='866' r='5' fill='rgb(36,166,63)'/>
+<text x='1075' y='866' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=3.0</text>
+
+<defs>
+  <linearGradient id='gradwide.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(36,166,63);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='wide.t:alignment' d='M 1080 869 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradwide.t:alignment)' />
+<text x='1120' y='849' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>wide.t:alignment</text>
+
+<circle cx='1075' cy='1084' r='5' fill='rgb(219,222,43)'/>
+<text x='1075' y='1084' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<circle cx='1075' cy='1104' r='5' fill='rgb(219,222,43)'/>
+<text x='1075' y='1104' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=3.0</text>
+
+<defs>
+  <linearGradient id='gradWilsonBalding.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(219,222,43);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='WilsonBalding.t:alignment' d='M 1080 1109 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradWilsonBalding.t:alignment)' />
+<text x='1120' y='1089' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>WilsonBalding.t:alignment</text>
+
+<circle cx='1075' cy='90' r='5' fill='rgb(32,243,56)'/>
+<text x='1075' y='90' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>parameter</text>
+
+<circle cx='1075' cy='102' r='5' fill='rgb(32,243,56)'/>
+<text x='1075' y='102' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>scaleFactor=0.5</text>
+
+<circle cx='1075' cy='114' r='5' fill='rgb(32,243,56)'/>
+<text x='1075' y='114' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>degreesOfFreedom=1</text>
+
+<circle cx='1075' cy='126' r='5' fill='rgb(32,243,56)'/>
+<text x='1075' y='126' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=0.1</text>
+
+<defs>
+  <linearGradient id='gradKappaScaler.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(32,243,56);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='KappaScaler.s:alignment' d='M 1080 127 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradKappaScaler.s:alignment)' />
+<text x='1120' y='103' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>KappaScaler.s:alignment</text>
+
+<circle cx='1075' cy='1480' r='5' fill='rgb(109,136,63)'/>
+<text x='1075' y='1480' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>parameter</text>
+
+<circle cx='1075' cy='1492' r='5' fill='rgb(109,136,63)'/>
+<text x='1075' y='1492' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>scaleFactor=0.75</text>
+
+<circle cx='1075' cy='1504' r='5' fill='rgb(109,136,63)'/>
+<text x='1075' y='1504' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>degreesOfFreedom=1</text>
+
+<circle cx='1075' cy='1516' r='5' fill='rgb(109,136,63)'/>
+<text x='1075' y='1516' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=3.0</text>
+
+<defs>
+  <linearGradient id='gradCalibratedYuleBirthRateScaler.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(109,136,63);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='CalibratedYuleBirthRateScaler.t:alignment' d='M 1080 1517 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradCalibratedYuleBirthRateScaler.t:alignment)' />
+<text x='1120' y='1493' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>CalibratedYuleBirthRateScaler.t:alignment</text>
+
+<circle cx='1075' cy='170' r='5' fill='rgb(172,166,79)'/>
+<text x='1075' y='170' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>parameter</text>
+
+<circle cx='1075' cy='182' r='5' fill='rgb(172,166,79)'/>
+<text x='1075' y='182' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>scaleFactor=0.75</text>
+
+<circle cx='1075' cy='194' r='5' fill='rgb(172,166,79)'/>
+<text x='1075' y='194' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>degreesOfFreedom=1</text>
+
+<circle cx='1075' cy='206' r='5' fill='rgb(172,166,79)'/>
+<text x='1075' y='206' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=3.0</text>
+
+<defs>
+  <linearGradient id='gradStrictClockRateScaler.c:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(172,166,79);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='StrictClockRateScaler.c:alignment' d='M 1080 207 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradStrictClockRateScaler.c:alignment)' />
+<text x='1120' y='183' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>StrictClockRateScaler.c:alignment</text>
+
+<circle cx='1075' cy='280' r='5' fill='rgb(31,130,60)'/>
+<text x='1075' y='280' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>scaleFactor=0.75</text>
+
+<circle cx='1075' cy='292' r='5' fill='rgb(31,130,60)'/>
+<text x='1075' y='292' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>up</text>
+
+<circle cx='1075' cy='304' r='5' fill='rgb(31,130,60)'/>
+<text x='1075' y='304' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>down</text>
+
+<circle cx='1075' cy='316' r='5' fill='rgb(31,130,60)'/>
+<text x='1075' y='316' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=3.0</text>
+
+<defs>
+  <linearGradient id='gradstrictClockUpDownOperator.c:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(31,130,60);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='strictClockUpDownOperator.c:alignment' d='M 1080 317 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradstrictClockUpDownOperator.c:alignment)' />
+<text x='1120' y='293' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>strictClockUpDownOperator.c:alignment</text>
+
+<circle cx='1075' cy='1240' r='5' fill='rgb(162,169,90)'/>
+<text x='1075' y='1240' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>parameter</text>
+
+<circle cx='1075' cy='1253' r='5' fill='rgb(162,169,90)'/>
+<text x='1075' y='1253' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>delta=0.01</text>
+
+<circle cx='1075' cy='1266' r='5' fill='rgb(162,169,90)'/>
+<text x='1075' y='1266' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>weight=0.1</text>
+
+<defs>
+  <linearGradient id='gradFrequenciesExchanger.s:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(162,169,90);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='FrequenciesExchanger.s:alignment' d='M 1080 1269 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradFrequenciesExchanger.s:alignment)' />
+<text x='1120' y='1249' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>FrequenciesExchanger.s:alignment</text>
+
+<circle cx='1075' cy='520' r='5' fill='rgb(163,167,70)'/>
+<text x='1075' y='520' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>fileName=ape.calyule.$(seed).log</text>
+
+<circle cx='1075' cy='532' r='5' fill='rgb(163,167,70)'/>
+<text x='1075' y='532' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>logEvery=1000</text>
+
+<circle cx='1075' cy='544' r='5' fill='rgb(163,167,70)'/>
+<text x='1075' y='544' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>model</text>
+
+<circle cx='1075' cy='556' r='5' fill='rgb(163,167,70)'/>
+<text x='1075' y='556' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>sort</text>
+
+<circle cx='1075' cy='568' r='5' fill='rgb(163,167,70)'/>
+<text x='1075' y='568' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>sanitiseHeaders=true</text>
+
+<circle cx='1075' cy='580' r='5' fill='rgb(163,167,70)'/>
+<text x='1075' y='580' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>log</text>
+
+<defs>
+  <linearGradient id='gradtracelog' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(163,167,70);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='tracelog' d='M 1080 581 l 40 0  a 40 -36 0 0,0 0,-72 l -40 0 z' fill='url(#gradtracelog)' />
+<text x='1120' y='545' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>tracelog</text>
+
+<circle cx='955' cy='377' r='5' fill='rgb(236,236,43)'/>
+<text x='955' y='377' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<defs>
+  <linearGradient id='gradTreeHeight.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(236,236,43);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='TreeHeight.t:alignment' d='M 960 392 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradTreeHeight.t:alignment)' />
+<text x='1000' y='372' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>TreeHeight.t:alignment</text>
+
+<circle cx='1075' cy='1404' r='5' fill='rgb(251,241,20)'/>
+<text x='1075' y='1404' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>logEvery=1000</text>
+
+<circle cx='1075' cy='1424' r='5' fill='rgb(251,241,20)'/>
+<text x='1075' y='1424' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>log</text>
+
+<defs>
+  <linearGradient id='gradscreenlog' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(251,241,20);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='screenlog' d='M 1080 1429 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradscreenlog)' />
+<text x='1120' y='1409' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>screenlog</text>
+
+<circle cx='955' cy='537' r='5' fill='rgb(74,169,92)'/>
+<text x='955' y='537' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>arg</text>
+
+<defs>
+  <linearGradient id='gradESS.0' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(74,169,92);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='ESS.0' d='M 960 552 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradESS.0)' />
+<text x='1000' y='532' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>ESS.0</text>
+
+<circle cx='1075' cy='1320' r='5' fill='rgb(240,204,62)'/>
+<text x='1075' y='1320' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>fileName=ape.calyule.$(seed).trees</text>
+
+<circle cx='1075' cy='1332' r='5' fill='rgb(240,204,62)'/>
+<text x='1075' y='1332' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>logEvery=1000</text>
+
+<circle cx='1075' cy='1344' r='5' fill='rgb(240,204,62)'/>
+<text x='1075' y='1344' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>mode</text>
+
+<circle cx='1075' cy='1356' r='5' fill='rgb(240,204,62)'/>
+<text x='1075' y='1356' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>log</text>
+
+<defs>
+  <linearGradient id='gradtreelog.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(240,204,62);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='treelog.t:alignment' d='M 1080 1357 l 40 0  a 40 -24 0 0,0 0,-48 l -40 0 z' fill='url(#gradtreelog.t:alignment)' />
+<text x='1120' y='1333' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>treelog.t:alignment</text>
+
+<circle cx='955' cy='457' r='5' fill='rgb(126,129,87)'/>
+<text x='955' y='457' font-family='Arial' font-size='8pt' font-style='' stroke='rgb(0,0,0)' text-anchor='end'>tree</text>
+
+<defs>
+  <linearGradient id='gradTreeWithMetaDataLogger.t:alignment' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(126,129,87);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='TreeWithMetaDataLogger.t:alignment' d='M 960 472 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradTreeWithMetaDataLogger.t:alignment)' />
+<text x='1000' y='452' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>TreeWithMetaDataLogger.t:alignment</text>
+
+<defs>
+  <linearGradient id='gradOperatorSchedule.0' x1='0%' y1='0%' x2='100%' y2='100%'>
+    <stop offset='0%' style='stop-color:rgb(255,255,255);stop-opacity:1' />
+    <stop offset='100%' style='stop-color:rgb(217,233,16);stop-opacity:1' />
+  </linearGradient>
+</defs>
+<path id='OperatorSchedule.0' d='M 1080 1589 l 40 0  a 40 -20 0 0,0 0,-40 l -40 0 z' fill='url(#gradOperatorSchedule.0)' />
+<text x='1120' y='1569' font-family='Arial' font-size='11pt' font-style='' stroke='rgb(0,0,0)' text-anchor='middle'>OperatorSchedule.0</text>
+
+<path d='M 560 410 C 580 410 910 457 950 457' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1001 472 C 1021 472 1035 1351 1075 1351' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 893 447 C 913 447 912 532 952 532' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 883 447 C 903 447 1035 1419 1075 1419' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1001 552 C 1021 552 1035 1419 1075 1419' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 765 375 C 785 375 1033 1417 1073 1417' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 766 520 C 786 520 1033 1418 1073 1418' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 560 404 C 580 404 910 377 950 377' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 913 447 C 933 447 1030 541 1070 541' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 905 447 C 925 447 1031 576 1071 576' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 788 375 C 808 375 1030 576 1070 576' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 800 510 C 820 510 1030 578 1070 578' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 680 379 C 700 379 1030 577 1070 577' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1007 392 C 1027 392 1033 574 1073 574' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 313 120 C 333 120 1030 576 1070 576' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 680 448 C 700 448 1030 578 1070 578' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 560 492 C 580 492 1030 580 1070 580' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 680 622 C 700 622 1030 580 1070 580' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 433 194 C 453 194 1030 576 1070 576' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 200 430 C 220 430 1030 580 1070 580' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 186 448 C 206 448 1031 1236 1071 1236' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 440 180 C 460 180 1030 292 1070 292' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 560 399 C 580 399 1030 304 1070 304' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 440 174 C 460 174 1030 170 1070 170' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 531 506 C 551 506 1032 1474 1072 1474' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 320 100 C 340 100 1030 90 1070 90' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 536 426 C 556 426 1031 1079 1071 1079' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 544 426 C 564 426 1031 849 1071 849' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 541 426 C 561 426 1031 920 1071 920' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 559 426 C 579 426 1030 681 1070 681' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 551 426 C 571 426 1030 760 1070 760' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 534 426 C 554 426 1032 1155 1072 1155' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 538 426 C 558 426 1031 995 1071 995' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 560 420 C 580 420 1030 611 1070 611' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 440 173 C 460 173 430 171 470 171' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 200 424 C 220 424 190 425 230 425' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 286 120 C 306 120 313 322 353 322' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 301 400 C 321 400 311 352 351 352' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 408 714 C 428 714 433 561 473 561' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 404 874 C 424 874 433 577 473 577' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 403 122 C 423 122 435 576 475 576' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 405 354 C 425 354 433 586 473 586' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 320 328 C 340 328 550 346 590 346' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 551 386 C 571 386 550 361 590 361' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 529 546 C 549 546 553 375 593 375' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 526 186 C 546 186 553 376 593 376' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 680 359 C 700 359 670 360 710 360' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 403 274 C 423 274 435 632 475 632' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 410 794 C 430 794 432 656 472 656' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 406 514 C 426 514 433 724 473 724' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 419 674 C 439 674 431 726 471 726' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 409 594 C 429 594 432 724 472 724' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 527 426 C 547 426 553 607 593 607' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 534 706 C 554 706 552 629 592 629' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 560 647 C 580 647 550 649 590 649' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 426 1034 C 446 1034 431 1000 471 1000' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 440 993 C 460 993 430 1007 470 1007' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 294 120 C 314 120 552 532 592 532' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 523 986 C 543 986 555 562 595 562' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 440 178 C 460 178 550 197 590 197' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 560 234 C 580 234 550 219 590 219' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 527 506 C 547 506 553 691 593 691' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 536 786 C 556 786 551 721 591 721' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 546 466 C 566 466 550 433 590 433' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 554 426 C 574 426 550 447 590 447' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 661 455 C 681 455 671 501 711 501' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 647 682 C 667 682 673 510 713 510' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 644 222 C 664 222 673 496 713 496' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 680 522 C 700 522 670 507 710 507' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 654 602 C 674 602 672 509 712 509' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 782 480 C 802 480 791 435 831 435' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 779 375 C 799 375 791 427 831 427' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 920 165 C 940 165 910 152 950 152' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 320 327 C 340 327 1030 360 1070 360' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1006 166 C 1026 166 1033 365 1073 365' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 560 405 C 580 405 1030 384 1070 384' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 166 560 C 186 560 193 337 233 337' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 168 480 C 188 480 192 337 232 337' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 169 200 C 189 200 192 324 232 324' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 200 336 C 220 336 190 331 230 331' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 166 120 C 186 120 193 324 233 324' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 181 280 C 201 280 191 327 231 327' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 296 346 C 316 346 311 414 351 414' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 440 413 C 460 413 430 411 470 411' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 560 408 C 580 408 1030 444 1070 444' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 320 117 C 340 117 1030 441 1070 441' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 560 483 C 580 483 1030 444 1070 444' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 440 190 C 460 190 1030 442 1070 442' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 200 424 C 220 424 1030 444 1070 444' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1124 469 C 1144 469 1154 814 1194 814' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1123 397 C 1143 397 1155 821 1195 821' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 895 447 C 915 447 1151 827 1191 827' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1126 629 C 1146 629 1153 833 1193 833' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1130 989 C 1150 989 1153 844 1193 844' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1126 1149 C 1146 1149 1153 849 1193 849' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1141 789 C 1161 789 1151 836 1191 836' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1129 709 C 1149 709 1152 833 1192 833' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1136 909 C 1156 909 1151 844 1191 844' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1160 845 C 1180 845 1150 840 1190 840' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1126 1069 C 1146 1069 1153 846 1193 846' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1122 127 C 1142 127 1155 835 1195 835' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1122 1469 C 1142 1469 1155 845 1195 845' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1122 207 C 1142 207 1155 835 1195 835' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1123 317 C 1143 317 1155 835 1195 835' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1123 1229 C 1143 1229 1155 845 1195 845' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1128 581 C 1148 581 1153 838 1193 838' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1122 1389 C 1142 1389 1155 852 1195 852' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1123 1309 C 1143 1309 1155 852 1195 852' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+<path d='M 1122 1549 C 1142 1549 1155 859 1195 859' stroke='rgb(128,128,128)' stroke-width='1' fill='none'/>
+</svg>
