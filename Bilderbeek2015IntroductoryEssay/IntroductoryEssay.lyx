@@ -5458,7 +5458,7 @@ Let us assume the hypothesis
 \begin_layout Standard
 \begin_inset Formula 
 \[
-P(H\mid E)=\frac{P(E\mid H)P(H)}{P(E)}=\frac{100\%\cdot8\%}{50\%}=16\%
+P(H\mid E)=\frac{P(E\mid H)P(H)}{P(E)}=\frac{100\%\cdot8\%}{0\%+(50\%\cdot92\%)}*=14.?\%
 \]
 
 \end_inset
