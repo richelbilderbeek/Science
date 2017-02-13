@@ -1,4 +1,5 @@
 library(PBD)
+library(nLTT)
 
 # Vector of parameters:
 #
@@ -22,3 +23,18 @@ for (i in 1:1000) {
 # Trees used in the presentation
 set.seed(972)
 results <- pbd_sim(params,age, plotit = TRUE)
+names(results)
+
+subspecies_tree <- results$tree
+incipient_tree <- results$igtree.extant
+youngest <- results$stree_youngest
+oldest <- results$stree_oldest
+plot(subspecies_tree)
+plot(incipient_tree)
+plot(youngest)
+plot(oldest)
+
+nltt_plot(subspecies_tree, lwd = 2, main = "Subspecies tree versus 'youngest' species tree"); nltt_lines(youngest, col = "red", lwd = 2);
+nltt_plot(subspecies_tree, lwd = 2, main = "Subspecies tree versus 'oldest' species tree"); nltt_lines(oldest, col = "blue", lwd = 2)
+
+nltt_plot(subspecies_tree, lwd = 2, main = "Subspecies tree versus 'youngest' (red)\n and 'oldest' (blue) species tree"); nltt_lines(youngest, col = "red", lwd = 2); nltt_lines(oldest, col = "blue", lwd = 2)
