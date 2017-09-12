@@ -12,6 +12,7 @@
 \usepackage{tkz-graph}
 \usepackage{pgf}
 \usetikzlibrary{arrows,automata}
+\usepackage{fontawesome}
 
 \usetheme{Warsaw}
 \usecolortheme{beaver}
@@ -85,8 +86,6 @@
 \newcommand{\CreateIncipientSpeciesTree}{
   \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick, scale=0.4, every node/.style={scale=0.4}]   
     \tikzstyle{every state}=[]
-    \node[font = \bf] at (0, 0) {A)};
-
     % Drawing of the phylogeny
     \begin{scope}[shift={(0,-3)}] 
       \draw (0, 0) -- (2,  0); % stem 
@@ -296,7 +295,9 @@
 \begin{frame}
   \frametitle{Longer duration of speciation}
 
-  Expectation: a longer duration of speciation give more error, as the BD model assumes this equals zero IS THAT REALLY SO?.
+  \begin{figure}[]
+    \includegraphics[height=0.8\textheight]{expected_error_mean_durspec.png}
+  \end{figure}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -317,10 +318,10 @@
   \frametitle{Effect of bad estimation}
 
   \begin{figure}[]
-    \subfloat[]{
+    \subfloat{
       \includesvg[width=0.5\textwidth]{figure_error_posterior_nltt_bad_stree}
     }
-    \subfloat[]{
+    \subfloat{
       \includesvg[width=0.5\textwidth]{figure_error_posterior_nltt_bad_post_tree}
     }
   \end{figure}
@@ -334,7 +335,9 @@
 \begin{frame}
   \frametitle{Longer DNA alignments}
 
-  Expectation: a longer DNA alignments give less error, as there is more information available
+  \begin{figure}[]
+    \includegraphics[height=0.8\textheight]{expected_error_mean_durspec_alignment_length.png}
+  \end{figure}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -350,8 +353,55 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section[Preliminary conclusions]{Preliminary conclusions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Preliminary conclusions}
+
+  It is shown that:
+  \begin{enumerate}
+    \item $\uparrow$ protractedness leads to $\uparrow$ error
+    \item $\downarrow$ DNA sequence leads to $\uparrow$ error
+    \item (not shown) sampling subspecies has no effect 
+    \item (not shown) number of taxa has no effect
+  \end{enumerate}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{if $t \leq 16:00$, then done}
+  
+  \center
+  \Huge
+  \faSmileO THANKS! \faSmileO
+   
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section[Work in progress]{Work in progress}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Parameter estimation}
+
+  \begin{figure}[]
+    \subfloat{
+     given
+     \CreatePbdMarkovChain,
+    }
+
+    \subfloat{
+      then for $\lambda \rightarrow \infty$, becomes 
+      \CreateBdMarkovChain
+    }
+  \end{figure}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
