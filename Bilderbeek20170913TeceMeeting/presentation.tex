@@ -6,6 +6,13 @@
 % \usepackage{newicktree}
 \usepackage{svg}
 
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{pgf}
+\usetikzlibrary{arrows,automata}
+
 \usetheme{Warsaw}
 \usecolortheme{beaver}
 % \usecolortheme{spruce}
@@ -130,6 +137,94 @@
   \frametitle{Simulating DNA}
 
   From PBD phylogeny\footnotemark to DNA alignment\footnotemark.
+
+  \begin{figure}[]
+    \subfloat[]{
+      \centering
+      \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick, scale=0.4, every node/.style={scale=0.4}]   
+      \tikzstyle{every state}=[]
+      \node[state] (A)              {Good};   
+      \node[state] (B) [right of=A] {Incipient};   
+      \node[state] (C) [below of=B] {Extinct};   
+      \path (A) edge [bend right] node {$b_g$} (B)
+            (A) edge [bend right] node {$\mu_g$} (C)
+            (B) edge [loop above] node {$b_i$} (B)
+            (B) edge [bend right] node {$\lambda$} (A)
+            (B) edge [bend right] node {$\mu_i$} (C); 
+      \end{tikzpicture}
+    }
+    \subfloat[]{
+      \centering
+      \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick, scale=0.4, every node/.style={scale=0.4}]   
+        \tikzstyle{every state}=[]
+        \node[font = \bf] at (0, 0) {A)};
+  
+        % Drawing of the phylogeny
+        \begin{scope}[shift={(0,-3)}] 
+          \draw (0, 0) -- (2,  0); % stem 
+          \draw (2, 0) -- (8,  3) node[anchor=west] {$A_1$};
+          \draw[dotted] (4,  -1) -- (5, -0.5); \draw (5, -0.5) -- (8, 1) node[anchor=west] {$B$};
+          \draw[dotted] (6,  -2) -- (7, -1.5); \draw (7, -1.5) -- (8, -1) node[anchor=west] {$C$};
+          \draw[dotted] (2,0) -- (8, -3) node[anchor=west] {$A_2$};
+        \end{scope} % Drawing of the phylogeny
+      \end{tikzpicture}
+    }
+    \subfloat[]{
+
+      \centering
+      \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm, semithick, scale=0.6, every node/.style={scale=0.6}]   
+
+
+        \node[draw, fill = red   ] at (0.0, 0  ) {A};
+        \node[draw, fill = red   ] at (0.5, 0  ) {A};
+        \node[draw, fill = red   ] at (1.0, 0  ) {A};
+        \node[draw, fill = red   ] at (1.5, 0  ) {A};
+        \node[draw, fill = red   ] at (2.0, 0  ) {A};
+        \node[draw, fill = red   ] at (2.5, 0  ) {A};
+        \node[draw, fill = red   ] at (3.0, 0  ) {A};
+        \node[draw, fill = red   ] at (3.5, 0  ) {A};
+        \node[draw, fill = red   ] at (4.0, 0  ) {A};
+        \node[draw, fill = red   ] at (4.5, 0  ) {A};
+        \node[draw, fill = red   ] at (5.0, 0  ) {A};
+        \node[draw, fill = red   ] at (5.5, 0  ) {A};
+        \node[                   ] at (6.0, 0  ) {$A_1$};
+
+        \node[draw, fill = red   ] at (0.0, -0.5) {A};
+        \node[draw, fill = yellow] at (0.5, -0.5) {C};
+        \node[draw, fill = yellow] at (1.0, -0.5) {C};
+        \node[draw, fill = yellow] at (1.5, -0.5) {C};
+        \node[draw, fill = red   ] at (2.0, -0.5) {A};
+        \node[draw, fill = yellow] at (2.5, -0.5) {C};
+        \node[draw, fill = yellow] at (3.0, -0.5) {C};
+        \node[draw, fill = yellow] at (3.5, -0.5) {C};
+        \node[draw, fill = red   ] at (4.0, -0.5) {A};
+        \node[draw, fill = yellow] at (4.5, -0.5) {C};
+        \node[draw, fill = yellow] at (5.0, -0.5) {C};
+        \node[draw, fill = yellow] at (5.5, -0.5) {C};
+        \node[                   ] at (6.0, -0.5) {$B$};
+
+        \node[draw, fill = red] at (0.0, -1.0) {A};
+        \node[draw, fill = yellow] at (0.5, -1.0) {C};
+        \node[draw, fill = yellow] at (1.0, -1.0) {C};
+        \node[draw, fill = yellow] at (1.5, -1.0) {C};
+        \node[draw, fill = red   ] at (2.0, -1.0) {A};
+        \node[draw, fill = yellow] at (2.5, -1.0) {C};
+        \node[draw, fill = green ] at (3.0, -1.0) {G};
+        \node[draw, fill = blue  ] at (3.5, -1.0) {T};
+        \node[draw, fill = red   ] at (4.0, -1.0) {A};
+        \node[draw, fill = yellow] at (4.5, -1.0) {C};
+        \node[draw, fill = green ] at (5.0, -1.0) {G};
+        \node[draw, fill = blue  ] at (5.5, -1.0) {T};
+        \node[                   ] at (6.0, -1.0) {$C$};
+
+      \end{tikzpicture}
+
+
+    }
+  \end{figure}
+
+
+
 
   \footnotetext[666]{Etienne, Rampal S., and James Rosindell. 2012. Systematic Biology 61.2.}
   % Etienne, Rampal S., and James Rosindell. "Prolonging the past counteracts the pull of the present: protracted speciation can explain observed slowdowns in diversification." Systematic Biology 61.2 (2012): 204-213.
