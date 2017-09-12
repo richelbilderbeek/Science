@@ -372,12 +372,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \frametitle{if $t \leq 16:00$, then done}
+  \frametitle{if $t \geq 16:00$, then done}
   
   \center
   \Huge
   \faSmileO THANKS! \faSmileO
-   
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -397,12 +397,43 @@
       then for $\lambda \rightarrow \infty$, becomes 
       \CreateBdMarkovChain
     }
+
+  \itemize{
+    \item $\lambda$: speciation rate
+    \item $\mu$: extinction rate
+  }
+
+  \end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Parameter estimation}
+
+
+  \begin{figure}
+    \subfloat{
+      \includegraphics[width=0.15\textwidth]{beast2_logo.png} 
+      takes a 
+      \CreateAlignment
+      and creates
+    }
+
+    \subfloat{
+      a distribution of $\left\{\mathcal{T}, \hat{\lambda}, \hat{\mu}\right\}$
+    }
+    \itemize{
+      \item $\mathcal{T}$: a phylogeny
+      \item $\hat{\lambda}$: estimated speciation rate
+      \item $\hat{\mu}$: estimated extinction rate
+    }
   \end{figure}
 
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 \end{document}
