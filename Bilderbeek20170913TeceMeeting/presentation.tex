@@ -1,5 +1,11 @@
 \documentclass{beamer}
 
+% Savva, George, Jenn Conn, and Jo Dicks. "Drawing phylogenetic trees in LATEX and Microsoft Word." Bioinformatics 20.14 (2004): 2322-2323.
+% From http://cbr.jic.ac.uk/dicks/software/newicktree/index.html
+% Nope, does not work anymore
+% \usepackage{newicktree}
+\usepackage{svg}
+
 \usetheme{Warsaw}
 \usecolortheme{beaver}
 % \usecolortheme{spruce}
@@ -144,6 +150,69 @@
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section[Preliminary results]{Preliminary results}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Longer duration of speciation}
+
+  Expectation: a longer duration of speciation give more error, as the BD model assumes this equals zero IS THAT REALLY SO?.
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Longer duration of speciation}
+
+  \begin{figure}[]
+    \includesvg[height=0.9\textheight]{figure_error_expected_mean_dur_spec_mean}
+  \end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Effect of bad estimation}
+
+  \begin{figure}[]
+    \subfloat[]{
+      \includesvg[width=0.5\textwidth]{figure_error_posterior_nltt_bad_stree}
+    }
+    \subfloat[]{
+      \includesvg[width=0.5\textwidth]{figure_error_posterior_nltt_bad_post_tree}
+    }
+  \end{figure}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Longer DNA alignments}
+
+  Expectation: a longer DNA alignments give less error, as there is more information available
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Longer duration of speciation}
+
+  \begin{figure}[]
+    \includesvg[height=0.9\textheight]{figure_error_expected_mean_dur_spec_mean_alignment_length}
+  \end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section[Work in progress]{Work in progress}
+
 
 
 
