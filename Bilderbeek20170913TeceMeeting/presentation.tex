@@ -37,12 +37,7 @@
 
 \frame{\titlepage}
 
-%\begin{frame}
-%\frametitle{Table of Contents}
-%\tableofcontents[currentsection]
-%\end{frame}
-
-\section[Section]{Introduction}
+\section[Problem]{Problem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -67,8 +62,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{New giraffe species ... \footnotemark\footnotemark}
@@ -89,14 +82,66 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section[Section]{Research question}
+\section[Research question]{Research question}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Research question}
 
-  What if ...
+  What is the error we make today ...
+
+  \begin{itemize}
+    \item in inferring phylogenies
+    \item caused by ignoring that speciation takes time to complete?
+  \end{itemize}
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section[Introduction]{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{From DNA to phylogeny}
+
+  Using BEAST2\footnotemark
+  Using constant-rate birth-death model\footnotemark
+
+  \footnotetext[666]{Bouckaert, Remco, et al. 2014. PLoS computational biology 10.4.}
+  % Bouckaert, Remco, et al. "BEAST 2: a software platform for Bayesian evolutionary analysis." PLoS computational biology 10.4 (2014): e1003537.
+  \footnotetext[666]{Nee, Sean, et al. 1994. Philos Trans R Soc Lond B Biol Sci 344.1309.}
+  % Nee, Sean, Robert M. May, and Paul H. Harvey. "The reconstructed evolutionary process." Philosophical Transactions of the Royal Society of London B: Biological Sciences 344.1309 (1994): 305-311.
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Simulating DNA}
+
+  From PBD phylogeny\footnotemark to DNA alignment\footnotemark.
+
+  \footnotetext[666]{Etienne, Rampal S., and James Rosindell. 2012. Systematic Biology 61.2.}
+  % Etienne, Rampal S., and James Rosindell. "Prolonging the past counteracts the pull of the present: protracted speciation can explain observed slowdowns in diversification." Systematic Biology 61.2 (2012): 204-213.
+  \footnotetext[666]{Schliep, Klaus Peter. 2010. Bioinformatics btq706.}
+  % Schliep, Klaus Peter. "phangorn: phylogenetic analysis in R." Bioinformatics (2010): btq706.
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Measuring error}
+
+  Using nLTT statistic\footnotemark
+
+  \footnotetext[666]{Janzen, Thijs et al. 2015. Methods in Ecology and Evolution 6.5.}
+  % Janzen, Thijs, Sebastian Höhna, and Rampal S. Etienne. "Approximate Bayesian Computation of diversification rates from molecular phylogenies: introducing a new efficient summary statistic, the nLTT." Methods in Ecology and Evolution 6.5 (2015): 566-575.
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \end{document}
