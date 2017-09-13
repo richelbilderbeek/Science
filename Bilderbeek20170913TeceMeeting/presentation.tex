@@ -13,6 +13,8 @@
 \usepackage{pgf}
 \usetikzlibrary{arrows,automata}
 \usepackage{fontawesome}
+\usepackage{csquotes}
+\usepackage[normalem]{ulem}
 
 \usetheme{Warsaw}
 \usecolortheme{beaver}
@@ -181,9 +183,8 @@
   \frametitle{New giraffe species ... \footnotemark\footnotemark}
   \includegraphics[height=0.8\textheight]{fennessy_2016_nubian_giraffe.jpg}
   \footnotetext[3]{Fennessy, Julian, et al. 2016. Current Biology 26.18.}
+  % Fennessy, Julian, et al. "Multi-locus analyses reveal four giraffe species instead of one." Current Biology 26.18 (2016): 2543-2549.
   \footnotetext[4]{Picture by Julian Fennessy}
-  %\footnotetext[3]{Fennessy, Julian, et al. "Multi-locus analyses reveal four giraffe species instead of one." Current Biology 26.18 (2016): 2543-2549.}
-  %\footnotetext[4]{Picture by Julian Fennessy}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -231,9 +232,9 @@
       \CreateBdMarkovChain
     }
   \end{figure}
-  \footnotetext[666]{Bouckaert, Remco, et al. 2014. PLoS computational biology 10.4.}
+  \footnotetext[6]{Bouckaert, Remco, et al. 2014. PLoS computational biology 10.4.}
   % Bouckaert, Remco, et al. "BEAST 2: a software platform for Bayesian evolutionary analysis." PLoS computational biology 10.4 (2014): e1003537.
-  \footnotetext[666]{Nee, Sean, et al. 1994. Philos Trans R Soc Lond B Biol Sci 344.1309.}
+  \footnotetext[7]{Nee, Sean, et al. 1994. Philos Trans R Soc Lond B Biol Sci 344.1309.}
   % Nee, Sean, Robert M. May, and Paul H. Harvey. "The reconstructed evolutionary process." Philosophical Transactions of the Royal Society of London B: Biological Sciences 344.1309 (1994): 305-311.
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -255,9 +256,9 @@
     }
 
   \end{figure}
-  \footnotetext[666]{Etienne, Rampal S., and James Rosindell. 2012. Systematic Biology 61.2.}
+  \footnotetext[8]{Etienne, Rampal S., and James Rosindell. 2012. Systematic Biology 61.2.}
   % Etienne, Rampal S., and James Rosindell. "Prolonging the past counteracts the pull of the present: protracted speciation can explain observed slowdowns in diversification." Systematic Biology 61.2 (2012): 204-213.
-  \footnotetext[666]{Schliep, Klaus Peter. 2010. Bioinformatics btq706.}
+  \footnotetext[9]{Schliep, Klaus Peter. 2010. Bioinformatics btq706.}
   % Schliep, Klaus Peter. "phangorn: phylogenetic analysis in R." Bioinformatics (2010): btq706.
 
 \end{frame}
@@ -283,7 +284,7 @@
     }
   \end{figure}
 
-  \footnotetext[666]{Janzen, Thijs et al. 2015. Methods in Ecology and Evolution 6.5.}
+  \footnotetext[10]{Janzen, Thijs et al. 2015. Methods in Ecology and Evolution 6.5.}
   % Janzen, Thijs, Sebastian Höhna, and Rampal S. Etienne. "Approximate Bayesian Computation of diversification rates from molecular phylogenies: introducing a new efficient summary statistic, the nLTT." Methods in Ecology and Evolution 6.5 (2015): 566-575.
 
 \end{frame}
@@ -455,50 +456,47 @@
 \begin{frame}
   \frametitle{Naive expectation}
 
+  Parameters to create phylogenies:
+
   \begin{table}
     \centering
-
     %                           rng_seed sirg siri   scr erg eri age mutation_rate n_alignments
     % article_0_3_2_0_0_549.RDa      549  0.3  0.3 1e+06 0.2 0.2  15          0.05            2
     %                           sequence_length nspp n_beast_runs
     % article_0_3_2_0_0_549.RDa            1000 1000            2
-    \subfloat[Parameters to create phylogenies]{
-      \begin{tabular}{ | l | l | l | }
-        \hline
-        $\lambda$ & speciation rate & 0.3 \\
-        \hline
-        $\mu$ & extinction rate & 0.2 \\
-        \hline
-        $t_0$ & crown age & 15 \\
-        \hline
-      \end{tabular}
-
-    }
-
-    \subfloat[Expected parameter estimates]{
-      \begin{tabular}{ | l | l | l | l | l | }
-        \hline
-        $\hat{\lambda}$ & estimated speciation rate & 0.31 & 0.29 & 0.28 \\
-        \hline
-        $\hat{\mu}$ & estimated extinction rate & 0.19 & 0.21 & 0.2 \\
-        \hline
-        $\hat{t_0}$ & estimated crown age & 14.9 & 15.1 & 15.2 \\
-        \hline
-      \end{tabular}
-
-    }
+    \begin{tabular}{ | l | l | l | }
+      \hline
+      $\lambda$ & speciation rate & 0.3 \\
+      \hline
+      $\mu$ & extinction rate & 0.2 \\
+      \hline
+      $t_0$ & crown age & 15 \\
+      \hline
+    \end{tabular}
   \end{table}
 
+  \begin{figure}
+    \includegraphics[width=0.2\textwidth]{rainbow_dash_by_chano_kun-d46c0a6.jpg}
+    \includegraphics[width=0.2\textwidth]{rainbow_dash_by_chano_kun-d46c0a6.jpg}
+    \includegraphics[width=0.2\textwidth]{rainbow_dash_by_chano_kun-d46c0a6.jpg}
+  \end{figure}
 
 
 
-% article_0_3_2_0_0_549
-%    BirthDeath birthRate2 relativeDeathRate2 TreeHeight
-% 626   189.5141   18.59102          0.6949177  0.1514966
-% 112   191.1941   23.74016          0.3816950  0.1471925
-% 709   192.2802   16.17563          0.6062069  0.1457897
-% 162   190.5352   22.77061          0.4911272  0.1503252
-% 289   190.0760   24.02033          0.2977736  0.1513978
+  Expected parameter estimates:
+
+  \begin{table}
+    \begin{tabular}{ | l | l | l | l | l | }
+      \hline
+      $\hat{\lambda}$ & estimated speciation rate & 0.31 & 0.29 & 0.28 \\
+      \hline
+      $\hat{\mu}$ & estimated extinction rate & 0.19 & 0.21 & 0.2 \\
+      \hline
+      $\hat{t_0}$ & estimated crown age & 14.9 & 15.1 & 15.2 \\
+      \hline
+    \end{tabular}
+  \end{table}
+
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -508,55 +506,227 @@
 \begin{frame}
   \frametitle{Real results}
 
+  Parameters to create phylogenies:
+
+  %                           rng_seed sirg siri   scr erg eri age mutation_rate n_alignments
+  % article_0_3_2_0_0_549.RDa      549  0.3  0.3 1e+06 0.2 0.2  15          0.05            2
+  %                           sequence_length nspp n_beast_runs
+  % article_0_3_2_0_0_549.RDa            1000 1000            2
   \begin{table}
     \centering
+    \begin{tabular}{ | l | l | l | }
+      \hline
+      $\lambda$ & speciation rate & 0.3 \\
+      \hline
+      $\mu$ & extinction rate & 0.2 \\
+      \hline
+      $t_0$ & crown age & 15 \\
+      \hline
+    \end{tabular}
+  \end{table}
 
-    %                           rng_seed sirg siri   scr erg eri age mutation_rate n_alignments
-    % article_0_3_2_0_0_549.RDa      549  0.3  0.3 1e+06 0.2 0.2  15          0.05            2
-    %                           sequence_length nspp n_beast_runs
-    % article_0_3_2_0_0_549.RDa            1000 1000            2
-    \subfloat[Parameters to create phylogenies]{
-      \begin{tabular}{ | l | l | l | }
-        \hline
-        $\lambda$ & speciation rate & 0.3 \\
-        \hline
-        $\mu$ & extinction rate & 0.2 \\
-        \hline
-        $t_0$ & crown age & 15 \\
-        \hline
-      \end{tabular}
+  Parameter estimates:
 
-    }
-
-    % article_0_3_2_0_0_549
-    %    BirthDeath birthRate2 relativeDeathRate2 TreeHeight
-    % 626   189.5141   18.59102          0.6949177  0.1514966
-    % 112   191.1941   23.74016          0.3816950  0.1471925
-    % 709   192.2802   16.17563          0.6062069  0.1457897
-    % 162   190.5352   22.77061          0.4911272  0.1503252
-    % 289   190.0760   24.02033          0.2977736  0.1513978
-    \subfloat[Parameter estimates]{
-
-      \begin{tabular}{ | l | l | l | l | l | l | }
-        % \hline
-        % BirthDeath         & 189.514 & 191.194 & 192.28  & 190.535 & 190.076 \\
-        \hline
-        birthRate2         & 18.591  & 23.7402 & 16.1756 & 22.7706 & 24.0203 \\
-        \hline
-        relativeDeathRate2 & 0.69492 & 0.3817  & 0.60621 & 0.49113 & 0.29777 \\
-        \hline
-        TreeHeight         & 0.1515  & 0.14719 & 0.14579 & 0.15033 & 0.1514  \\
-        \hline
-      \end{tabular}
-
-
-    }
+  % article_0_3_2_0_0_549
+  %    BirthDeath birthRate2 relativeDeathRate2 TreeHeight
+  % 626   189.5141   18.59102          0.6949177  0.1514966
+  % 112   191.1941   23.74016          0.3816950  0.1471925
+  % 709   192.2802   16.17563          0.6062069  0.1457897
+  % 162   190.5352   22.77061          0.4911272  0.1503252
+  % 289   190.0760   24.02033          0.2977736  0.1513978
+  \begin{table}
+    \begin{tabular}{ | l | l | l | l | l | l | }
+      % \hline
+      % BirthDeath         & 189.514 & 191.194 & 192.28  & 190.535 & 190.076 \\
+      \hline
+      birthRate2         & 18.591  & 23.7402 & 16.1756 & 22.7706 & 24.0203 \\
+      \hline
+      relativeDeathRate2 & 0.69492 & 0.3817  & 0.60621 & 0.49113 & 0.29777 \\
+      \hline
+      TreeHeight         & 0.1515  & 0.14719 & 0.14579 & 0.15033 & 0.1514  \\
+      \hline
+    \end{tabular}
   \end{table}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{relativeDeathRate2}
+
+  Parameters to create phylogenies:
+
+  %                           rng_seed sirg siri   scr erg eri age mutation_rate n_alignments
+  % article_0_3_2_0_0_549.RDa      549  0.3  0.3 1e+06 0.2 0.2  15          0.05            2
+  %                           sequence_length nspp n_beast_runs
+  % article_0_3_2_0_0_549.RDa            1000 1000            2
+  \begin{table}
+    \centering
+    \begin{tabular}{ | l | l | l | }
+      \hline
+      $\lambda$ & speciation rate & 0.3 \\
+      \hline
+      $\mu$ & extinction rate & 0.2 \\
+      \hline
+      $t_0$ & crown age & 15 \\
+      \hline
+    \end{tabular}
+  \end{table}
+
+  Parameter estimates:
+
+  % article_0_3_2_0_0_549
+  %    BirthDeath birthRate2 relativeDeathRate2 TreeHeight
+  % 626   189.5141   18.59102          0.6949177  0.1514966
+  % 112   191.1941   23.74016          0.3816950  0.1471925
+  % 709   192.2802   16.17563          0.6062069  0.1457897
+  % 162   190.5352   22.77061          0.4911272  0.1503252
+  % 289   190.0760   24.02033          0.2977736  0.1513978
+  \begin{table}
+    \begin{tabular}{ | l | l | l | l | l | l | l | }
+      \hline
+      $b$ & birthRate2         & 18.59  & 23.740 & 16.176 & 22.771 & 24.020 \\
+      \hline
+      $d$ & relativeDeathRate2 & 0.6949 & 0.382  & 0.6062 & 0.4911 & 0.2978 \\
+      \hline
+      $z_0$ & TreeHeight         & 0.152  & 0.1472 & 0.1458 & 0.1503 & 0.151  \\
+      \hline
+    \end{tabular}
+  \end{table}
+
+  Hypothesis:
+  \begin{displaymath} 
+    d = \frac{\mu}{\lambda} \approx 0.67 
+  \end{displaymath}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{relativeDeathRate2}
+
+  
+  \includegraphics[height=0.3\textheight]{relativeDeathRate2_documentation.png}
+
+  \includesvg[height=0.6\textheight]{figure_posterior_distribution_bd_rdr2}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{birthRate2 and TreeHeight}
+
+  Parameters to create phylogenies:
+
+  %                           rng_seed sirg siri   scr erg eri age mutation_rate n_alignments
+  % article_0_3_2_0_0_549.RDa      549  0.3  0.3 1e+06 0.2 0.2  15          0.05            2
+  %                           sequence_length nspp n_beast_runs
+  % article_0_3_2_0_0_549.RDa            1000 1000            2
+  \begin{table}
+    \centering
+    \begin{tabular}{ | l | l | l | }
+      \hline
+      $\lambda$ & speciation rate & 0.3 \\
+      \hline
+      $\mu$ & extinction rate & 0.2 \\
+      \hline
+      $t_0$ & crown age & 15 \\
+      \hline
+    \end{tabular}
+  \end{table}
+
+  Parameter estimates:
+
+  % article_0_3_2_0_0_549
+  %    BirthDeath birthRate2 relativeDeathRate2 TreeHeight
+  % 626   189.5141   18.59102          0.6949177  0.1514966
+  % 112   191.1941   23.74016          0.3816950  0.1471925
+  % 709   192.2802   16.17563          0.6062069  0.1457897
+  % 162   190.5352   22.77061          0.4911272  0.1503252
+  % 289   190.0760   24.02033          0.2977736  0.1513978
+  \begin{table}
+    \begin{tabular}{ | l | l | l | l | l | l | l | }
+      \hline
+      $b$ & birthRate2         & 18.59  & 23.740 & 16.176 & 22.771 & 24.020 \\
+      \hline
+      $d$ & relativeDeathRate2 & 0.6949 & 0.382  & 0.6062 & 0.4911 & 0.2978 \\
+      \hline
+      $z_0$ & TreeHeight         & 0.152  & 0.1472 & 0.1458 & 0.1503 & 0.151  \\
+      \hline
+    \end{tabular}
+  \end{table}
+
+  Hypothesis \faFrownO:
+  \begin{displaymath} 
+    b = \lambda - \mu = 0.1
+  \end{displaymath}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{birthRate2 and TreeHeight}
+
+  \includegraphics[width=\textwidth]{birthRate2_documentation.png}
+
+  \includegraphics[width=\textwidth]{beauti_3.png}
+
+  \begin{displayquote}
+  The three parameters $\lambda$, $\mu$, $\rho$ are non-identifyable, meaning
+  that the probability density of a time tree is determined by two parameters
+  $\lambda - mu$ and $\lambda \cdot \rho$ \footnotemark.
+  \end{displayquote}
+
+
+  \footnotetext[11]{Stadler, Tanja. 2009. Journal of theoretical biology 261.1}
+  % Stadler, Tanja. "On incomplete sampling under birth–death models and connections to the sampling-based coalescent." Journal of theoretical biology 261.1 (2009): 58-66.
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Discussion}
+
+  \begin{columns}
+
+    \begin{column}{0.5\textwidth}
+      \itemize{
+        \item Two out of three estimated parameters are unknown ... 
+        \item ... even with access to the BEAST book, online documentation and source code
+      }
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \includegraphics[height=0.9\textheight]{beast_book.jpg}
+    \end{column}
+  \end{columns}
+
+  
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Thanks}
+  
+  \center
+  \Huge
+  \faSmileO THANKS! \faSmileO
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \end{document}
