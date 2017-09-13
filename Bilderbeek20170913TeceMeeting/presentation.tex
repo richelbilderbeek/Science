@@ -385,6 +385,16 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+  \frametitle{Current problem}
+
+  Incomplete documentation
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
   \frametitle{Parameter estimation}
 
   \begin{figure}[]
@@ -422,18 +432,131 @@
     }
 
     \subfloat{
-      a distribution of $\left\{\mathcal{T}, \hat{\lambda}, \hat{\mu}\right\}$
+      a distribution of $\left\{\mathcal{T}, \hat{\lambda}, \hat{\mu}, \hat{t_0}, \right\}$
     }
     \itemize{
       \item $\mathcal{T}$: a phylogeny
       \item $\hat{\lambda}$: estimated speciation rate
       \item $\hat{\mu}$: estimated extinction rate
+      \item $\hat{t_0}$: estimated crown age
     }
   \end{figure}
 
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Naive expectation}
+
+  \begin{table}
+    \centering
+
+    %                           rng_seed sirg siri   scr erg eri age mutation_rate n_alignments
+    % article_0_3_2_0_0_549.RDa      549  0.3  0.3 1e+06 0.2 0.2  15          0.05            2
+    %                           sequence_length nspp n_beast_runs
+    % article_0_3_2_0_0_549.RDa            1000 1000            2
+    \subfloat[Parameters to create phylogenies]{
+      \begin{tabular}{ | l | l | l | }
+        \hline
+        $\lambda$ & speciation rate & 0.3 \\
+        \hline
+        $\mu$ & extinction rate & 0.2 \\
+        \hline
+        $t_0$ & crown age & 15 \\
+        \hline
+      \end{tabular}
+
+    }
+
+    \subfloat[Expected parameter estimates]{
+      \begin{tabular}{ | l | l | l | l | l | }
+        \hline
+        $\hat{\lambda}$ & estimated speciation rate & 0.31 & 0.29 & 0.28 \\
+        \hline
+        $\hat{\mu}$ & estimated extinction rate & 0.19 & 0.21 & 0.2 \\
+        \hline
+        $\hat{t_0}$ & estimated crown age & 14.9 & 15.1 & 15.2 \\
+        \hline
+      \end{tabular}
+
+    }
+  \end{table}
+
+
+
+
+% article_0_3_2_0_0_549
+%    BirthDeath birthRate2 relativeDeathRate2 TreeHeight
+% 626   189.5141   18.59102          0.6949177  0.1514966
+% 112   191.1941   23.74016          0.3816950  0.1471925
+% 709   192.2802   16.17563          0.6062069  0.1457897
+% 162   190.5352   22.77061          0.4911272  0.1503252
+% 289   190.0760   24.02033          0.2977736  0.1513978
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Real results}
+
+  \begin{table}
+    \centering
+
+    %                           rng_seed sirg siri   scr erg eri age mutation_rate n_alignments
+    % article_0_3_2_0_0_549.RDa      549  0.3  0.3 1e+06 0.2 0.2  15          0.05            2
+    %                           sequence_length nspp n_beast_runs
+    % article_0_3_2_0_0_549.RDa            1000 1000            2
+    \subfloat[Parameters to create phylogenies]{
+      \begin{tabular}{ | l | l | l | }
+        \hline
+        $\lambda$ & speciation rate & 0.3 \\
+        \hline
+        $\mu$ & extinction rate & 0.2 \\
+        \hline
+        $t_0$ & crown age & 15 \\
+        \hline
+      \end{tabular}
+
+    }
+
+    % article_0_3_2_0_0_549
+    %    BirthDeath birthRate2 relativeDeathRate2 TreeHeight
+    % 626   189.5141   18.59102          0.6949177  0.1514966
+    % 112   191.1941   23.74016          0.3816950  0.1471925
+    % 709   192.2802   16.17563          0.6062069  0.1457897
+    % 162   190.5352   22.77061          0.4911272  0.1503252
+    % 289   190.0760   24.02033          0.2977736  0.1513978
+    \subfloat[Parameter estimates]{
+
+      \begin{tabular}{ | l | l | l | l | l | l | }
+        % \hline
+        % BirthDeath         & 189.514 & 191.194 & 192.28  & 190.535 & 190.076 \\
+        \hline
+        birthRate2         & 18.591  & 23.7402 & 16.1756 & 22.7706 & 24.0203 \\
+        \hline
+        relativeDeathRate2 & 0.69492 & 0.3817  & 0.60621 & 0.49113 & 0.29777 \\
+        \hline
+        TreeHeight         & 0.1515  & 0.14719 & 0.14579 & 0.15033 & 0.1514  \\
+        \hline
+      \end{tabular}
+
+
+    }
+  \end{table}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 
 \end{document}
