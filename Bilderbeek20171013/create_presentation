@@ -1,0 +1,5 @@
+#!/bin/bash
+pdflatex presentation.tex --shell-escape
+%bibtex presentation.aux
+%pdflatex presentation.tex --shell-escape
+pdflatex presentation.tex --shell-escape
