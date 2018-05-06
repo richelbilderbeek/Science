@@ -8,12 +8,13 @@ autosize: true
 
 ![Footer](footer.png)
 
+
+
+
 Problem
 ========================================================
 
-![plot of chunk unnamed-chunk-1](ggplot2-figure/unnamed-chunk-1-1.png)
-
-How to visualize data in R?
+![plot of chunk unnamed-chunk-2](ggplot2-figure/unnamed-chunk-2-1.png)
 
 Goal
 ========================================================
@@ -41,16 +42,19 @@ Messy data
 
 ```r
 messy_df <- data.frame(
-  matrix(rnorm(n = 100), ncol = 100)
+  matrix(rnorm(n = 1000), ncol = 1000)
 )
-colnames(messy_df) <- paste0("z", seq(1, 100))
-messy_df[1, 1:7] # Etcetera
+colnames(messy_df) <- paste0(
+  "z", seq(1, 1000)
+)
+knitr::kable(messy_df[1, 1:6]) # Etcetera
 ```
 
-```
-          z1          z2      z3         z4         z5        z6        z7
-1 -0.8044135 -0.02467601 0.39636 -0.9781095 -0.1012758 -1.393872 -1.184142
-```
+
+
+|       z1|         z2|        z3|        z4|        z5|         z6|
+|--------:|----------:|---------:|---------:|---------:|----------:|
+| 0.042538| -0.9972975| 0.0557063| -1.026604| 0.7764313| -0.7226098|
 
 Plotting messy data is easy without ggplot2
 ========================================================
@@ -60,33 +64,34 @@ Plotting messy data is easy without ggplot2
 hist(t(messy_df))
 ```
 
-![plot of chunk unnamed-chunk-4](ggplot2-figure/unnamed-chunk-4-1.png)
+![plot of chunk unnamed-chunk-5](ggplot2-figure/unnamed-chunk-5-1.png)
 
 Plotting messy data is hard in ggplot2
 ========================================================
 
 
 ```r
+ # How to put other zs in here???
 ggplot(
-  messy_df,
-  aes(z1) # How to put other zs in here???
-) + geom_histogram(binwidth = 1)
+  messy_df, aes(z1)
+) + geom_histogram(binwidth = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-5](ggplot2-figure/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-6](ggplot2-figure/unnamed-chunk-6-1.png)
 
 Plotting messy data is ugly in ggplot2
 ========================================================
 
 
 ```r
+# Transtransposition magic, avoid!
 ggplot(
-  data.frame(z = t(messy_df[1, ])[, 1]), # Transtransposition magic
+  data.frame(z = t(messy_df[1, ])[, 1]),
   aes(z)
 ) + geom_histogram(binwidth = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-6](ggplot2-figure/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-7](ggplot2-figure/unnamed-chunk-7-1.png)
 
 Tidy Data
 ========================================================
@@ -105,30 +110,61 @@ Wrangling messy data to Tidy Data
 
 ```r
 df <- gather(messy_df, "z") # From tidyr
-head(df) # Hey, one measurement per row!
+knitr::kable(df[1:6, ]) # Hey, one measurement per row!
 ```
 
-```
-   z       value
-1 z1 -0.80441348
-2 z2 -0.02467601
-3 z3  0.39636003
-4 z4 -0.97810952
-5 z5 -0.10127583
-6 z6 -1.39387214
-```
+
+
+|z  |      value|
+|:--|----------:|
+|z1 |  0.0425380|
+|z2 | -0.9972975|
+|z3 |  0.0557063|
+|z4 | -1.0266038|
+|z5 |  0.7764313|
+|z6 | -0.7226098|
 
 Plotting Tidy Data is easy
 ========================================================
 
 
 ```r
-ggplot(
-  df,
-  aes(value)
-) + geom_histogram(binwidth = 0.5)
+ggplot(df, aes(value)) +
+  geom_histogram(binwidth = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-9](ggplot2-figure/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-10](ggplot2-figure/unnamed-chunk-10-1.png)
 
+Plotting Tidy Data is easy
+========================================================
+
+
+```r
+ggplot(df, aes(x = value)) +
+  geom_density()
+```
+
+![plot of chunk unnamed-chunk-11](ggplot2-figure/unnamed-chunk-11-1.png)
+
+Plotting Tidy Data is easy
+========================================================
+
+
+```r
+ggplot(df, aes(x = "", y = value)) +
+  geom_boxplot()
+```
+
+![plot of chunk unnamed-chunk-12](ggplot2-figure/unnamed-chunk-12-1.png)
+
+Plotting Tidy Data is easy
+========================================================
+
+
+```r
+ggplot(df, aes(x = "", y = value)) +
+  geom_violin()
+```
+
+![plot of chunk unnamed-chunk-13](ggplot2-figure/unnamed-chunk-13-1.png)
 

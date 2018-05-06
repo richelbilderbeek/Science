@@ -8,17 +8,67 @@ autosize: true
 
 ![Footer](footer.png)
 
+```{r echo=FALSE}
+# From http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
+#
+# Multiple plot function
+#
+# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
+# - cols:   Number of columns in layout
+# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
+#
+# If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
+# then plot 1 will go in the upper left, 2 will go in the upper right, and
+# 3 will go all the way across the bottom.
+#
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
+```
+
+
 Problem
 ========================================================
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.width=12}
 meme::meme(img = system.file("success.jpg", package="meme"),
   "One million measurements",
-  "One beautiful and clear plot"
+  "One beautiful and clear plot",
+  size = 5.5
   )
 ```
-
-How to visualize data in R?
 
 Goal
 ========================================================
@@ -44,35 +94,38 @@ Messy data
 
 ```{r}
 messy_df <- data.frame(
-  matrix(rnorm(n = 100), ncol = 100)
+  matrix(rnorm(n = 1000), ncol = 1000)
 )
-colnames(messy_df) <- paste0("z", seq(1, 100))
-messy_df[1, 1:7] # Etcetera
+colnames(messy_df) <- paste0(
+  "z", seq(1, 1000)
+)
+knitr::kable(messy_df[1, 1:6]) # Etcetera
 ```
 
 Plotting messy data is easy without ggplot2
 ========================================================
 
-```{r}
+```{r fig.width=12}
 hist(t(messy_df))
 ```
 
 Plotting messy data is hard in ggplot2
 ========================================================
 
-```{r}
+```{r fig.width=12}
+ # How to put other zs in here???
 ggplot(
-  messy_df,
-  aes(z1) # How to put other zs in here???
-) + geom_histogram(binwidth = 1)
+  messy_df, aes(z1)
+) + geom_histogram(binwidth = 0.5)
 ```
 
 Plotting messy data is ugly in ggplot2
 ========================================================
 
-```{r}
+```{r fig.width=12}
+# Transtransposition magic, avoid!
 ggplot(
-  data.frame(z = t(messy_df[1, ])[, 1]), # Transtransposition magic
+  data.frame(z = t(messy_df[1, ])[, 1]),
   aes(z)
 ) + geom_histogram(binwidth = 0.5)
 ```
@@ -92,17 +145,38 @@ Wrangling messy data to Tidy Data
 
 ```{r}
 df <- gather(messy_df, "z") # From tidyr
-head(df) # Hey, one measurement per row!
+knitr::kable(df[1:6, ]) # Hey, one measurement per row!
 ```
 
 Plotting Tidy Data is easy
 ========================================================
 
-```{r}
-ggplot(
-  df,
-  aes(value)
-) + geom_histogram(binwidth = 0.5)
+```{r fig.width=12}
+ggplot(df, aes(value)) +
+  geom_histogram(binwidth = 0.5)
 ```
 
+Plotting Tidy Data is easy
+========================================================
+
+```{r fig.width=12}
+ggplot(df, aes(x = value)) +
+  geom_density()
+```
+
+Plotting Tidy Data is easy
+========================================================
+
+```{r fig.width=12}
+ggplot(df, aes(x = "", y = value)) +
+  geom_boxplot()
+```
+
+Plotting Tidy Data is easy
+========================================================
+
+```{r fig.width=12}
+ggplot(df, aes(x = "", y = value)) +
+  geom_violin()
+```
 
