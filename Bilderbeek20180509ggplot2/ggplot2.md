@@ -5,105 +5,23 @@ date: 2018-05-09
 autosize: true
 transition: none
 
-```{r echo=FALSE}
-# Default:
-# width: 960
-# height: 700
 
-# Default + 10%
-# width: 1056
-# height: 770
-
-
-# Add this here above to set the slide sizes
-# width: 1920
-# height: 1080
-```
 
 [https://github.com/richelbilderbeek/Science](https://github.com/richelbilderbeek/Science)  ![CC-BY-NC-SA](CC-BY-NC-SA.png)
 
 ![RuG and GELIFES and TECE logo](footer.png)
 
-```{r echo=FALSE}
-set.seed(44)
-```
 
-```{r echo=FALSE}
-# From http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
-#
-# Multiple plot function
-#
-# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-# - cols:   Number of columns in layout
-# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
-#
-# If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
-# then plot 1 will go in the upper left, 2 will go in the upper right, and
-# 3 will go all the way across the bottom.
-#
-multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
-  library(grid)
 
-  # Make a list from the ... arguments and plotlist
-  plots <- c(list(...), plotlist)
 
-  numPlots = length(plots)
 
-  # If layout is NULL, then use 'cols' to determine layout
-  if (is.null(layout)) {
-    # Make the panel
-    # ncol: Number of columns of plots
-    # nrow: Number of rows needed, calculated from # of cols
-    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
-                    ncol = cols, nrow = ceiling(numPlots/cols))
-  }
 
- if (numPlots==1) {
-    print(plots[[1]])
-
-  } else {
-    # Set up the page
-    grid.newpage()
-    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
-
-    # Make each plot, in the correct location
-    for (i in 1:numPlots) {
-      # Get the i,j matrix positions of the regions that contain this subplot
-      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
-
-      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
-                                      layout.pos.col = matchidx$col))
-    }
-  }
-}
-```
-
-```{r echo=FALSE}
-# From https://stackoverflow.com/a/8197703
-gg_color_hue <- function(n) {
-  hues = seq(15, 375, length = n + 1)
-  hcl(h = hues, l = 65, c = 100)[1:n]
-}
-
-get_color <- function(i, n, alpha = 1.0) {
-  testit::assert(i >= 1)
-  testit::assert(n >= 1)
-  testit::assert(i <= n)
-  scales::alpha(colour = gg_color_hue(n)[i], alpha = alpha)
-}
-```
 
 Desire
 ========================================================
 title: false
 
-```{r echo=FALSE, fig.width=12}
-meme::meme(img = system.file("success.jpg", package="meme"),
-  "One million measurements",
-  "One beautiful and clear plot",
-  size = 5.5
-  )
-```
+![plot of chunk unnamed-chunk-5](ggplot2-figure/unnamed-chunk-5-1.png)
 
 Non-goal
 ========================================================
@@ -117,7 +35,8 @@ Goal
 - Share philosophy of `ggplot2`
 - Correct three beginner mistakes
 
-```{r}
+
+```r
 library(ggplot2)
 ```
 
@@ -146,7 +65,8 @@ Philosophy
 Messy data
 ========================================================
 
-```{r}
+
+```r
 messy_df <- data.frame(
   matrix(rnorm(n = 1000), ncol = 1000)
 )
@@ -156,22 +76,34 @@ colnames(messy_df) <- paste0(
 knitr::kable(messy_df[1, 1:6])
 ```
 
+
+
+|        z1|        z2|        z3|         z4|        z5|        z6|
+|---------:|---------:|---------:|----------:|---------:|---------:|
+| 0.6539183| 0.0190523| -1.849504| -0.1327633| -1.198818| -1.329741|
+
 Plotting messy data is easy without ggplot2
 ========================================================
 
-```{r fig.width=12}
+
+```r
 hist(t(messy_df))
 ```
+
+![plot of chunk unnamed-chunk-8](ggplot2-figure/unnamed-chunk-8-1.png)
 
 Plotting messy data is hard in ggplot2
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(
   data.frame(z = t(messy_df[1, ])[, 1]),
   aes(z)
 ) + geom_histogram(binwidth = 0.5)
 ```
+
+![plot of chunk unnamed-chunk-9](ggplot2-figure/unnamed-chunk-9-1.png)
 
 Tidy Data
 ========================================================
@@ -180,7 +112,8 @@ Tidy Data
  * One measurement per row, 'long form'
  * Factors as factors
 
-```{r}
+
+```r
 library(tidyr)
 ```
 
@@ -188,47 +121,72 @@ library(tidyr)
 Wrangling messy data to Tidy Data
 ========================================================
 
-```{r}
+
+```r
 df <- gather(messy_df, "replicate", "value")
 knitr::kable(df[1:6, ])
 ```
 
+
+
+|replicate |      value|
+|:---------|----------:|
+|z1        |  0.6539183|
+|z2        |  0.0190523|
+|z3        | -1.8495040|
+|z4        | -0.1327633|
+|z5        | -1.1988182|
+|z6        | -1.3297415|
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(value)) +
   geom_histogram(binwidth = 0.5)
 ```
 
+![plot of chunk unnamed-chunk-12](ggplot2-figure/unnamed-chunk-12-1.png)
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = value)) +
   geom_density()
 ```
 
+![plot of chunk unnamed-chunk-13](ggplot2-figure/unnamed-chunk-13-1.png)
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = "", y = value)) +
   geom_boxplot()
 ```
 
+![plot of chunk unnamed-chunk-14](ggplot2-figure/unnamed-chunk-14-1.png)
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = "", y = value)) +
   geom_violin()
 ```
 
+![plot of chunk unnamed-chunk-15](ggplot2-figure/unnamed-chunk-15-1.png)
+
 Messy data
 ========================================================
 
-```{r}
+
+```r
 messy_df <- data.frame(
   matrix(rnorm(n = 2002), ncol = 1001, nrow = 2)
 )
@@ -240,18 +198,29 @@ messy_df[2, 1] <- "B"
 knitr::kable(messy_df[, 1:6])
 ```
 
+
+
+|treatment |         z1|        z2|         z3|        z4|         z5|
+|:---------|----------:|---------:|----------:|---------:|----------:|
+|A         | -0.1836515| 1.9340660| -0.8871935| 0.2657320|  0.1569296|
+|B         |  0.0887142| 0.0827711|  0.5865041| 0.6194539| -1.0828811|
+
 Plotting messy data is easy without ggplot2
 ========================================================
 
-```{r fig.width=12}
+
+```r
 hist(as.numeric(messy_df[1, 2:1001]), col = get_color(1, 2, 0.5))
 hist(as.numeric(messy_df[2, 2:1001]), col = get_color(2, 2, 0.5), add = TRUE)
 ```
 
+![plot of chunk unnamed-chunk-17](ggplot2-figure/unnamed-chunk-17-1.png)
+
 Plotting messy data is hard in ggplot2
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(
   data.frame(
     treatment = rep(messy_df$treatment, each = 1000),
@@ -261,50 +230,77 @@ ggplot(
 ) + geom_histogram(binwidth = 0.5, alpha = 0.5, position = "identity")
 ```
 
+![plot of chunk unnamed-chunk-18](ggplot2-figure/unnamed-chunk-18-1.png)
+
 Wrangling messy data to Tidy Data
 ========================================================
 
-```{r}
+
+```r
 df <- gather(messy_df, "replicate", "value", z1:z1000)
 knitr::kable(df[1:6, ])
 ```
 
+
+
+|treatment |replicate |      value|
+|:---------|:---------|----------:|
+|A         |z1        | -0.1836515|
+|B         |z1        |  0.0887142|
+|A         |z2        |  1.9340660|
+|B         |z2        |  0.0827711|
+|A         |z3        | -0.8871935|
+|B         |z3        |  0.5865041|
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = value, fill = treatment)) +
   geom_histogram(binwidth = 0.5, position = "identity", alpha = 0.5)
 ```
 
+![plot of chunk unnamed-chunk-20](ggplot2-figure/unnamed-chunk-20-1.png)
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = value, fill = treatment)) +
   geom_density(alpha = 0.5)
 ```
 
+![plot of chunk unnamed-chunk-21](ggplot2-figure/unnamed-chunk-21-1.png)
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = treatment, y = value)) +
   geom_boxplot()
 ```
 
+![plot of chunk unnamed-chunk-22](ggplot2-figure/unnamed-chunk-22-1.png)
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = treatment, y = value)) +
   geom_violin()
 ```
 
+![plot of chunk unnamed-chunk-23](ggplot2-figure/unnamed-chunk-23-1.png)
+
 Messy data
 ========================================================
 
-```{r}
+
+```r
 messy_df <- data.frame(
   treatment = rep(c(1, 2), times = 1000),
   value = rnorm(n = 2000)
@@ -312,63 +308,104 @@ messy_df <- data.frame(
 knitr::kable(head(messy_df))
 ```
 
+
+
+| treatment|      value|
+|---------:|----------:|
+|         1| -1.7130498|
+|         2|  0.8466842|
+|         1|  1.1075262|
+|         2|  0.2018014|
+|         1| -0.1251446|
+|         2| -0.2059191|
+
 Plotting messy data is easy without ggplot2
 ========================================================
 
-```{r fig.width=12}
+
+```r
 hist(messy_df[messy_df$treatment == 1, 2], col = get_color(1, 2, 0.5))
 hist(messy_df[messy_df$treatment == 2, 2], col = get_color(2, 2, 0.5), add = TRUE)
 ```
 
+![plot of chunk unnamed-chunk-25](ggplot2-figure/unnamed-chunk-25-1.png)
+
 Plotting messy data is hard in ggplot2
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(position = "identity") + 
   geom_histogram(data = messy_df[ messy_df$treatment == 1,  ], aes(x = value), fill = get_color(1,2)) + 
   geom_histogram(data = messy_df[ messy_df$treatment == 2,  ], aes(x = value), fill = get_color(2,2), alpha = 0.5)
 ```
 
+![plot of chunk unnamed-chunk-26](ggplot2-figure/unnamed-chunk-26-1.png)
+
 Wrangling messy data to Tidy Data
 ========================================================
 
-```{r}
+
+```r
 df <- messy_df
 df$treatment <- as.factor(df$treatment)
 knitr::kable(df[1:6, ])
 ```
 
+
+
+|treatment |      value|
+|:---------|----------:|
+|1         | -1.7130498|
+|2         |  0.8466842|
+|1         |  1.1075262|
+|2         |  0.2018014|
+|1         | -0.1251446|
+|2         | -0.2059191|
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = value, fill = treatment)) +
   geom_histogram(binwidth = 0.5, position = "identity", alpha = 0.5)
 ```
 
+![plot of chunk unnamed-chunk-28](ggplot2-figure/unnamed-chunk-28-1.png)
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = value, fill = treatment)) +
   geom_density(alpha = 0.5)
 ```
 
+![plot of chunk unnamed-chunk-29](ggplot2-figure/unnamed-chunk-29-1.png)
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = treatment, y = value)) +
   geom_boxplot()
 ```
 
+![plot of chunk unnamed-chunk-30](ggplot2-figure/unnamed-chunk-30-1.png)
+
 Plotting Tidy Data is easy
 ========================================================
 
-```{r fig.width=12}
+
+```r
 ggplot(df, aes(x = treatment, y = value)) +
   geom_violin()
 ```
+
+![plot of chunk unnamed-chunk-31](ggplot2-figure/unnamed-chunk-31-1.png)
 
 Conclusions
 ========================================================
