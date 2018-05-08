@@ -29,56 +29,6 @@ set.seed(44)
 ```
 
 ```{r echo=FALSE}
-# From http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
-#
-# Multiple plot function
-#
-# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-# - cols:   Number of columns in layout
-# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
-#
-# If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
-# then plot 1 will go in the upper left, 2 will go in the upper right, and
-# 3 will go all the way across the bottom.
-#
-multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
-  library(grid)
-
-  # Make a list from the ... arguments and plotlist
-  plots <- c(list(...), plotlist)
-
-  numPlots = length(plots)
-
-  # If layout is NULL, then use 'cols' to determine layout
-  if (is.null(layout)) {
-    # Make the panel
-    # ncol: Number of columns of plots
-    # nrow: Number of rows needed, calculated from # of cols
-    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
-                    ncol = cols, nrow = ceiling(numPlots/cols))
-  }
-
- if (numPlots==1) {
-    print(plots[[1]])
-
-  } else {
-    # Set up the page
-    grid.newpage()
-    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
-
-    # Make each plot, in the correct location
-    for (i in 1:numPlots) {
-      # Get the i,j matrix positions of the regions that contain this subplot
-      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
-
-      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
-                                      layout.pos.col = matchidx$col))
-    }
-  }
-}
-```
-
-```{r echo=FALSE}
 # From https://stackoverflow.com/a/8197703
 gg_color_hue <- function(n) {
   hues = seq(15, 375, length = n + 1)
@@ -107,8 +57,10 @@ meme::meme(img = system.file("success.jpg", package="meme"),
 
 Non-goal
 ========================================================
-
 ![](ggplot2_examples.png)
+
+<!-- I will give many examples to demonstrate ggplot2 -->
+<!-- One can use any search engine to do that -->
 
 Goal
 ========================================================
@@ -121,6 +73,8 @@ Goal
 library(ggplot2)
 ```
 
+<!-- This talk is about what one cannot find on Stack Overflow -->
+<!-- and prevents needing to go there -->
 
 Philosophy
 ========================================================
@@ -128,10 +82,14 @@ Philosophy
 ***
 ![Grammar of Graphics](grammar_of_graphics_book.jpg)
 
+<!-- 'Grammar of Graphics' came out in 2005 -->
+
 Philosophy
 ========================================================
 
 ![Grammar of Graphics](grammar_of_graphics.png)
+
+<!-- 'Grammar of Graphics' has an idea behind it -->
 
 Philosophy
 ========================================================
@@ -143,6 +101,13 @@ Philosophy
 ![R for Data Science](r_for_data_science.png)
 *Wickham & Grolemund. R for data science. 2016*
 
+<!-- Wickham: most time is spent tidying data -->
+
+Frequency data
+========================================================
+
+![](meme_normal_distribution.jpg)
+
 Messy data
 ========================================================
 
@@ -153,7 +118,7 @@ messy_df <- data.frame(
 colnames(messy_df) <- paste0(
   "z", seq(1, 1000)
 )
-knitr::kable(messy_df[1, 1:6])
+knitr::kable(messy_df[, 1:6])
 ```
 
 Plotting messy data is easy without ggplot2
@@ -170,8 +135,10 @@ Plotting messy data is hard in ggplot2
 ggplot(
   data.frame(z = t(messy_df[1, ])[, 1]),
   aes(z)
-) + geom_histogram(binwidth = 0.5)
+) + geom_histogram()
 ```
+
+<!-- if data is messy, a ggplot2 call will look ugly  -->
 
 Tidy Data
 ========================================================
@@ -198,7 +165,7 @@ Plotting Tidy Data is easy
 
 ```{r fig.width=12}
 ggplot(df, aes(value)) +
-  geom_histogram(binwidth = 0.5)
+  geom_histogram()
 ```
 
 Plotting Tidy Data is easy
@@ -244,9 +211,12 @@ Plotting messy data is easy without ggplot2
 ========================================================
 
 ```{r fig.width=12}
-hist(as.numeric(messy_df[1, 2:1001]), col = get_color(1, 2, 0.5))
-hist(as.numeric(messy_df[2, 2:1001]), col = get_color(2, 2, 0.5), add = TRUE)
+hist(as.numeric(messy_df[1, 2:1001]))
+hist(as.numeric(messy_df[2, 2:1001]), add = TRUE)
 ```
+
+<!-- Note: the reason I do not use a stacked histogram, -->
+<!-- is because there is no easy way without ggplot2 -->
 
 Plotting messy data is hard in ggplot2
 ========================================================
@@ -258,8 +228,10 @@ ggplot(
     z = c(t(messy_df[1, 2:1001])[, 1], t(messy_df[2, 2:1001])[, 1])
   ),
   aes(z, fill = treatment)
-) + geom_histogram(binwidth = 0.5, alpha = 0.5, position = "identity")
+) + geom_histogram(position = "identity")
 ```
+
+<!-- if data is messy, a ggplot2 call will look ugly  -->
 
 Wrangling messy data to Tidy Data
 ========================================================
@@ -274,7 +246,7 @@ Plotting Tidy Data is easy
 
 ```{r fig.width=12}
 ggplot(df, aes(x = value, fill = treatment)) +
-  geom_histogram(binwidth = 0.5, position = "identity", alpha = 0.5)
+  geom_histogram(position = "identity")
 ```
 
 Plotting Tidy Data is easy
@@ -282,7 +254,7 @@ Plotting Tidy Data is easy
 
 ```{r fig.width=12}
 ggplot(df, aes(x = value, fill = treatment)) +
-  geom_density(alpha = 0.5)
+  geom_density()
 ```
 
 Plotting Tidy Data is easy
@@ -312,22 +284,36 @@ messy_df <- data.frame(
 knitr::kable(head(messy_df))
 ```
 
+<!-- messy data: treatment is not a factor  -->
+
 Plotting messy data is easy without ggplot2
 ========================================================
 
 ```{r fig.width=12}
-hist(messy_df[messy_df$treatment == 1, 2], col = get_color(1, 2, 0.5))
-hist(messy_df[messy_df$treatment == 2, 2], col = get_color(2, 2, 0.5), add = TRUE)
+hist(messy_df[messy_df$treatment == 1, 2])
+hist(messy_df[messy_df$treatment == 2, 2], add = TRUE)
 ```
+
+Plotting messy data goes wrong in ggplot2
+========================================================
+
+```{r fig.width=12}
+ggplot(messy_df, aes(x = value, fill = treatment)) +
+  geom_histogram(position = "identity")
+```
+
+<!-- Does not seperate by treatment, would confuse a beginner -->
 
 Plotting messy data is hard in ggplot2
 ========================================================
 
 ```{r fig.width=12}
 ggplot(position = "identity") + 
-  geom_histogram(data = messy_df[ messy_df$treatment == 1,  ], aes(x = value), fill = get_color(1,2)) + 
-  geom_histogram(data = messy_df[ messy_df$treatment == 2,  ], aes(x = value), fill = get_color(2,2), alpha = 0.5)
+  geom_histogram(data = messy_df[ messy_df$treatment == 1,  ], aes(value)) + 
+  geom_histogram(data = messy_df[ messy_df$treatment == 2,  ], aes(value))
 ```
+
+<!-- if data is messy, a ggplot2 call will look ugly  -->
 
 Wrangling messy data to Tidy Data
 ========================================================
@@ -343,7 +329,7 @@ Plotting Tidy Data is easy
 
 ```{r fig.width=12}
 ggplot(df, aes(x = value, fill = treatment)) +
-  geom_histogram(binwidth = 0.5, position = "identity", alpha = 0.5)
+  geom_histogram(position = "identity")
 ```
 
 Plotting Tidy Data is easy
@@ -351,7 +337,7 @@ Plotting Tidy Data is easy
 
 ```{r fig.width=12}
 ggplot(df, aes(x = value, fill = treatment)) +
-  geom_density(alpha = 0.5)
+  geom_density()
 ```
 
 Plotting Tidy Data is easy
