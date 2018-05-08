@@ -4,6 +4,8 @@ author: Richel Bilderbeek
 date: 2018-05-09
 autosize: true
 
+
+
 [https://github.com/richelbilderbeek/Science](https://github.com/richelbilderbeek/Science)  ![CC-BY-NC-SA](CC-BY-NC-SA.png)
 
 ![RuG and GELIFES and TECE logo](footer.png)
@@ -18,7 +20,7 @@ Desire
 ========================================================
 title: false
 
-![plot of chunk unnamed-chunk-4](ggplot2-figure/unnamed-chunk-4-1.png)
+![plot of chunk unnamed-chunk-5](ggplot2-figure/unnamed-chunk-5-1.png)
 
 Non-goal
 ========================================================
@@ -87,7 +89,7 @@ Plotting messy data is easy without ggplot2
 hist(t(messy_df))
 ```
 
-![plot of chunk unnamed-chunk-7](ggplot2-figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-8](ggplot2-figure/unnamed-chunk-8-1.png)
 
 Plotting messy data is hard in ggplot2
 ========================================================
@@ -99,7 +101,7 @@ ggplot(
 ) + geom_histogram(binwidth = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-8](ggplot2-figure/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-9](ggplot2-figure/unnamed-chunk-9-1.png)
 
 Plotting messy data is ugly in ggplot2
 ========================================================
@@ -112,7 +114,7 @@ ggplot(
 ) + geom_histogram(binwidth = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-9](ggplot2-figure/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-10](ggplot2-figure/unnamed-chunk-10-1.png)
 
 Tidy Data
 ========================================================
@@ -156,7 +158,7 @@ ggplot(df, aes(value)) +
   geom_histogram(binwidth = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-12](ggplot2-figure/unnamed-chunk-12-1.png)
+![plot of chunk unnamed-chunk-13](ggplot2-figure/unnamed-chunk-13-1.png)
 
 Plotting Tidy Data is easy
 ========================================================
@@ -167,7 +169,7 @@ ggplot(df, aes(x = value)) +
   geom_density()
 ```
 
-![plot of chunk unnamed-chunk-13](ggplot2-figure/unnamed-chunk-13-1.png)
+![plot of chunk unnamed-chunk-14](ggplot2-figure/unnamed-chunk-14-1.png)
 
 Plotting Tidy Data is easy
 ========================================================
@@ -178,7 +180,7 @@ ggplot(df, aes(x = "", y = value)) +
   geom_boxplot()
 ```
 
-![plot of chunk unnamed-chunk-14](ggplot2-figure/unnamed-chunk-14-1.png)
+![plot of chunk unnamed-chunk-15](ggplot2-figure/unnamed-chunk-15-1.png)
 
 Plotting Tidy Data is easy
 ========================================================
@@ -189,7 +191,7 @@ ggplot(df, aes(x = "", y = value)) +
   geom_violin()
 ```
 
-![plot of chunk unnamed-chunk-15](ggplot2-figure/unnamed-chunk-15-1.png)
+![plot of chunk unnamed-chunk-16](ggplot2-figure/unnamed-chunk-16-1.png)
 
 Messy data
 ========================================================
@@ -224,7 +226,7 @@ ggplot(
 ) + geom_histogram(binwidth = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-17](ggplot2-figure/unnamed-chunk-17-1.png)
+![plot of chunk unnamed-chunk-18](ggplot2-figure/unnamed-chunk-18-1.png)
 
 Plotting messy data is ugly in ggplot2
 ========================================================
@@ -233,14 +235,14 @@ Plotting messy data is ugly in ggplot2
 ```r
 ggplot(
   data.frame(
-    treatment = c(rep("A", times = 1000), rep("B", times = 1000)),
+    treatment = rep(messy_df$treatment, each = 1000),
     z = c(t(messy_df[1, 2:1001])[, 1], t(messy_df[2, 2:1001])[, 1])
   ),
   aes(z, fill = treatment)
 ) + geom_histogram(binwidth = 0.5, alpha = 0.5, position = "identity")
 ```
 
-![plot of chunk unnamed-chunk-18](ggplot2-figure/unnamed-chunk-18-1.png)
+![plot of chunk unnamed-chunk-19](ggplot2-figure/unnamed-chunk-19-1.png)
 
 Wrangling messy data to Tidy Data
 ========================================================
@@ -271,7 +273,7 @@ ggplot(df, aes(value)) +
   geom_histogram(binwidth = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-20](ggplot2-figure/unnamed-chunk-20-1.png)
+![plot of chunk unnamed-chunk-21](ggplot2-figure/unnamed-chunk-21-1.png)
 
 Plotting Tidy Data is easy
 ========================================================
@@ -282,7 +284,7 @@ ggplot(df, aes(x = value, fill = treatment)) +
   geom_histogram(binwidth = 0.5, position = "identity", alpha = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-21](ggplot2-figure/unnamed-chunk-21-1.png)
+![plot of chunk unnamed-chunk-22](ggplot2-figure/unnamed-chunk-22-1.png)
 
 Plotting Tidy Data is easy
 ========================================================
@@ -293,7 +295,7 @@ ggplot(df, aes(x = value)) +
   geom_density()
 ```
 
-![plot of chunk unnamed-chunk-22](ggplot2-figure/unnamed-chunk-22-1.png)
+![plot of chunk unnamed-chunk-23](ggplot2-figure/unnamed-chunk-23-1.png)
 
 Plotting Tidy Data is easy
 ========================================================
@@ -304,17 +306,6 @@ ggplot(df, aes(x = value, fill = treatment)) +
   geom_density(alpha = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-23](ggplot2-figure/unnamed-chunk-23-1.png)
-
-Plotting Tidy Data is easy
-========================================================
-
-
-```r
-ggplot(df, aes(x = "", y = value)) +
-  geom_boxplot()
-```
-
 ![plot of chunk unnamed-chunk-24](ggplot2-figure/unnamed-chunk-24-1.png)
 
 Plotting Tidy Data is easy
@@ -322,7 +313,7 @@ Plotting Tidy Data is easy
 
 
 ```r
-ggplot(df, aes(x = treatment, y = value)) +
+ggplot(df, aes(x = "", y = value)) +
   geom_boxplot()
 ```
 
@@ -333,11 +324,22 @@ Plotting Tidy Data is easy
 
 
 ```r
+ggplot(df, aes(x = treatment, y = value)) +
+  geom_boxplot()
+```
+
+![plot of chunk unnamed-chunk-26](ggplot2-figure/unnamed-chunk-26-1.png)
+
+Plotting Tidy Data is easy
+========================================================
+
+
+```r
 ggplot(df, aes(x = "", y = value)) +
   geom_violin()
 ```
 
-![plot of chunk unnamed-chunk-26](ggplot2-figure/unnamed-chunk-26-1.png)
+![plot of chunk unnamed-chunk-27](ggplot2-figure/unnamed-chunk-27-1.png)
 
 Plotting Tidy Data is easy
 ========================================================
@@ -348,7 +350,7 @@ ggplot(df, aes(x = treatment, y = value)) +
   geom_violin()
 ```
 
-![plot of chunk unnamed-chunk-27](ggplot2-figure/unnamed-chunk-27-1.png)
+![plot of chunk unnamed-chunk-28](ggplot2-figure/unnamed-chunk-28-1.png)
 
 Messy data
 ========================================================
@@ -378,22 +380,31 @@ Plotting messy data is hard and ugly in ggplot2
 
 
 ```r
+ggplot(messy_df, aes(value)) +
+  geom_histogram(binwidth = 0.5)
+```
+
+![plot of chunk unnamed-chunk-30](ggplot2-figure/unnamed-chunk-30-1.png)
+
+Plotting messy data is hard and ugly in ggplot2
+========================================================
+
+
+```r
 ggplot(position = "identity") + 
   geom_histogram(data = messy_df[ messy_df$treatment == 1,  ], aes(x = value), fill = get_color(1,2)) + 
   geom_histogram(data = messy_df[ messy_df$treatment == 2,  ], aes(x = value), fill = get_color(2,2), alpha = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-29](ggplot2-figure/unnamed-chunk-29-1.png)
+![plot of chunk unnamed-chunk-31](ggplot2-figure/unnamed-chunk-31-1.png)
 
 Wrangling messy data to Tidy Data
 ========================================================
 
 
 ```r
-testit::assert(is.null(levels(messy_df$treatment)))
 df <- messy_df
 df$treatment <- as.factor(df$treatment)
-testit::assert(levels(df$treatment) == c(1, 2))
 knitr::kable(df[1:6, ])
 ```
 
@@ -417,7 +428,7 @@ ggplot(df, aes(value)) +
   geom_histogram(binwidth = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-31](ggplot2-figure/unnamed-chunk-31-1.png)
+![plot of chunk unnamed-chunk-33](ggplot2-figure/unnamed-chunk-33-1.png)
 
 Plotting Tidy Data is easy
 ========================================================
@@ -428,7 +439,73 @@ ggplot(df, aes(x = value, fill = treatment)) +
   geom_histogram(binwidth = 0.5, position = "identity", alpha = 0.5)
 ```
 
-![plot of chunk unnamed-chunk-32](ggplot2-figure/unnamed-chunk-32-1.png)
+![plot of chunk unnamed-chunk-34](ggplot2-figure/unnamed-chunk-34-1.png)
+
+Plotting Tidy Data is easy
+========================================================
+
+
+```r
+ggplot(df, aes(x = value)) +
+  geom_density()
+```
+
+![plot of chunk unnamed-chunk-35](ggplot2-figure/unnamed-chunk-35-1.png)
+
+Plotting Tidy Data is easy
+========================================================
+
+
+```r
+ggplot(df, aes(x = value, fill = treatment)) +
+  geom_density(alpha = 0.5)
+```
+
+![plot of chunk unnamed-chunk-36](ggplot2-figure/unnamed-chunk-36-1.png)
+
+Plotting Tidy Data is easy
+========================================================
+
+
+```r
+ggplot(df, aes(x = "", y = value)) +
+  geom_boxplot()
+```
+
+![plot of chunk unnamed-chunk-37](ggplot2-figure/unnamed-chunk-37-1.png)
+
+Plotting Tidy Data is easy
+========================================================
+
+
+```r
+ggplot(df, aes(x = treatment, y = value)) +
+  geom_boxplot()
+```
+
+![plot of chunk unnamed-chunk-38](ggplot2-figure/unnamed-chunk-38-1.png)
+
+Plotting Tidy Data is easy
+========================================================
+
+
+```r
+ggplot(df, aes(x = "", y = value)) +
+  geom_violin()
+```
+
+![plot of chunk unnamed-chunk-39](ggplot2-figure/unnamed-chunk-39-1.png)
+
+Plotting Tidy Data is easy
+========================================================
+
+
+```r
+ggplot(df, aes(x = treatment, y = value)) +
+  geom_violin()
+```
+
+![plot of chunk unnamed-chunk-40](ggplot2-figure/unnamed-chunk-40-1.png)
 
 Conclusions
 ========================================================
@@ -437,7 +514,7 @@ Conclusions
  * Use Tidy Data (don't forget factors)
  * Tidy Data and `ggplot2` go together well
 
-Questions
+Questions?
 ========================================================
 
 ![](meme_plot_messy_data.jpg)
