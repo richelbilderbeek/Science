@@ -1,10 +1,56 @@
 # Science
 
-My (public) science work.
+This is the place where I store my (public) science work.
+Most recent work is at the top. 
+This list displayed in this README is incomplete.
+
+## `Bilderbeek20180502TeceMeeting`
+
+Talk about `ggplot2`.
+
+ * View this talk: [YouTube](https://youtu.be/bZYvmdJ-47A)
+
+## `Bilderbeek20180502TeceMeeting`
+
+Unexpected behavior of sampling `youngest` and `oldest` and my proposal to get a consistent branch length distribution.
+
+## `Bilderbeek20171013`
+
+Presented the state of my DAISIE project
+
+## `Bilderbeek20170913TeceMeeting`
+
+Update about `raket`.
+
+## `Bilderbeek20161214TeceMeeting`
+
+Update about `raket`.
+
+## `Bilderbeek20161103TeceMeeting`
+
+Update about `raket`.
+
+## `Bilderbeek20160926TeceMeeting`
+
+PhD projects overview
+
+## `Bilderbeek20160818TeceMeeting`
+
+Update about `raket`.
+
+## `Bilderbeek20160714TeceMeeting`
+
+Update about `raket`.
+
+## `Bilderbeek20160701TeceMeeting`
+
+Showcase some GitHub use from students in the Community Ecology Research course of 2016.
+
+TODO
 
 ## TRESentation by Bilderbeek 
 
-I gave a TRES presentation at November 23rd 2015, you can view it [here](Bilderbeek20151123TresMeeting/20151123TresMeeting.pdf).
+I gave a TRES presentation on November 23rd 2015, you can view it [here](Bilderbeek20151123TresMeeting/20151123TresMeeting.pdf).
 
 ## Article discussion Cadotte 2015 by Bisschop and Bilderbeek 
 
