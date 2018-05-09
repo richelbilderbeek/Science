@@ -180,7 +180,7 @@ Plotting Tidy Data is easy
 
 
 ```r
-ggplot(df, aes(x = value)) +
+ggplot(df, aes(value)) +
   geom_density()
 ```
 
