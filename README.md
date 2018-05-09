@@ -4,11 +4,12 @@ This is the place where I store my (public) science work.
 Most recent work is at the top. 
 This list displayed in this README is incomplete.
 
-## `Bilderbeek20180502TeceMeeting`
+## `Bilderbeek20180509ggplot2`
 
 Talk about `ggplot2`.
 
  * View this talk: [YouTube](https://youtu.be/bZYvmdJ-47A)
+ * Download this talk: [mp4](Bilderbeek20180509ggplot2/ggplot2.mp4)
 
 ## `Bilderbeek20180502TeceMeeting`
 
