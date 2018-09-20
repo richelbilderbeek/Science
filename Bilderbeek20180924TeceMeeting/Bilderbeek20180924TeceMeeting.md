@@ -8,6 +8,8 @@ autosize: true
 
 ![RuG and GELIFES and TECE logo](footer.png)
 
+
+
 Goal
 ========================================================
 
@@ -135,7 +137,7 @@ count_canonical_topologies(trees) # out of 50
 Discussion
 ========================================================
 
- * 41 out of 50 phylogenies follow the canonical topology 
+ * Approximately 40 out of 50 phylogenies follow the canonical topology 
  * Effective sample size is below the recommended 200
  * Undated nodes
  * Use JC69 site model and Yule (Pure-Birth) speciation model
@@ -151,7 +153,7 @@ count_canonical_topologies(
     "primates.fas", 
     mcmc = mcmc 
   )$primates_trees[6:10]
-)
+) # out of 5
 ```
 
 ```
@@ -174,9 +176,9 @@ Show how to:
  
 Demo pictures
 ========================================================
-[](densitree_dated.png)
+![Densitree dated](densitree_dated.png)
 ***
-[](tracer_dated.png)
+![Tracer dated](tracer_dated.png)
 
 Conclusion
 ========================================================
@@ -223,7 +225,7 @@ Discussion
 Do the same with `babette`
 ========================================================
 
-Set the crown age:
+Specify the crown age:
 
 
 ```r
@@ -233,13 +235,13 @@ mrca_distr <- create_normal_distr(
 )
 ```
 
-Create an MRCA prior with all species
+Specify an MRCA prior containing all species:
+
 
 ```r
 mrca_prior <- create_mrca_prior(
   get_alignment_id("primates.fas"),
   taxa_names = get_taxa_names("primates.fas"),
-  is_monophyletic = TRUE,
   mrca_distr = mrca_distr
 )
 ```
@@ -268,8 +270,44 @@ mean(
 ========================================================
 ![Nucleotide substitution rates](nucleotide_substitutions.gif)
 ***
+Nucleotide substitution models:
  * JC69: all rates are the same
  * GTR: all rates can be different
 
+But how to guard against overfitting?
 
- 
+Bayes factor
+========================================================
+
+```
+     marginal likelihood model A
+BF = ----------------------------
+     marginal likelihood model B
+```
+
+ * Marginal likelihood is the likelihood of the data fitting the model
+ * More complex models are penalized
+
+Bayes' theorem
+========================================================
+
+```
+            likelihood * prior
+posterior = --------------------
+            marginal likelihood
+```
+
+ * Marginal likelihood hard to calculate
+ * BEAST2 circumvents to do so
+
+Demo
+========================================================
+
+Show in BEAST2.
+
+Demo figures
+========================================================
+![BEAST2 package manager](beast2_package_manager.png)
+***
+![Marginal likelihood](marginal_likelihood.png)
+
