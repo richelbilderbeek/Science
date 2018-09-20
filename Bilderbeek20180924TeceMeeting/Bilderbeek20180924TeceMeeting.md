@@ -44,8 +44,9 @@ What do we have?
 
 
 ```r
+fasta_filename <- "primates.fas"
 alignment <- ape::read.FASTA(
-  "primates.fas"
+  fasta_filename
 )
 ```
 
@@ -97,7 +98,7 @@ library(babette)
 
 ```r
 trees <- parse_beast_trees(
-  "primates.trees"
+  "primates_undated.trees"
 )[51:100]
 ```
 
@@ -128,7 +129,7 @@ count_canonical_topologies(trees) # out of 50
 ```
 
 ```
-[1] 41
+[1] 44
 ```
 
 Discussion
@@ -139,5 +140,136 @@ Discussion
  * Undated nodes
  * Use JC69 site model and Yule (Pure-Birth) speciation model
 
+Do the same with `babette`
+========================================================
+
+
+```r
+mcmc <- create_mcmc(chain_length = 10000)
+count_canonical_topologies(
+  bbt_run(
+    "primates.fas", 
+    mcmc = mcmc 
+  )$primates_trees[6:10]
+)
+```
+
+```
+[1] 3
+```
+
 2. Who lived when?
 ========================================================
+![Densitree](densitree.png)
+***
+ * But when?
+ * Assume a crown age of 17.58 Mya (from Purvis, 1995)
+ 
+Demo
+========================================================
+Show how to:
+
+ * View the dated posterior phylogenies
+ * View the effective sample size
+ 
+Demo pictures
+========================================================
+[](densitree_dated.png)
+***
+[](tracer_dated.png)
+
+Conclusion
+========================================================
+
+ * We can now estimate the time humans and chimps diverged
+
+
+```r
+get_divergence_time <- function(tree) {
+  human_index <- which(tree$tip.label == "human")
+  chimp_index <- which(tree$tip.label == "chimp")
+  ape::dist.nodes(tree)[human_index, chimp_index] / 2.0
+}
+get_divergence_times <- function(trees) {
+  ts <- NULL
+  for (tree in trees) {
+    ts <- c(ts, get_divergence_time(tree))
+  }
+  ts
+}
+```
+
+Conclusion
+========================================================
+
+
+```r
+trees <- parse_beast_trees(
+  "primates_dated.trees"
+)[51:100]
+mean(get_divergence_times(trees))
+```
+
+```
+[1] 6.167756
+```
+
+Discussion
+========================================================
+
+ * Effective sample size is below the recommended 200
+ * Use JC69 site model and Yule (Pure-Birth) speciation model
+
+Do the same with `babette`
+========================================================
+
+Set the crown age:
+
+
+```r
+mrca_distr <- create_normal_distr(
+  mean = create_mean_param(value = 17.58), 
+  sigma = create_sigma_param(value = 0.01)
+)
+```
+
+Create an MRCA prior with all species
+
+```r
+mrca_prior <- create_mrca_prior(
+  get_alignment_id("primates.fas"),
+  taxa_names = get_taxa_names("primates.fas"),
+  is_monophyletic = TRUE,
+  mrca_distr = mrca_distr
+)
+```
+
+Do the same with `babette`
+========================================================
+
+
+```r
+mean(
+  get_divergence_times(
+    bbt_run(
+      "primates.fas", 
+      mcmc = mcmc,
+      mrca_priors = mrca_prior
+    )$primates_trees[6:10]
+  )
+)
+```
+
+```
+[1] 1.104167
+```
+
+3. Which model to use?
+========================================================
+![Nucleotide substitution rates](nucleotide_substitutions.gif)
+***
+ * JC69: all rates are the same
+ * GTR: all rates can be different
+
+
+ 
