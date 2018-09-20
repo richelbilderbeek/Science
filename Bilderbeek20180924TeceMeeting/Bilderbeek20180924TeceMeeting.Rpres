@@ -318,3 +318,63 @@ BF = ---------- = 10 ^ -125
 ```
 
 Decisive support for the GTR model!
+
+Discussion
+========================================================
+
+ * Effective sample size is below the recommended 200
+ * Nested sampling setup was also short
+ * We only compare two models
+ 
+Do the same with `babette`
+========================================================
+
+Setup the MCMC to use nested sampling:
+
+```{r}
+mcmc <- create_mcmc_nested_sampling(
+  chain_length = 10000, sub_chain_length = 500
+)
+```
+
+Do the same with `babette`
+========================================================
+
+Run with JC69:
+
+```{r}
+ns_jc69 <- bbt_run(
+  "primates.fas",
+  site_models = create_jc69_site_model(),
+  mcmc = mcmc,
+  beast2_path = get_default_beast2_bin_path()
+)$ns
+```
+
+Do the same with `babette`
+========================================================
+
+Run with GTR:
+
+```{r}
+ns_gtr <- bbt_run(
+  "primates.fas",
+  site_models = create_gtr_site_model(),
+  mcmc = mcmc,
+  beast2_path = get_default_beast2_bin_path()
+)$ns
+```
+
+Do the same with `babette`
+========================================================
+
+```{r}
+bf <- 10.0 ^ (ns_jc69$marg_log_lik - ns_gtr$marg_log_lik)
+```
+
+Overall conclusion
+========================================================
+
+ * BEAST2 offers a flexible framework to answer many questions
+ * BEAST2 is beginner-friendly
+ * `babette` provides for iterative usage

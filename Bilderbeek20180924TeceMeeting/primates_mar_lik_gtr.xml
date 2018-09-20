@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="BEAST v2.5.0" version="2.5">
+        
+    <data id="primates" name="alignment">
+                            
+        <sequence id="seq_chimp" taxon="chimp" totalcount="4" value="AGAAATATGTCTGATAAAAGAATTACTTTGATAGAGTAAATAATAGGAGTTCAAATCCCCTTATTTCTACTAGGACTATAAGAATCGAACTCATCCCTGAGAATCCAAAATTCTCCGTGCCACCTATCACACCCCATCCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTTACACCCTTCCCGTACTAAGAAATTTAGGTTAAGCACAGACCAAGAGCCTTCAAAGCCCTCAGCAAGTTA-CAATACTTAATTTCTGTAAGGACTGCAAAACCCCACTCTGCATCAACTGAACGCAAATCAGCCACTTTAATTAAGCTAAGCCCTTCTAGATTAATGGGACTTAAACCCACAAACATTTAGTTAACAGCTAAACACCCTAATCAAC-TGGCTTCAATCTAAAGCCCCGGCAGG-TTTGAAGCTGCTTCTTCGAATTTGCAATTCAATATGAAAA-TCACCTCAGAGCTTGGTAAAAAGAGGCTTAACCCCTGTCTTTAGATTTACAGTCCAATGCTTCA-CTCAGCCATTTTACCACAAAAAAGGAAGGAATCGAACCCCCTAAAGCTGGTTTCAAGCCAACCCCATGACCTCCATGACTTTTTCAAAAGATATTAGAAAAACTATTTCATAACTTTGTCAAAGTTAAATTACAGGTT-AACCCCCGTATATCTTA-CACTGTAAAGCTAACCTAGCATTAACCTTTTAAGTTAAAGATTAAGAGGACCGACACCTCTTTACAGTGA"/>
+                            
+        <sequence id="seq_gorilla" taxon="gorilla" totalcount="4" value="AGAAATATGTCTGATAAAAGAGTTACTTTGATAGAGTAAATAATAGAGGTTTAAACCCCCTTATTTCTACTAGGACTATGAGAATTGAACCCATCCCTGAGAATCCAAAATTCTCCGTGCCACCTGTCACACCCCATCCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTCACATCCTTCCCGTACTAAGAAATTTAGGTTAAACATAGACCAAGAGCCTTCAAAGCCCTTAGTAAGTTA-CAACACTTAATTTCTGTAAGGACTGCAAAACCCTACTCTGCATCAACTGAACGCAAATCAGCCACTTTAATTAAGCTAAGCCCTTCTAGATCAATGGGACTCAAACCCACAAACATTTAGTTAACAGCTAAACACCCTAGTCAAC-TGGCTTCAATCTAAAGCCCCGGCAGG-TTTGAAGCTGCTTCTTCGAATTTGCAATTCAATATGAAAT-TCACCTCGGAGCTTGGTAAAAAGAGGCCCAGCCTCTGTCTTTAGATTTACAGTCCAATGCCTTA-CTCAGCCATTTTACCACAAAAAAGGAAGGAATCGAACCCCCCAAAGCTGGTTTCAAGCCAACCCCATGACCTTCATGACTTTTTCAAAAGATATTAGAAAAACTATTTCATAACTTTGTCAAGGTTAAATTACGGGTT-AAACCCCGTATATCTTA-CACTGTAAAGCTAACCTAGCGTTAACCTTTTAAGTTAAAGATTAAGAGTATCGGCACCTCTTTGCAGTGA"/>
+                            
+        <sequence id="seq_human" taxon="human" totalcount="4" value="AGAAATATGTCTGATAAAAGAGTTACTTTGATAGAGTAAATAATAGGAGCTTAAACCCCCTTATTTCTACTAGGACTATGAGAATCGAACCCATCCCTGAGAATCCAAAATTCTCCGTGCCACCTATCACACCCCATCCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTTATACCCTTCCCGTACTAAGAAATTTAGGTTAAATACAGACCAAGAGCCTTCAAAGCCCTCAGTAAGTTG-CAATACTTAATTTCTGTAAGGACTGCAAAACCCCACTCTGCATCAACTGAACGCAAATCAGCCACTTTAATTAAGCTAAGCCCTTCTAGACCAATGGGACTTAAACCCACAAACACTTAGTTAACAGCTAAGCACCCTAATCAAC-TGGCTTCAATCTAAAGCCCCGGCAGG-TTTGAAGCTGCTTCTTCGAATTTGCAATTCAATATGAAAA-TCACCTCGGAGCTTGGTAAAAAGAGGCCTAACCCCTGTCTTTAGATTTACAGTCCAATGCTTCA-CTCAGCCATTTTACCACAAAAAAGGAAGGAATCGAACCCCCCAAAGCTGGTTTCAAGCCAACCCCATGGCCTCCATGACTTTTTCAAAAGGTATTAGAAAAACCATTTCATAACTTTGTCAAAGTTAAATTATAGGCT-AAATCCTATATATCTTA-CACTGTAAAGCTAACTTAGCATTAACCTTTTAAGTTAAAGATTAAGAGAACCAACACCTCTTTACAGTGA"/>
+                            
+        <sequence id="seq_orangutan" taxon="orangutan" totalcount="4" value="AGAAATATGTCTGACAAAAGAGTTACTTTGATAGAGTAAAAAATAGAGGTCTAAATCCCCTTATTTCTACTAGGACTATGGGAATTGAACCCACCCCTGAGAATCCAAAATTCTCCGTGCCACCCATCACACCCCATCCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTTACACCCTTCCCGTACTAAGAAATTTAGGTTA--CACAGACCAAGAGCCTTCAAAGCCCTCAGCAAGTCA-CAGCACTTAATTTCTGTAAGGACTGCAAAACCCCACTTTGCATCAACTGAGCGCAAATCAGCCACTTTAATTAAGCTAAGCCCTCCTAGACCGATGGGACTTAAACCCACAAACATTTAGTTAACAGCTAAACACCCTAGTCAAT-TGGCTTCAGTCCAAAGCCCCGGCAGGCCTTAAAGCTGCTCCTTCGAATTTGCAATTCAACATGACAA-TCACCTCAGGGCTTGGTAAAAAGAGGTCTGACCCCTGTTCTTAGATTTACAGCCTAATGCCTTAACTCGGCCATTTTACCGCAAAAAAGGAAGGAATCGAACCTCCTAAAGCTGGTTTCAAGCCAACCCCATAACCCCCATGACTTTTTCAAAAGGTACTAGAAAAACCATTTCGTAACTTTGTCAAAGTTAAATTACAGGTC-AGACCCTGTGTATCTTA-CATTGCAAAGCTAACCTAGCATTAACCTTTTAAGTTAAAGACTAAGAGAACCAGCCTCTCTTTGCAATGA"/>
+                            
+        <sequence id="seq_siamang" taxon="siamang" totalcount="4" value="AGAAATACGTCTGACGAAAGAGTTACTTTGATAGAGTAAATAACAGGGGTTTAAATCCCCTTATTTCTACTAGAACCATAGGAGTCGAACCCATCCTTGAGAATCCAAAACTCTCCGTGCCACCCGTCGCACCCTGTTCTAAGTAAGGTCAGCTAAATAAGCTATCGGGCCCATACCCCGAAAATGTTGGTTATACCCTTCCCATACTAAGAAATTTAGGTTAAACACAGACCAAGAGCCTTCAAAGCCCTCAGTAAGTTAACAAAACTTAATTTCTGCAAGGGCTGCAAAACCCTACTTTGCATCAACCGAACGCAAATCAGCCACTTTAATTAAGCTAAGCCCTTCTAGATCGATGGGACTTAAACCCATAAAAATTTAGTTAACAGCTAAACACCCTAAACAACCTGGCTTCAATCTAAAGCCCCGGCAGA-GTTGAAGCTGCTTCTTTGAACTTGCAATTCAACGTGAAAAATCACTTCGGAGCTTGGCAAAAAGAGGTTTCACCTCTGTCCTTAGATTTACAGTCTAATGCTTTA-CTCAGCCACTTTACCACAAAAAAGGAAGGAATCGAACCCTCTAAAACCGGTTTCAAGCCAGCCCCATAACCTTTATGACTTTTTCAAAAGATATTAGAAAAACTATTTCATAACTTTGTCAAAGTTAAATCACAGGTCCAAACCCCGTATATCTTATCACTGTAGAGCTAGACCAGCATTAACCTTTTAAGTTAAAGACTAAGAGAACTACCGCCTCTTTACAGTGA"/>
+                        
+    </data>
+        
+
+
+    
+
+
+    
+
+    <map name="Uniform" >beast.math.distributions.Uniform</map>
+    
+    <map name="Exponential" >beast.math.distributions.Exponential</map>
+    
+    <map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+    
+    <map name="Normal" >beast.math.distributions.Normal</map>
+    
+    <map name="Beta" >beast.math.distributions.Beta</map>
+    
+    <map name="Gamma" >beast.math.distributions.Gamma</map>
+    
+    <map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+    
+    <map name="prior" >beast.math.distributions.Prior</map>
+    
+    <map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+    
+    <map name="OneOnX" >beast.math.distributions.OneOnX</map>
+    
+    <run id="mcmc" spec="beast.gss.NS" chainLength="100000" particleCount="1" subChainLength="5000" epsilon="1e-12">
+            
+        <state id="state" storeEvery="5000">
+                    
+            <tree id="Tree.t:primates" name="stateNode">
+                            
+                <taxonset id="TaxonSet.primates" spec="TaxonSet">
+                                    
+                    <alignment idref="primates"/>
+                                
+                </taxonset>
+                        
+            </tree>
+                    
+            <parameter id="birthRate.t:primates" name="stateNode">1.0</parameter>
+                    
+            <parameter id="freqParameter.s:primates" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+                    
+            <parameter id="rateAC.s:primates" lower="0.0" name="stateNode">1.0</parameter>
+                    
+            <parameter id="rateAG.s:primates" lower="0.0" name="stateNode">1.0</parameter>
+                    
+            <parameter id="rateAT.s:primates" lower="0.0" name="stateNode">1.0</parameter>
+                    
+            <parameter id="rateCG.s:primates" lower="0.0" name="stateNode">1.0</parameter>
+                    
+            <parameter id="rateGT.s:primates" lower="0.0" name="stateNode">1.0</parameter>
+                
+        </state>
+            
+        <init id="RandomTree.t:primates" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:primates" taxa="@primates">
+                    
+            <populationModel id="ConstantPopulation0.t:primates" spec="ConstantPopulation">
+                            
+                <parameter id="randomPopSize.t:primates" name="popSize">1.0</parameter>
+                        
+            </populationModel>
+                
+        </init>
+            
+        <distribution id="posterior" spec="util.CompoundDistribution">
+                    
+            <distribution id="prior" spec="util.CompoundDistribution">
+                            
+                <distribution id="YuleModel.t:primates" spec="beast.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:primates" tree="@Tree.t:primates"/>
+                            
+                <prior id="YuleBirthRatePrior.t:primates" name="distribution" x="@birthRate.t:primates">
+                                    
+                    <Uniform id="Uniform.1" name="distr" upper="Infinity"/>
+                                
+                </prior>
+                            
+                <prior id="RateACPrior.s:primates" name="distribution" x="@rateAC.s:primates">
+                                    
+                    <Gamma id="Gamma.0" name="distr">
+                                            
+                        <parameter id="RealParameter.1" estimate="false" name="alpha">0.05</parameter>
+                                            
+                        <parameter id="RealParameter.2" estimate="false" name="beta">10.0</parameter>
+                                        
+                    </Gamma>
+                                
+                </prior>
+                            
+                <prior id="RateAGPrior.s:primates" name="distribution" x="@rateAG.s:primates">
+                                    
+                    <Gamma id="Gamma.1" name="distr">
+                                            
+                        <parameter id="RealParameter.3" estimate="false" name="alpha">0.05</parameter>
+                                            
+                        <parameter id="RealParameter.4" estimate="false" name="beta">20.0</parameter>
+                                        
+                    </Gamma>
+                                
+                </prior>
+                            
+                <prior id="RateATPrior.s:primates" name="distribution" x="@rateAT.s:primates">
+                                    
+                    <Gamma id="Gamma.2" name="distr">
+                                            
+                        <parameter id="RealParameter.5" estimate="false" name="alpha">0.05</parameter>
+                                            
+                        <parameter id="RealParameter.6" estimate="false" name="beta">10.0</parameter>
+                                        
+                    </Gamma>
+                                
+                </prior>
+                            
+                <prior id="RateCGPrior.s:primates" name="distribution" x="@rateCG.s:primates">
+                                    
+                    <Gamma id="Gamma.3" name="distr">
+                                            
+                        <parameter id="RealParameter.7" estimate="false" name="alpha">0.05</parameter>
+                                            
+                        <parameter id="RealParameter.8" estimate="false" name="beta">10.0</parameter>
+                                        
+                    </Gamma>
+                                
+                </prior>
+                            
+                <prior id="RateGTPrior.s:primates" name="distribution" x="@rateGT.s:primates">
+                                    
+                    <Gamma id="Gamma.5" name="distr">
+                                            
+                        <parameter id="RealParameter.11" estimate="false" name="alpha">0.05</parameter>
+                                            
+                        <parameter id="RealParameter.12" estimate="false" name="beta">10.0</parameter>
+                                        
+                    </Gamma>
+                                
+                </prior>
+                        
+            </distribution>
+                    
+            <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+                            
+                <distribution id="treeLikelihood.primates" spec="ThreadedTreeLikelihood" data="@primates" tree="@Tree.t:primates">
+                                    
+                    <siteModel id="SiteModel.s:primates" spec="SiteModel">
+                                            
+                        <parameter id="mutationRate.s:primates" estimate="false" name="mutationRate">1.0</parameter>
+                                            
+                        <parameter id="gammaShape.s:primates" estimate="false" name="shape">1.0</parameter>
+                                            
+                        <parameter id="proportionInvariant.s:primates" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                                            
+                        <substModel id="gtr.s:primates" spec="GTR" rateAC="@rateAC.s:primates" rateAG="@rateAG.s:primates" rateAT="@rateAT.s:primates" rateCG="@rateCG.s:primates" rateGT="@rateGT.s:primates">
+                                                    
+                            <parameter id="rateCT.s:primates" estimate="false" lower="0.0" name="rateCT">1.0</parameter>
+                                                    
+                            <frequencies id="estimatedFreqs.s:primates" spec="Frequencies" frequencies="@freqParameter.s:primates"/>
+                                                
+                        </substModel>
+                                        
+                    </siteModel>
+                                    
+                    <branchRateModel id="StrictClock.c:primates" spec="beast.evolution.branchratemodel.StrictClockModel">
+                                            
+                        <parameter id="clockRate.c:primates" estimate="false" name="clock.rate">1.0</parameter>
+                                        
+                    </branchRateModel>
+                                
+                </distribution>
+                        
+            </distribution>
+                
+        </distribution>
+            
+        <operator id="YuleBirthRateScaler.t:primates" spec="ScaleOperator" parameter="@birthRate.t:primates" scaleFactor="0.75" weight="3.0"/>
+            
+        <operator id="YuleModelTreeScaler.t:primates" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:primates" weight="3.0"/>
+            
+        <operator id="YuleModelTreeRootScaler.t:primates" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:primates" weight="3.0"/>
+            
+        <operator id="YuleModelUniformOperator.t:primates" spec="Uniform" tree="@Tree.t:primates" weight="30.0"/>
+            
+        <operator id="YuleModelSubtreeSlide.t:primates" spec="SubtreeSlide" tree="@Tree.t:primates" weight="15.0"/>
+            
+        <operator id="YuleModelNarrow.t:primates" spec="Exchange" tree="@Tree.t:primates" weight="15.0"/>
+            
+        <operator id="YuleModelWide.t:primates" spec="Exchange" isNarrow="false" tree="@Tree.t:primates" weight="3.0"/>
+            
+        <operator id="YuleModelWilsonBalding.t:primates" spec="WilsonBalding" tree="@Tree.t:primates" weight="3.0"/>
+            
+        <operator id="FrequenciesExchanger.s:primates" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+                    
+            <parameter idref="freqParameter.s:primates"/>
+                
+        </operator>
+            
+        <operator id="RateACScaler.s:primates" spec="ScaleOperator" parameter="@rateAC.s:primates" scaleFactor="0.5" weight="0.1"/>
+            
+        <operator id="RateAGScaler.s:primates" spec="ScaleOperator" parameter="@rateAG.s:primates" scaleFactor="0.5" weight="0.1"/>
+            
+        <operator id="RateATScaler.s:primates" spec="ScaleOperator" parameter="@rateAT.s:primates" scaleFactor="0.5" weight="0.1"/>
+            
+        <operator id="RateCGScaler.s:primates" spec="ScaleOperator" parameter="@rateCG.s:primates" scaleFactor="0.5" weight="0.1"/>
+            
+        <operator id="RateGTScaler.s:primates" spec="ScaleOperator" parameter="@rateGT.s:primates" scaleFactor="0.5" weight="0.1"/>
+            
+        <logger id="tracelog" fileName="primates.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+                    
+            <log idref="posterior"/>
+                    
+            <log idref="likelihood"/>
+                    
+            <log idref="prior"/>
+                    
+            <log idref="treeLikelihood.primates"/>
+                    
+            <log id="TreeHeight.t:primates" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:primates"/>
+                    
+            <log idref="YuleModel.t:primates"/>
+                    
+            <log idref="birthRate.t:primates"/>
+                    
+            <log idref="freqParameter.s:primates"/>
+                    
+            <log idref="rateAC.s:primates"/>
+                    
+            <log idref="rateAG.s:primates"/>
+                    
+            <log idref="rateAT.s:primates"/>
+                    
+            <log idref="rateCG.s:primates"/>
+                    
+            <log idref="rateGT.s:primates"/>
+                
+        </logger>
+            
+        <logger id="screenlog" logEvery="1000">
+                    
+            <log idref="posterior"/>
+                    
+            <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+                    
+            <log idref="likelihood"/>
+                    
+            <log idref="prior"/>
+                
+        </logger>
+            
+        <logger id="treelog.t:primates" fileName="$(tree).trees" logEvery="1000" mode="tree">
+                    
+            <log id="TreeWithMetaDataLogger.t:primates" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:primates"/>
+                
+        </logger>
+        
+    </run>
+    
+</beast>
