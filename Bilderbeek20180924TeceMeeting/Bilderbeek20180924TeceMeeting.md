@@ -288,6 +288,22 @@ BF = ----------------------------
  * Marginal likelihood is the likelihood of the data fitting the model
  * More complex models are penalized
 
+Bayes factor interpretation
+========================================================
+
+K|Strength evidence
+---|---
+`0` to `10^0` | Negative
+`10^0` to `10^0.5`|Barely worth mentioning 
+`10^0.5` to `10^1.0`|Substantial
+`10^1.0` to `10^1.5`|Strong
+`10^1.5` to `10^2.0`|Very strong
+`10^2` and above|Decisive
+
+
+
+
+
 Bayes' theorem
 ========================================================
 
@@ -309,5 +325,18 @@ Demo figures
 ========================================================
 ![BEAST2 package manager](beast2_package_manager.png)
 ***
-![Marginal likelihood](marginal_likelihood.png)
+JC69:
+![Marginal likelihood JC69](primates_mar_lik_jc69.png)
+GTR:
+![Marginal likelihood GTR](primates_mar_lik_gtr.png)
 
+Conclusion
+========================================================
+
+```
+     10 ^ -1935
+BF = ---------- = 10 ^ -125
+     10 ^ -1810
+```
+
+Decisive support for the GTR model!
