@@ -174,10 +174,6 @@ Show how to:
  * View the dated posterior phylogenies
  * View the effective sample size
 
-```
-<run id="mcmc" spec="beast.gss.NS" chainLength="100000" particleCount="1" subChainLength="5000" epsilon="1e-12">
-```
-
 Demo pictures
 ========================================================
 ![Densitree dated](densitree_dated.png)
@@ -326,6 +322,10 @@ Demo
 ========================================================
 
 Show in BEAST2.
+
+```
+<run id="mcmc" spec="beast.gss.NS" chainLength="100000" particleCount="1" subChainLength="5000" epsilon="1e-12">
+```
 
 Demo figures
 ========================================================
