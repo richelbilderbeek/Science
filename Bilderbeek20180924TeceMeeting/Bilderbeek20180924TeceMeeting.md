@@ -14,7 +14,7 @@ Goal
 ========================================================
 
 Show some aspects of phylogenetic research
-  * Driven by research questions 
+  * Driven by research questions
   * Bayesian approach
   * Model comparison
   * first, using BEAST2
@@ -28,7 +28,7 @@ Show some aspects of phylogenetic research
 Research questions
 ========================================================
 
-![A dinosaur phylogeny](dinosaurs_phylogeny.jpg)
+![A primate cladogram](primate_cladogram_simplified_beast2.png)
 ***
  * 1. Whom are closest related?
  * 2. Who lived when?
@@ -63,8 +63,8 @@ What tool do we use?
 
  * BEAST2: Bayesian Evolutionary Analysis by Sampling Trees
  * Widely used
- * Use to get started
- 
+ * Easy to get started
+
 ***
 ![BEAST2 book](beast_book.jpg)
 
@@ -117,7 +117,7 @@ But ... how often?
 ```r
 has_canonical_topology <- function(tree) {
   !is.na(stringr::str_match(
-    ape::write.tree(tree), 
+    ape::write.tree(tree),
     "siamang:[0-9\\.]+\\):0;")[1][1])
 }
 count_canonical_topologies <- function(trees) {
@@ -137,7 +137,7 @@ count_canonical_topologies(trees) # out of 50
 Discussion
 ========================================================
 
- * Approximately 40 out of 50 phylogenies follow the canonical topology 
+ * Approximately 40 out of 50 phylogenies follow the canonical topology
  * Effective sample size is below the recommended 200
  * Undated nodes
  * Use JC69 site model and Yule (Pure-Birth) speciation model
@@ -147,17 +147,17 @@ Do the same with `babette`
 
 
 ```r
-mcmc <- create_mcmc(chain_length = 10000)
+mcmc <- create_mcmc(chain_length = 100000)
 count_canonical_topologies(
   bbt_run(
-    "primates.fas", 
-    mcmc = mcmc 
-  )$primates_trees[6:10]
+    "primates.fas",
+    mcmc = mcmc
+  )$primates_trees[51:100]
 ) # out of 5
 ```
 
 ```
-[1] 3
+[1] 34
 ```
 
 2. Who lived when?
@@ -166,14 +166,14 @@ count_canonical_topologies(
 ***
  * But when?
  * Assume a crown age of 17.58 Mya (from Purvis, 1995)
- 
+
 Demo
 ========================================================
 Show how to:
 
  * View the dated posterior phylogenies
  * View the effective sample size
- 
+
 Demo pictures
 ========================================================
 ![Densitree dated](densitree_dated.png)
@@ -230,7 +230,7 @@ Specify the crown age:
 
 ```r
 mrca_distr <- create_normal_distr(
-  mean = create_mean_param(value = 17.58), 
+  mean = create_mean_param(value = 17.58),
   sigma = create_sigma_param(value = 0.01)
 )
 ```
@@ -242,7 +242,8 @@ Specify an MRCA prior containing all species:
 mrca_prior <- create_mrca_prior(
   get_alignment_id("primates.fas"),
   taxa_names = get_taxa_names("primates.fas"),
-  mrca_distr = mrca_distr
+  mrca_distr = mrca_distr,
+  is_monophyletic = TRUE
 )
 ```
 
@@ -254,16 +255,16 @@ Do the same with `babette`
 mean(
   get_divergence_times(
     bbt_run(
-      "primates.fas", 
+      "primates.fas",
       mcmc = mcmc,
       mrca_priors = mrca_prior
-    )$primates_trees[6:10]
+    )$primates_trees[51:100]
   )
 )
 ```
 
 ```
-[1] 1.104167
+[1] 6.153677
 ```
 
 3. Which model to use?
@@ -275,6 +276,18 @@ Nucleotide substitution models:
  * GTR: all rates can be different
 
 But how to guard against overfitting?
+
+Bayes' theorem
+========================================================
+
+```
+            likelihood * prior
+posterior = --------------------
+            marginal likelihood
+```
+
+ * Marginal likelihood hard to calculate
+ * BEAST2 circumvents to do so
 
 Bayes factor
 ========================================================
@@ -294,27 +307,16 @@ Bayes factor interpretation
 K|Strength evidence
 ---|---
 `0` to `10^0` | Negative
-`10^0` to `10^0.5`|Barely worth mentioning 
+`10^0` to `10^0.5`|Barely worth mentioning
 `10^0.5` to `10^1.0`|Substantial
 `10^1.0` to `10^1.5`|Strong
 `10^1.5` to `10^2.0`|Very strong
 `10^2` and above|Decisive
 
-
-
-
-
-Bayes' theorem
+Estimating a marginal likelihood
 ========================================================
 
-```
-            likelihood * prior
-posterior = --------------------
-            marginal likelihood
-```
-
- * Marginal likelihood hard to calculate
- * BEAST2 circumvents to do so
+![](maturana_et_al_2018.png)
 
 Demo
 ========================================================
@@ -334,9 +336,9 @@ Conclusion
 ========================================================
 
 ```
-     10 ^ -1935
-BF = ---------- = 10 ^ -125
-     10 ^ -1810
+     e ^ -1935
+BF = ---------- = e ^ -125
+     e ^ -1810
 ```
 
 Decisive support for the GTR model!
@@ -347,7 +349,7 @@ Discussion
  * Effective sample size is below the recommended 200
  * Nested sampling setup was also short
  * We only compare two models
- 
+
 Do the same with `babette`
 ========================================================
 
@@ -356,7 +358,7 @@ Setup the MCMC to use nested sampling:
 
 ```r
 mcmc <- create_mcmc_nested_sampling(
-  chain_length = 10000, sub_chain_length = 500
+  chain_length = 100000, sub_chain_length = 5000
 )
 ```
 
@@ -395,7 +397,11 @@ Do the same with `babette`
 
 
 ```r
-bf <- 10.0 ^ (ns_jc69$marg_log_lik - ns_gtr$marg_log_lik)
+exp(ns_jc69$marg_log_lik - ns_gtr$marg_log_lik)
+```
+
+```
+[1] 6.683701e-60
 ```
 
 Overall conclusion
@@ -404,3 +410,7 @@ Overall conclusion
  * BEAST2 offers a flexible framework to answer many questions
  * BEAST2 is beginner-friendly
  * `babette` provides for iterative usage
+
+Questions?
+========================================================
+
