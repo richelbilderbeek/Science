@@ -4,12 +4,10 @@ This is the place where I store my (public) science work.
 Most recent work is at the top. 
 This list displayed in this README is incomplete.
 
-## `Bilderbeek20180509ggplot2`
+ * [From alignment to Bayes factor](Bilderbeek20180924TeceMeeting/README.md)
+ * [Why the Galápagos is a bad illustration of DAISIE...](Bilderbeek20180622/README.md)
+ * [ggplot2](Bilderbeek20180509ggplot2/README.md)
 
-Talk about `ggplot2`. 
-
- * Moved to my [PresentationsAboutR](https://github.com/richelbilderbeek/PresentationsAboutR) GitHub
- * View this talk: [YouTube](https://youtu.be/bZYvmdJ-47A)
 
 ## `Bilderbeek20180502TeceMeeting`
 

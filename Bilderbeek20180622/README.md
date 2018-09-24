@@ -1,6 +1,6 @@
-# `Bilderbeek20180622`
+# Why the Galápagos is a bad illustration of DAISIE...
 
-Presentation about why the Galapagos example misillustrates DAISIE.
+This presentation takes a devil's advocate approach to DAISIE.
 
 ## Figure 1
 
