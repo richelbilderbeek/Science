@@ -15,10 +15,9 @@ Goal
 
 Show some aspects of phylogenetic research
   * Driven by research questions
-  * Bayesian approach
-  * Model comparison
-  * first, using BEAST2
-  * second, using `babette`
+  * Bayesian inference
+  * Bayesian model comparison
+  * Using BEAST2 and `babette`
 
 ***
 ![BEAST2 logo](beast2_logo.png)
@@ -138,7 +137,7 @@ count_canonical_topologies(trees) # out of 50
 ```
 
 ```
-[1] 44
+[1] 36
 ```
 
 Do the same with `babette`
@@ -435,10 +434,18 @@ exp(ns_jc69$marg_log_lik - ns_gtr$marg_log_lik) # Bayes factor
 Overall conclusion
 ========================================================
 
- * BEAST2 offers a flexible framework to answer many questions
+ * Phylogenetic Bayesian inference is flexible
  * BEAST2 is beginner-friendly
- * `babette` provides for iterative usage
+ * `babette` allows advanced usage
+![BEAST2 logo](beast2_logo.png)
+
+***
+![babette logo](babette_logo.png)
 
 Questions?
 ========================================================
 
+![](1_densitree.png)
+***
+![babette logo](babette_logo.png)
+![BEAST2 logo](beast2_logo.png)
