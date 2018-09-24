@@ -41,7 +41,7 @@
     
     <map name="OneOnX" >beast.math.distributions.OneOnX</map>
     
-    <run id="mcmc" spec="MCMC" chainLength="100000">
+    <run id="mcmc" spec="beast.gss.NS" chainLength="100000" particleCount="1" subChainLength="5000" epsilon="1e-12">
             
         <state id="state" storeEvery="5000">
                     
@@ -56,8 +56,6 @@
             </tree>
                     
             <parameter id="birthRate.t:primates" name="stateNode">1.0</parameter>
-                    
-            <parameter id="clockRate.c:primates" name="stateNode">1.0</parameter>
                 
         </state>
             
@@ -82,38 +80,6 @@
                     <Uniform id="Uniform.1" name="distr" upper="Infinity"/>
                                 
                 </prior>
-                            
-                <prior id="ClockPrior.c:primates" name="distribution" x="@clockRate.c:primates">
-                                    
-                    <Uniform id="Uniform.0" name="distr" upper="Infinity"/>
-                                
-                </prior>
-                            
-                <distribution id="crown.prior" spec="beast.math.distributions.MRCAPrior" tree="@Tree.t:primates">
-                                    
-                    <taxonset id="crown" spec="TaxonSet">
-                                            
-                        <taxon id="chimp" spec="Taxon"/>
-                                            
-                        <taxon id="gorilla" spec="Taxon"/>
-                                            
-                        <taxon id="human" spec="Taxon"/>
-                                            
-                        <taxon id="orangutan" spec="Taxon"/>
-                                            
-                        <taxon id="siamang" spec="Taxon"/>
-                                        
-                    </taxonset>
-                                    
-                    <Normal id="Normal.0" name="distr">
-                                            
-                        <parameter id="RealParameter.1" estimate="false" name="mean">17.58</parameter>
-                                            
-                        <parameter id="RealParameter.2" estimate="false" name="sigma">0.01</parameter>
-                                        
-                    </Normal>
-                                
-                </distribution>
                         
             </distribution>
                     
@@ -133,7 +99,11 @@
                                         
                     </siteModel>
                                     
-                    <branchRateModel id="StrictClock.c:primates" spec="beast.evolution.branchratemodel.StrictClockModel" clock.rate="@clockRate.c:primates"/>
+                    <branchRateModel id="StrictClock.c:primates" spec="beast.evolution.branchratemodel.StrictClockModel">
+                                            
+                        <parameter id="clockRate.c:primates" estimate="false" name="clock.rate">1.0</parameter>
+                                        
+                    </branchRateModel>
                                 
                 </distribution>
                         
@@ -157,16 +127,6 @@
             
         <operator id="YuleModelWilsonBalding.t:primates" spec="WilsonBalding" tree="@Tree.t:primates" weight="3.0"/>
             
-        <operator id="StrictClockRateScaler.c:primates" spec="ScaleOperator" parameter="@clockRate.c:primates" scaleFactor="0.75" weight="3.0"/>
-            
-        <operator id="strictClockUpDownOperator.c:primates" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
-                    
-            <up idref="clockRate.c:primates"/>
-                    
-            <down idref="Tree.t:primates"/>
-                
-        </operator>
-            
         <logger id="tracelog" fileName="primates.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
                     
             <log idref="posterior"/>
@@ -182,10 +142,6 @@
             <log idref="YuleModel.t:primates"/>
                     
             <log idref="birthRate.t:primates"/>
-                    
-            <log idref="crown.prior"/>
-                    
-            <log idref="clockRate.c:primates"/>
                 
         </logger>
             

@@ -80,15 +80,15 @@ Show how to:
 Demo pictures
 ========================================================
 
-![Densitree](densitree.png)
+![Densitree](1_densitree.png)
 ***
-![Tracer](tracer.png)
+![Tracer](1_tracer.png)
 
 Conclusion
 ========================================================
 ![A primate cladogram](primate_cladogram_simplified_beast2.png)
 ***
-![Densitree](densitree.png)
+![Densitree](1_densitree.png)
 
 But ... how often?
 ========================================================
@@ -127,20 +127,19 @@ count_canonical_topologies <- function(trees) {
   }
   n
 }
+```
+
+But ... how often?
+========================================================
+
+
+```r
 count_canonical_topologies(trees) # out of 50
 ```
 
 ```
 [1] 44
 ```
-
-Discussion
-========================================================
-
- * Approximately 40 out of 50 phylogenies follow the canonical topology
- * Effective sample size is below the recommended 200
- * Undated nodes
- * Use JC69 site model and Yule (Pure-Birth) speciation model
 
 Do the same with `babette`
 ========================================================
@@ -151,18 +150,27 @@ mcmc <- create_mcmc(chain_length = 100000)
 count_canonical_topologies(
   bbt_run(
     "primates.fas",
-    mcmc = mcmc
+    mcmc = mcmc,
+    rng_seed = 42,
   )$primates_trees[51:100]
-) # out of 5
+) # out of 50
 ```
 
 ```
-[1] 34
+[1] 36
 ```
+
+Discussion
+========================================================
+
+ * Approximately 40 out of 50 phylogenies follow the canonical topology
+ * Effective sample size is below the recommended 200
+ * Undated nodes
+ * Use JC69 site model and Yule (Pure-Birth) speciation model
 
 2. Who lived when?
 ========================================================
-![Densitree](densitree.png)
+![Densitree](1_densitree.png)
 ***
  * But when?
  * Assume a crown age of 17.58 Mya (from Purvis, 1995)
@@ -171,14 +179,21 @@ Demo
 ========================================================
 Show how to:
 
+ * Setup BEAUti
  * View the dated posterior phylogenies
- * View the effective sample size
+ * View the trace and effective sample sizes
 
 Demo pictures
 ========================================================
-![Densitree dated](densitree_dated.png)
-***
-![Tracer dated](tracer_dated.png)
+![BEAUti dated](2_beauti.png)
+
+Demo pictures
+========================================================
+![Densitree dated](2_densitree.png)
+
+Demo pictures
+========================================================
+![Tracer dated](2_tracer.png)
 
 Conclusion
 ========================================================
@@ -213,14 +228,8 @@ mean(get_divergence_times(trees))
 ```
 
 ```
-[1] 6.167756
+[1] 5.760481
 ```
-
-Discussion
-========================================================
-
- * Effective sample size is below the recommended 200
- * Use JC69 site model and Yule (Pure-Birth) speciation model
 
 Do the same with `babette`
 ========================================================
@@ -257,37 +266,33 @@ mean(
     bbt_run(
       "primates.fas",
       mcmc = mcmc,
-      mrca_priors = mrca_prior
+      mrca_priors = mrca_prior,
+      rng_seed = 42,
     )$primates_trees[51:100]
   )
 )
 ```
 
 ```
-[1] 6.153677
+[1] 6.187762
 ```
+
+Discussion
+========================================================
+
+ * Trace has not converged
+ * Effective sample size is below the recommended 200
+ * Use JC69 site model and Yule (Pure-Birth) speciation model
 
 3. Which model to use?
 ========================================================
-![Nucleotide substitution rates](nucleotide_substitutions.gif)
+![Nucleotide substitution rates](nucleotide_substitutions.png)
 ***
 Nucleotide substitution models:
  * JC69: all rates are the same
  * GTR: all rates can be different
 
 But how to guard against overfitting?
-
-Bayes' theorem
-========================================================
-
-```
-            likelihood * prior
-posterior = --------------------
-            marginal likelihood
-```
-
- * Marginal likelihood hard to calculate
- * BEAST2 circumvents to do so
 
 Bayes factor
 ========================================================
@@ -298,8 +303,7 @@ BF = ----------------------------
      marginal likelihood model B
 ```
 
- * Marginal likelihood is the likelihood of the data fitting the model
- * More complex models are penalized
+ * Marginal likelihood is the probability of the data given the model
 
 Bayes factor interpretation
 ========================================================
@@ -330,19 +334,20 @@ Show in BEAST2.
 Demo figures
 ========================================================
 ![BEAST2 package manager](beast2_package_manager.png)
+
+Demo figures
+========================================================
+![Marginal likelihood JC69](3_jc69.png)
 ***
-JC69:
-![Marginal likelihood JC69](primates_mar_lik_jc69.png)
-GTR:
-![Marginal likelihood GTR](primates_mar_lik_gtr.png)
+![Marginal likelihood GTR](3_gtr.png)
 
 Conclusion
 ========================================================
 
 ```
-     e ^ -1935
-BF = ---------- = e ^ -125
-     e ^ -1810
+     e ^ -1940
+BF = ---------- = e ^ -140
+     e ^ -1800
 ```
 
 Decisive support for the GTR model!
@@ -377,6 +382,7 @@ ns_jc69 <- bbt_run(
   "primates.fas",
   site_models = create_jc69_site_model(),
   mcmc = mcmc,
+  rng_seed = 42,
   beast2_path = get_default_beast2_bin_path()
 )$ns
 ```
@@ -392,6 +398,7 @@ ns_gtr <- bbt_run(
   "primates.fas",
   site_models = create_gtr_site_model(),
   mcmc = mcmc,
+  rng_seed = 42,
   beast2_path = get_default_beast2_bin_path()
 )$ns
 ```
@@ -401,11 +408,28 @@ Do the same with `babette`
 
 
 ```r
-exp(ns_jc69$marg_log_lik - ns_gtr$marg_log_lik)
+ns_jc69$marg_log_lik
 ```
 
 ```
-[1] 6.683701e-60
+[1] -1940.06
+```
+
+```r
+ns_gtr$marg_log_lik
+```
+
+```
+[1] -1809.543
+```
+
+
+```r
+exp(ns_jc69$marg_log_lik - ns_gtr$marg_log_lik) # Bayes factor
+```
+
+```
+[1] 2.075826e-57
 ```
 
 Overall conclusion
