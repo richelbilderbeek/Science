@@ -144,6 +144,9 @@ Do the same with `babette`
 ========================================================
 
 ![babette logo](babette_logo.png)
+***
+ * Create an MCMC
+ * Run
 
 Do the same with `babette`
 ========================================================
@@ -154,14 +157,13 @@ mcmc <- create_mcmc(chain_length = 100000)
 count_canonical_topologies(
   bbt_run(
     "primates.fas",
-    mcmc = mcmc,
-    rng_seed = 42
+    mcmc = mcmc
   )$primates_trees[51:100]
 ) # out of 50
 ```
 
 ```
-[1] 36
+[1] 34
 ```
 
 Discussion
@@ -239,6 +241,11 @@ Do the same with `babette`
 ========================================================
 
 ![babette logo](babette_logo.png)
+***
+ * Create an MRCA prior distribution
+ * Create an MRCA prior
+ * Run
+
 
 Do the same with `babette`
 ========================================================
@@ -275,15 +282,14 @@ mean(
     bbt_run(
       "primates.fas",
       mcmc = mcmc,
-      mrca_priors = mrca_prior,
-      rng_seed = 42
+      mrca_priors = mrca_prior
     )$primates_trees[51:100]
   )
 )
 ```
 
 ```
-[1] 6.187762
+[1] 6.153677
 ```
 
 Discussion
@@ -365,6 +371,8 @@ Do the same with `babette`
 ========================================================
 
 ![babette logo](babette_logo.png)
+ * Create a nested sampling MCMC
+ * Run twice
 
 Do the same with `babette`
 ========================================================
@@ -389,7 +397,6 @@ ns_jc69 <- bbt_run(
   "primates.fas",
   site_models = create_jc69_site_model(),
   mcmc = mcmc,
-  rng_seed = 42,
   beast2_path = get_default_beast2_bin_path()
 )$ns
 ```
@@ -405,7 +412,6 @@ ns_gtr <- bbt_run(
   "primates.fas",
   site_models = create_gtr_site_model(),
   mcmc = mcmc,
-  rng_seed = 42,
   beast2_path = get_default_beast2_bin_path()
 )$ns
 ```
@@ -464,3 +470,10 @@ Questions?
 ***
 ![babette logo](babette_logo.png)
 ![BEAST2 logo](beast2_logo.png)
+
+`babette` family
+========================================================
+
+![](babette_dependencies.png)
+***
+![](babette_build_statuses.png)
