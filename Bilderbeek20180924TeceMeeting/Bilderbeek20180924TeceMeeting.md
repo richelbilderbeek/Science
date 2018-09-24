@@ -29,11 +29,11 @@ Research questions
 
 ![A primate cladogram](primate_cladogram_simplified_beast2.png)
 ***
- * 1. Whom are closest related?
+ * 1. Who are closest related?
  * 2. Who lived when?
  * 3. Which model to use?
 
-1. Whom are closest related?
+1. Who are closest related?
 ========================================================
 
 ![A primate cladogram](primate_cladogram_simplified_beast2.png)
@@ -277,15 +277,19 @@ Do the same with `babette`
 
 
 ```r
-mean(
-  get_divergence_times(
-    bbt_run(
-      "primates.fas",
-      mcmc = mcmc,
-      mrca_priors = mrca_prior
-    )$primates_trees[51:100]
-  )
-)
+trees <- bbt_run(
+  "primates.fas",
+  mcmc = mcmc,
+  mrca_priors = mrca_prior
+)$primates_trees[51:100]
+```
+
+Do the same with `babette`
+========================================================
+
+
+```r
+mean(get_divergence_times(trees))
 ```
 
 ```
@@ -323,7 +327,7 @@ BF = ----------------------------
 Bayes factor interpretation
 ========================================================
 
-K|Strength evidence
+BF|Strength evidence
 ---|---
 `0` to `10^0` | Negative
 `10^0` to `10^0.5`|Barely worth mentioning
@@ -331,6 +335,25 @@ K|Strength evidence
 `10^1.0` to `10^1.5`|Strong
 `10^1.5` to `10^2.0`|Very strong
 `10^2` and above|Decisive
+
+Bayes factor interpretation
+========================================================
+
+
+```r
+interpret_bayes_factor <- function(bayes_factor) {
+  if (bayes_factor < 10^-2.0) "decisive for GTR"
+  else if (bayes_factor < 10^-1.5) "very strong for GTR"
+  else if (bayes_factor < 10^-1.0) "strong for GTR"
+  else if (bayes_factor < 10^-0.5) "substantial for GTR"
+  else if (bayes_factor < 10^0.0) "barely worth mentioning"
+  else if (bayes_factor < 10^0.5) "barely worth mentioning"
+  else if (bayes_factor < 10^1.0) "substantial for JC69"
+  else if (bayes_factor < 10^1.5) "strong for JC69"
+  else if (bayes_factor < 10^2.0) "very strong for JC69"
+  else "decisive for JC69"
+}
+```
 
 Estimating a marginal likelihood
 ========================================================
@@ -425,7 +448,7 @@ ns_jc69$marg_log_lik
 ```
 
 ```
-[1] -1940.06
+[1] -1934.778
 ```
 
 ```r
@@ -433,16 +456,18 @@ ns_gtr$marg_log_lik
 ```
 
 ```
-[1] -1809.543
+[1] -1798.523
 ```
 
 
 ```r
-exp(ns_jc69$marg_log_lik - ns_gtr$marg_log_lik) # Bayes factor
+interpret_bayes_factor(
+  exp(ns_jc69$marg_log_lik - ns_gtr$marg_log_lik)
+)
 ```
 
 ```
-[1] 2.075826e-57
+[1] "decisive for GTR"
 ```
 
 Discussion
@@ -477,3 +502,22 @@ Questions?
 ![](babette_dependencies.png)
 ***
 ![](babette_build_statuses.png)
+
+Bayes factor interpretation test
+========================================================
+
+
+```r
+testit::assert(interpret_bayes_factor(1 / 123.0) == "decisive for GTR")
+testit::assert(interpret_bayes_factor(1 / 85.0) == "very strong for GTR")
+testit::assert(interpret_bayes_factor(1 / 12.5) == "strong for GTR")
+testit::assert(interpret_bayes_factor(1 / 8.5) == "substantial for GTR")
+testit::assert(interpret_bayes_factor(1 / 1.5) == "barely worth mentioning")
+testit::assert(interpret_bayes_factor(0.99) == "barely worth mentioning")
+testit::assert(interpret_bayes_factor(1.01) == "barely worth mentioning")
+testit::assert(interpret_bayes_factor(1.5) == "barely worth mentioning")
+testit::assert(interpret_bayes_factor(8.5) == "substantial for JC69")
+testit::assert(interpret_bayes_factor(12.5) == "strong for JC69")
+testit::assert(interpret_bayes_factor(85.0) == "very strong for JC69")
+testit::assert(interpret_bayes_factor(123.0) == "decisive for JC69")
+```
