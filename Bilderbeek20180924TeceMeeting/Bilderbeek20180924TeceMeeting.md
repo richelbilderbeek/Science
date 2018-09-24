@@ -143,6 +143,11 @@ count_canonical_topologies(trees) # out of 50
 Do the same with `babette`
 ========================================================
 
+![babette logo](babette_logo.png)
+
+Do the same with `babette`
+========================================================
+
 
 ```r
 mcmc <- create_mcmc(chain_length = 100000)
@@ -150,7 +155,7 @@ count_canonical_topologies(
   bbt_run(
     "primates.fas",
     mcmc = mcmc,
-    rng_seed = 42,
+    rng_seed = 42
   )$primates_trees[51:100]
 ) # out of 50
 ```
@@ -233,6 +238,11 @@ mean(get_divergence_times(trees))
 Do the same with `babette`
 ========================================================
 
+![babette logo](babette_logo.png)
+
+Do the same with `babette`
+========================================================
+
 Specify the crown age:
 
 
@@ -266,7 +276,7 @@ mean(
       "primates.fas",
       mcmc = mcmc,
       mrca_priors = mrca_prior,
-      rng_seed = 42,
+      rng_seed = 42
     )$primates_trees[51:100]
   )
 )
@@ -351,12 +361,10 @@ BF = ---------- = e ^ -140
 
 Decisive support for the GTR model!
 
-Discussion
+Do the same with `babette`
 ========================================================
 
- * Effective sample size is below the recommended 200
- * Nested sampling setup was also short
- * We only compare two models
+![babette logo](babette_logo.png)
 
 Do the same with `babette`
 ========================================================
@@ -430,6 +438,13 @@ exp(ns_jc69$marg_log_lik - ns_gtr$marg_log_lik) # Bayes factor
 ```
 [1] 2.075826e-57
 ```
+
+Discussion
+========================================================
+
+ * Effective sample size is below the recommended 200
+ * Nested sampling setup was also short
+ * We only compare two models
 
 Overall conclusion
 ========================================================
