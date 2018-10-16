@@ -222,18 +222,21 @@ ape::plot.phylo(
 ***
 ![plot of chunk unnamed-chunk-16](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-16-1.png)
 
-Constant-rate birth death
+Constant-rate birth death assumptions
 ========================================================
 
- * Speciation is instantaneous
+ * Instantaneous speciation  (Fennessy et al., 2016)
 
 ![](fenessy_nubian_giraffe.jpg)
 
-From Fennessy et al., 2016
 
 ***
 
- * Speciation events are at different time
+ * One speciation event per time
+
+![](fishes_in_lake.png)
+
+
 
 
 References
