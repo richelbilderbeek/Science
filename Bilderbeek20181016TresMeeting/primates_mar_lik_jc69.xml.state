@@ -1,0 +1,16 @@
+<itsabeastystatewerein version='2.0' sample='100000'>
+<statenode id='Tree.t:primates'>((((0:0.02100403175434227,2:0.02100403175434227)5:0.008662642290657156,1:0.029666674044999425)6:0.02160767885470305,3:0.051274352899702474)7:0.008777387801183874,4:0.06005174070088635)8:0.0</statenode>
+<statenode id='birthRate.t:primates'>birthRate.t:primates[1 1] (-Infinity,Infinity): 12.253545885219134 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"YuleBirthRateScaler.t:primates","p":0.75,"accept":4966,"reject":1649,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeScaler.t:primates","p":0.5,"accept":940,"reject":5865,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:primates","p":0.5,"accept":653,"reject":6018,"acceptFC":0,"rejectFC":0,"rejectIv":1541,"rejectOp":1541},
+{"id":"YuleModelUniformOperator.t:primates","p":"NaN","accept":14512,"reject":50965,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:primates","p":1,"accept":256,"reject":32952,"acceptFC":0,"rejectFC":0,"rejectIv":16297,"rejectOp":16297},
+{"id":"YuleModelNarrow.t:primates","p":"NaN","accept":5508,"reject":27483,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWide.t:primates","p":"NaN","accept":321,"reject":6310,"acceptFC":0,"rejectFC":0,"rejectIv":3798,"rejectOp":3798},
+{"id":"YuleModelWilsonBalding.t:primates","p":"NaN","accept":185,"reject":6417,"acceptFC":0,"rejectFC":0,"rejectIv":3888,"rejectOp":3888}
+]}
+-->

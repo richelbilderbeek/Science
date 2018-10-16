@@ -1,0 +1,19 @@
+<itsabeastystatewerein version='2.0' sample='100000'>
+<statenode id='Tree.t:primates'>(((0:8.417081009094007,2:8.417081009094007)5:1.528003625719501,1:9.945084634813508)7:7.620781673019788,(3:17.500075038297474,4:17.500075038297474)6:0.06579126953582204)8:0.0</statenode>
+<statenode id='birthRate.t:primates'>birthRate.t:primates[1 1] (-Infinity,Infinity): 0.0928352053259926 </statenode>
+<statenode id='clockRate.c:primates'>clockRate.c:primates[1 1] (0.0,Infinity): 0.0033041496118197664 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"YuleBirthRateScaler.t:primates","p":0.250983025248236,"accept":1780,"reject":1960,"acceptFC":966,"rejectFC":1747,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeScaler.t:primates","p":0.8497504216037607,"accept":17,"reject":3644,"acceptFC":13,"rejectFC":2660,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:primates","p":0.8458866039257069,"accept":11,"reject":3725,"acceptFC":8,"rejectFC":2676,"rejectIv":229,"rejectOp":229},
+{"id":"YuleModelUniformOperator.t:primates","p":"NaN","accept":9776,"reject":27291,"acceptFC":7725,"rejectFC":19320,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:primates","p":0.40565457070238004,"accept":6452,"reject":11948,"acceptFC":6373,"rejectFC":7049,"rejectIv":3037,"rejectOp":3037},
+{"id":"YuleModelNarrow.t:primates","p":"NaN","accept":939,"reject":17675,"acceptFC":936,"rejectFC":12622,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWide.t:primates","p":"NaN","accept":33,"reject":3667,"acceptFC":33,"rejectFC":2676,"rejectIv":2129,"rejectOp":2129},
+{"id":"YuleModelWilsonBalding.t:primates","p":"NaN","accept":13,"reject":3664,"acceptFC":13,"rejectFC":2678,"rejectIv":2179,"rejectOp":2179},
+{"id":"StrictClockRateScaler.c:primates","p":0.5780862819366416,"accept":1169,"reject":2534,"acceptFC":686,"rejectFC":2033,"rejectIv":0,"rejectOp":0},
+{"id":"strictClockUpDownOperator.c:primates","p":0.9433290246425015,"accept":52,"reject":3651,"acceptFC":42,"rejectFC":2689,"rejectIv":0,"rejectOp":0}
+]}
+-->
