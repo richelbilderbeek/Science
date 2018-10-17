@@ -11,14 +11,28 @@ autosize: true
 ```{r setup, include=FALSE}
 opts_chunk$set(cache=TRUE)
 set.seed <- 42
+library(ape)
+library(ggplot2)
+library(phytools)
+library(pirouette)
+library(nLTT)
+```
+
+A theoretician's dream
+========================================================
+
+![](Hopetoun_falls.jpg)
+
+```{r echo=FALSE}
+# A perfect simulation of nature
+# how much can we similify
 ```
 
 Goal
 ========================================================
 
-  * Introduction to Bayesian inference
-  * Using `babette`
-  * Describe my research
+  * What Bayesian phylogenetics is
+  * What is the error we make today?
 
 ***
 ![babette logo](babette_logo.png)
@@ -32,14 +46,12 @@ Research questions
  * Who lived when?
  * How complex should that calculation be?
 
-![Garden of Eden](garden_of_eden.jpg)
-
 What do we have?
 ========================================================
 
 ```{r}
 fasta_filename <- "primates.fas"
-alignment <- ape::read.FASTA(
+alignment <- read.FASTA(
   fasta_filename
 )
 ```
@@ -103,7 +115,7 @@ Who lived when?
 trees <- bbt_run(
   "primates.fas",
   mcmc = mcmc
-)$primates_trees[51:100] # out of 50
+)$primates_trees[51:100]
 ```
 
 Who lived when?
@@ -204,14 +216,14 @@ How complex should that calculation be?
 ***
  * JC69 site model
  * Strict clock model
- * Constant-rate birth death
+ * Constant-rate birth death tree model
 
 
 Constant-rate birth death
 ========================================================
 
 ```{r}
-tree <- phytools::pbtree(
+tree <- pbtree(
   b = 0.2,
   d = 0.1,
   n = 10,
@@ -220,7 +232,7 @@ tree <- phytools::pbtree(
 ```
 
 ```{r eval=FALSE}
-ape::plot.phylo(
+plot.phylo(
   tree,
   edge.width = 1,
   cex = 2
@@ -228,7 +240,8 @@ ape::plot.phylo(
 ```
 ***
 ```{r echo=FALSE}
-ape::plot.phylo(
+library(ape)
+plot.phylo(
   tree,
   edge.width = 1,
   cex = 2
@@ -245,12 +258,221 @@ Constant-rate birth death assumptions
 
 ***
 
- * One speciation event per time
+ * No co-occurence of speciation
 
 ![](fishes_in_lake.png)
 
+Speciation takes time
+========================================================
+
+```{r echo=FALSE}
+set.seed <- 42
+library(becosys)
+```
+
+```{r}
+pbd_tree <- bco_pbd_sim(
+  create_pbd_params(
+    erg = 0.2,
+    eri = 0.2,
+    scr = 0.01,
+    sirg = 1.0,
+    siri = 1.0
+  ),
+  crown_age = 2.0
+)$igtree.extant
+```
+
+***
+
+```{r echo=FALSE}
+phytools::plotSimmap(
+  pbd_tree,
+  colors = stats::setNames(c("gray","black"),c("i","g"))
+)
+ape::add.scale.bar()
+```
+
+Speciation can co-occur
+========================================================
+
+```{r echo=FALSE}
+set.seed <- 42
+library(mbd)
+```
+
+```{r}
+mbd_tree <- bco_mbd_sim(
+  create_mbd_params(
+    mu = 0.1,
+    lambda = 0.1,
+    nu = 1.0,
+    q = 0.5
+  ),
+  crown_age = 2.0
+)$tes
+```
+
+***
+
+```{r echo=FALSE}
+ape::plot.phylo(mbd_tree)
+```
+
+How to measure the error?
+========================================================
+
+ 1. Create true tree
+ 2. Create DNA alignment
+ 3. Do Bayesian inference
+ 4. Compare posterior trees with true tree
+ 5. Does that error matter?
 
 
+1. Create true tree
+========================================================
+
+```{r}
+true_tree <- mbd_tree
+```
+```{r eval=FALSE}
+plot.phylo(true_tree)
+```
+***
+```{r echo=FALSE}
+plot.phylo(true_tree)
+```
+
+2. Create DNA alignment
+========================================================
+
+```{r}
+alignment <- sim_alignment(
+  true_tree,
+  sequence_length = 100,
+  mutation_rate = 0.2
+)
+write.FASTA(alignment, "alignment.fas")
+```
+
+```{r eval=FALSE}
+image(alignment)
+```
+***
+```{r echo=FALSE}
+image(alignment)
+```
+
+3. Do Bayesian inference
+========================================================
+
+```{r}
+trees <- bbt_run("alignment.fas", mcmc = mcmc)$alignment_trees[51:100]
+```
+
+```{r eval=FALSE}
+plot_densitree(
+  trees,
+  alpha = 0.1,
+  width = 3,
+  cex = 2
+)
+```
+`
+***
+```{r echo=FALSE}
+plot_densitree(
+  trees,
+  alpha = 0.1,
+  width = 3,
+  cex = 2
+)
+```
+
+4. Compare posterior trees with true tree
+========================================================
+
+```{r eval=FALSE}
+plot_densitree(
+  c(true_tree, trees[[1]]),
+  alpha = 1.0,
+  scaleX = TRUE,
+  width = c(6, 4),
+  cex = 2,
+  col = c("black", "red")
+)
+```
+***
+```{r echo=FALSE}
+plot_densitree(
+  c(true_tree, trees[[1]]),
+  alpha = 1.0,
+  scaleX = TRUE,
+  width = c(6, 4),
+  cex = 2,
+  col = c("black", "red")
+)
+```
+
+4. Compare posterior trees with true tree
+========================================================
+
+```{r eval=FALSE}
+nltt_plot(true_tree)
+nltt_lines(trees[[1]], col = "red")
+```
+
+ * nLTT statistic: area between the lines
+
+***
+```{r echo=FALSE}
+nltt_plot(true_tree, lwd = 6)
+nltt_lines(trees[[1]], col = "red", lwd = 4)
+```
+
+
+4. Compare posterior trees with true tree
+========================================================
+
+```{r}
+nltts <- nLTT::nltts_diff(true_tree, trees)
+```
+
+```{r eval=FALSE}
+ggplot(
+  data = data.frame(error = nltts),
+  aes(x = error)
+) + geom_histogram()
+```
+***
+```{r echo=FALSE}
+ggplot(
+  data = data.frame(error = nltts),
+  aes(x = error)
+) + geom_histogram()
+```
+
+5. Does that error matter?
+========================================================
+
+![](garden_of_eden.jpg)
+
+***
+
+ * Background noise
+ * Do parameters actually occur?
+
+Summary
+========================================================
+
+ * Bayesian phylogenetics can seem easy
+ * `babette` answers the core of a research question
+ * ... but the details matter
+
+Questions?
+========================================================
+
+[https://github.com/richelbilderbeek/Science](https://github.com/richelbilderbeek/Science)  ![CC-BY-NC-SA](CC-BY-NC-SA.png)
 
 References
 ========================================================

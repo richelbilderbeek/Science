@@ -10,12 +10,18 @@ autosize: true
 
 
 
+A theoretician's dream
+========================================================
+
+![](Hopetoun_falls.jpg)
+
+
+
 Goal
 ========================================================
 
-  * Introduction to Bayesian inference
-  * Using `babette`
-  * Describe my research
+  * What Bayesian phylogenetics is
+  * What is the error we make today?
 
 ***
 ![babette logo](babette_logo.png)
@@ -29,15 +35,13 @@ Research questions
  * Who lived when?
  * How complex should that calculation be?
 
-![Garden of Eden](garden_of_eden.jpg)
-
 What do we have?
 ========================================================
 
 
 ```r
 fasta_filename <- "primates.fas"
-alignment <- ape::read.FASTA(
+alignment <- read.FASTA(
   fasta_filename
 )
 ```
@@ -46,7 +50,7 @@ alignment <- ape::read.FASTA(
 image(alignment)
 ```
 ***
-![plot of chunk unnamed-chunk-3](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-4](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-4-1.png)
 
 Where do we go?
 ========================================================
@@ -103,7 +107,7 @@ Who lived when?
 trees <- bbt_run(
   "primates.fas",
   mcmc = mcmc
-)$primates_trees[51:100] # out of 50
+)$primates_trees[51:100]
 ```
 
 Who lived when?
@@ -124,7 +128,7 @@ plot_densitree(
  * So when exactly?
 
 ***
-![plot of chunk unnamed-chunk-8](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-9](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-9-1.png)
 
 Who lived when?
 ========================================================
@@ -186,7 +190,7 @@ plot_densitree(
 ```
 `
 ***
-![plot of chunk unnamed-chunk-13](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-13-1.png)
+![plot of chunk unnamed-chunk-14](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-14-1.png)
 
 How complex should that calculation be?
 ========================================================
@@ -195,7 +199,7 @@ How complex should that calculation be?
 ***
  * JC69 site model
  * Strict clock model
- * Constant-rate birth death
+ * Constant-rate birth death tree model
 
 
 Constant-rate birth death
@@ -203,7 +207,7 @@ Constant-rate birth death
 
 
 ```r
-tree <- phytools::pbtree(
+tree <- pbtree(
   b = 0.2,
   d = 0.1,
   n = 10,
@@ -213,14 +217,14 @@ tree <- phytools::pbtree(
 
 
 ```r
-ape::plot.phylo(
+plot.phylo(
   tree,
   edge.width = 1,
   cex = 2
 )
 ```
 ***
-![plot of chunk unnamed-chunk-16](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-16-1.png)
+![plot of chunk unnamed-chunk-17](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-17-1.png)
 
 Constant-rate birth death assumptions
 ========================================================
@@ -232,12 +236,191 @@ Constant-rate birth death assumptions
 
 ***
 
- * One speciation event per time
+ * No co-occurence of speciation
 
 ![](fishes_in_lake.png)
 
+Speciation takes time
+========================================================
 
 
+
+
+```r
+pbd_tree <- bco_pbd_sim(
+  create_pbd_params(
+    erg = 0.2,
+    eri = 0.2,
+    scr = 0.01,
+    sirg = 1.0,
+    siri = 1.0
+  ),
+  crown_age = 2.0
+)$igtree.extant
+```
+
+***
+
+![plot of chunk unnamed-chunk-20](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-20-1.png)
+
+Speciation can co-occur
+========================================================
+
+
+
+
+```r
+mbd_tree <- bco_mbd_sim(
+  create_mbd_params(
+    mu = 0.1,
+    lambda = 0.1,
+    nu = 1.0,
+    q = 0.5
+  ),
+  crown_age = 2.0
+)$tes
+```
+
+***
+
+![plot of chunk unnamed-chunk-23](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-23-1.png)
+
+How to measure the error?
+========================================================
+
+ 1. Create true tree
+ 2. Create DNA alignment
+ 3. Do Bayesian inference
+ 4. Compare posterior trees with true tree
+ 5. Does that error matter?
+
+
+1. Create true tree
+========================================================
+
+
+```r
+true_tree <- mbd_tree
+```
+
+```r
+plot.phylo(true_tree)
+```
+***
+![plot of chunk unnamed-chunk-26](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-26-1.png)
+
+2. Create DNA alignment
+========================================================
+
+
+```r
+alignment <- sim_alignment(
+  true_tree,
+  sequence_length = 100,
+  mutation_rate = 0.2
+)
+write.FASTA(alignment, "alignment.fas")
+```
+
+
+```r
+image(alignment)
+```
+***
+![plot of chunk unnamed-chunk-29](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-29-1.png)
+
+3. Do Bayesian inference
+========================================================
+
+
+```r
+trees <- bbt_run("alignment.fas", mcmc = mcmc)$alignment_trees[51:100]
+```
+
+
+```r
+plot_densitree(
+  trees,
+  alpha = 0.1,
+  width = 3,
+  cex = 2
+)
+```
+`
+***
+![plot of chunk unnamed-chunk-32](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-32-1.png)
+
+4. Compare posterior trees with true tree
+========================================================
+
+
+```r
+plot_densitree(
+  c(true_tree, trees[[1]]),
+  alpha = 1.0,
+  scaleX = TRUE,
+  width = c(6, 4),
+  cex = 2,
+  col = c("black", "red")
+)
+```
+***
+![plot of chunk unnamed-chunk-34](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-34-1.png)
+
+4. Compare posterior trees with true tree
+========================================================
+
+
+```r
+nltt_plot(true_tree)
+nltt_lines(trees[[1]], col = "red")
+```
+
+ * nLTT statistic: area between the lines
+
+***
+![plot of chunk unnamed-chunk-36](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-36-1.png)
+
+
+4. Compare posterior trees with true tree
+========================================================
+
+
+```r
+nltts <- nLTT::nltts_diff(true_tree, trees)
+```
+
+
+```r
+ggplot(
+  data = data.frame(error = nltts),
+  aes(x = error)
+) + geom_histogram()
+```
+***
+![plot of chunk unnamed-chunk-39](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-39-1.png)
+
+5. Does that error matter?
+========================================================
+
+![](garden_of_eden.jpg)
+
+***
+
+ * Background noise
+ * Do parameters actually occur?
+
+Summary
+========================================================
+
+ * Bayesian phylogenetics can seem easy
+ * `babette` answers the core of a research question
+ * ... but the details matter
+
+Questions?
+========================================================
+
+[https://github.com/richelbilderbeek/Science](https://github.com/richelbilderbeek/Science)  ![CC-BY-NC-SA](CC-BY-NC-SA.png)
 
 References
 ========================================================
