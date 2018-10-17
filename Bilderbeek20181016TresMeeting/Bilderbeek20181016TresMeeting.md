@@ -8,25 +8,14 @@ autosize: true
 
 ![RuG and GELIFES and TECE logo](footer.png)
 
-```{r setup, include=FALSE}
-opts_chunk$set(cache=TRUE)
-set.seed <- 42
-library(ape)
-library(ggplot2)
-library(phytools)
-library(pirouette)
-library(nLTT)
-```
+
 
 A theoretician's dream
 ========================================================
 
 ![](Hopetoun_falls.jpg)
 
-```{r echo=FALSE}
-# A perfect simulation of nature
-# how much can we similify
-```
+
 
 Goal
 ========================================================
@@ -49,19 +38,19 @@ Research questions
 What do we have?
 ========================================================
 
-```{r}
+
+```r
 fasta_filename <- "primates.fas"
 alignment <- read.FASTA(
   fasta_filename
 )
 ```
-```{r eval=FALSE}
+
+```r
 image(alignment)
 ```
 ***
-```{r echo=FALSE}
-image(alignment)
-```
+![plot of chunk unnamed-chunk-4](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-4-1.png)
 
 Where do we go?
 ========================================================
@@ -93,7 +82,8 @@ What tool do we use?
  * Package to call BEAST2 from R
  * Completely automate pipeline
 
-```{r}
+
+```r
 library(babette)
 ```
 
@@ -102,7 +92,8 @@ Who lived when?
 
  * Create a (too) short Markov chain Monte-Carlo:
 
-```{r}
+
+```r
 mcmc <- create_mcmc(chain_length = 100000)
 ```
 
@@ -111,7 +102,8 @@ Who lived when?
 
  * Do the analysis
 
-```{r}
+
+```r
 trees <- bbt_run(
   "primates.fas",
   mcmc = mcmc
@@ -123,7 +115,8 @@ Who lived when?
 
  * Visualize the results
 
-```{r eval=FALSE}
+
+```r
 plot_densitree(
   trees,
   alpha = 0.1,
@@ -135,21 +128,15 @@ plot_densitree(
  * So when exactly?
 
 ***
-```{r echo=FALSE}
-plot_densitree(
-  trees,
-  alpha = 0.1,
-  width = 3,
-  cex = 2
-)
-```
+![plot of chunk unnamed-chunk-9](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-9-1.png)
 
 Who lived when?
 ========================================================
 
  * Specify the crown age:
 
-```{r}
+
+```r
 mrca_distr <- create_normal_distr(
   mean = create_mean_param(value = 17.58),
   sigma = create_sigma_param(value = 0.01)
@@ -163,7 +150,8 @@ Who lived when?
 
  * Specify an MRCA prior containing all species:
 
-```{r}
+
+```r
 mrca_prior <- create_mrca_prior(
   get_alignment_id("primates.fas"),
   taxa_names = get_taxa_names("primates.fas"),
@@ -177,7 +165,8 @@ Who lived when?
 
  * Do the MCMC run
 
-```{r}
+
+```r
 trees <- bbt_run(
   "primates.fas",
   mcmc = mcmc,
@@ -190,7 +179,8 @@ Who lived when?
 
  * Visualize the results
 
-```{r eval=FALSE}
+
+```r
 plot_densitree(
   trees,
   alpha = 0.1,
@@ -200,14 +190,7 @@ plot_densitree(
 ```
 `
 ***
-```{r echo=FALSE}
-plot_densitree(
-  trees,
-  alpha = 0.1,
-  width = 3,
-  cex = 2
-)
-```
+![plot of chunk unnamed-chunk-14](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-14-1.png)
 
 How complex should that calculation be?
 ========================================================
@@ -222,7 +205,8 @@ How complex should that calculation be?
 Constant-rate birth death
 ========================================================
 
-```{r}
+
+```r
 tree <- pbtree(
   b = 0.2,
   d = 0.1,
@@ -231,7 +215,8 @@ tree <- pbtree(
 )
 ```
 
-```{r eval=FALSE}
+
+```r
 plot.phylo(
   tree,
   edge.width = 1,
@@ -239,14 +224,7 @@ plot.phylo(
 )
 ```
 ***
-```{r echo=FALSE}
-library(ape)
-plot.phylo(
-  tree,
-  edge.width = 1,
-  cex = 2
-)
-```
+![plot of chunk unnamed-chunk-17](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-17-1.png)
 
 Constant-rate birth death assumptions
 ========================================================
@@ -265,12 +243,10 @@ Constant-rate birth death assumptions
 Speciation takes time
 ========================================================
 
-```{r echo=FALSE}
-set.seed <- 42
-library(becosys)
-```
 
-```{r}
+
+
+```r
 pbd_tree <- bco_pbd_sim(
   create_pbd_params(
     erg = 0.2,
@@ -288,23 +264,15 @@ pbd_tree <- bco_pbd_sim(
 
 ***
 
-```{r echo=FALSE}
-phytools::plotSimmap(
-  pbd_tree,
-  colors = stats::setNames(c("gray","black"),c("i","g"))
-)
-ape::add.scale.bar()
-```
+![plot of chunk unnamed-chunk-20](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-20-1.png)
 
 Speciation can co-occur
 ========================================================
 
-```{r echo=FALSE}
-set.seed <- 42
-library(mbd)
-```
 
-```{r}
+
+
+```r
 mbd_tree <- bco_mbd_sim(
   create_mbd_params(
     lambda = 0.1,
@@ -321,9 +289,7 @@ mbd_tree <- bco_mbd_sim(
 
 ***
 
-```{r echo=FALSE}
-ape::plot.phylo(mbd_tree)
-```
+![plot of chunk unnamed-chunk-23](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-23-1.png)
 
 What is the error we make today?
 ========================================================
@@ -338,21 +304,22 @@ What is the error we make today?
 1. Create true tree
 ========================================================
 
-```{r}
+
+```r
 true_tree <- mbd_tree
 ```
-```{r eval=FALSE}
+
+```r
 plot.phylo(true_tree)
 ```
 ***
-```{r echo=FALSE}
-plot.phylo(true_tree)
-```
+![plot of chunk unnamed-chunk-26](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-26-1.png)
 
 2. Create DNA alignment
 ========================================================
 
-```{r}
+
+```r
 alignment <- sim_alignment(
   true_tree,
   sequence_length = 100,
@@ -361,25 +328,26 @@ alignment <- sim_alignment(
 write.FASTA(alignment, "alignment.fas")
 ```
 
-```{r eval=FALSE}
+
+```r
 image(alignment)
 ```
 ***
-```{r echo=FALSE}
-image(alignment)
-```
+![plot of chunk unnamed-chunk-29](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-29-1.png)
 
 3. Do Bayesian inference
 ========================================================
 
-```{r}
+
+```r
 trees <- bbt_run(
   "alignment.fas",
   mcmc = mcmc
 )$alignment_trees[51:100]
 ```
 
-```{r eval=FALSE}
+
+```r
 plot_densitree(
   trees,
   alpha = 0.1,
@@ -389,19 +357,13 @@ plot_densitree(
 ```
 `
 ***
-```{r echo=FALSE}
-plot_densitree(
-  trees,
-  alpha = 0.1,
-  width = 3,
-  cex = 2
-)
-```
+![plot of chunk unnamed-chunk-32](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-32-1.png)
 
 4. Compare posterior trees with true tree
 ========================================================
 
-```{r eval=FALSE}
+
+```r
 plot_densitree(
   c(true_tree, trees[[1]]),
   alpha = 1.0,
@@ -412,21 +374,13 @@ plot_densitree(
 )
 ```
 ***
-```{r echo=FALSE}
-plot_densitree(
-  c(true_tree, trees[[1]]),
-  alpha = 1.0,
-  scaleX = TRUE,
-  width = c(6, 4),
-  cex = 2,
-  col = c("black", "red")
-)
-```
+![plot of chunk unnamed-chunk-34](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-34-1.png)
 
 4. Compare posterior trees with true tree
 ========================================================
 
-```{r eval=FALSE}
+
+```r
 nltt_plot(true_tree)
 nltt_lines(trees[[1]], col = "red")
 ```
@@ -435,32 +389,26 @@ nltt_lines(trees[[1]], col = "red")
  * Janzen et al., 2015
 
 ***
-```{r echo=FALSE}
-nltt_plot(true_tree, lwd = 6)
-nltt_lines(trees[[1]], col = "red", lwd = 4)
-```
+![plot of chunk unnamed-chunk-36](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-36-1.png)
 
 
 4. Compare posterior trees with true tree
 ========================================================
 
-```{r}
+
+```r
 nltts <- nLTT::nltts_diff(true_tree, trees)
 ```
 
-```{r eval=FALSE}
+
+```r
 ggplot(
   data = data.frame(error = nltts),
   aes(x = error)
 ) + geom_histogram()
 ```
 ***
-```{r echo=FALSE}
-ggplot(
-  data = data.frame(error = nltts),
-  aes(x = error)
-) + geom_histogram()
-```
+![plot of chunk unnamed-chunk-39](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-39-1.png)
 
 5. Does that error matter?
 ========================================================
