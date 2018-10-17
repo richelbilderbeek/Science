@@ -70,6 +70,8 @@ What tool could we use?
 
 ![](beast2_logo.png)
 
+*Bouckaert et al., 2014*
+
 ***
 ![BEAST2 book](beast_book.jpg)
 
@@ -77,6 +79,9 @@ What tool do we use?
 ========================================================
 
 ![babette logo](babette_logo.png)
+
+*Bilderbeek & Etienne, 2018*
+
 ***
  * `babette`
  * Package to call BEAST2 from R
@@ -143,7 +148,7 @@ mrca_distr <- create_normal_distr(
 )
 ```
 
-(from Purvis, 1995)
+*Purvis, 1995*
 
 Who lived when?
 ========================================================
@@ -229,10 +234,9 @@ plot.phylo(
 Constant-rate birth death assumptions
 ========================================================
 
- * Instantaneous speciation  (Fennessy et al., 2016)
+ * Instantaneous speciation (*Fennessy et al., 2016*)
 
 ![](fenessy_nubian_giraffe.jpg)
-
 
 ***
 
@@ -260,7 +264,8 @@ pbd_tree <- bco_pbd_sim(
 ```
 
  * Protracted Birth-Death model
- * Etienne et al., 2012
+
+*Etienne & Rosindell, 2012*
 
 ***
 
@@ -386,7 +391,8 @@ nltt_lines(trees[[1]], col = "red")
 ```
 
  * nLTT statistic: area between the lines
- * Janzen et al., 2015
+
+*Janzen et al., 2015*
 
 ***
 ![plot of chunk unnamed-chunk-36](Bilderbeek20181016TresMeeting-figure/unnamed-chunk-36-1.png)
@@ -413,12 +419,21 @@ ggplot(
 5. Does that error matter?
 ========================================================
 
-![](garden_of_eden.jpg)
+![](Hopetoun_falls.jpg)
 
 ***
 
  * Background noise
- * Do parameters actually occur?
+ * Where are model parameters biologically relevant?
+
+5. Does that error matter?
+========================================================
+
+![](garden_of_eden.jpg)
+
+***
+
+*http://www.wvpublic.org/post/how-should-bible-be-taught-public-schools*
 
 Summary
 ========================================================
@@ -427,14 +442,28 @@ Summary
  * `babette` answers the core of a research question
  * ... but the details matter
 
+References 1/2
+========================================================
+
+ * Bilderbeek, Richel JC, and Rampal S. Etienne. "babette: BEAU ti 2, BEAST 2 and Tracer for R." Methods in Ecology and Evolution (2018).
+ * Bouckaert, R., Heled, J., Kühnert, D., Vaughan, T., Wu, C-H., Xie, D., Suchard, MA., Rambaut, A., & Drummond, A. J. (2014). BEAST 2: A Software Platform for Bayesian Evolutionary Analysis. PLoS Computational Biology, 10(4), e1003537. doi:10.1371/journal.pcbi.1003537
+ * Etienne, Rampal S., and James Rosindell. "Prolonging the past counteracts the pull of the present: protracted speciation can explain observed slowdowns in diversification." Systematic Biology 61.2 (2012): 204-213.
+ * Fennessy, Julian, et al. "Multi-locus analyses reveal four giraffe species instead of one." Current Biology 26.18 (2016): 2543-2549.
+
+References 2/2
+========================================================
+
+ * Janzen, Thijs, Sebastian Höhna, and Rampal S. Etienne. "Approximate Bayesian Computation of diversification rates from molecular phylogenies: introducing a new efficient summary statistic, the nLTT." Methods in Ecology and Evolution 6.5 (2015): 566-575.
+ * Purvis, Andy. "A composite estimate of primate phylogeny." Phil. Trans. R. Soc. Lond. B 348.1326 (1995): 405-421.
+
 Questions?
 ========================================================
 
 ![](Hopetoun_falls.jpg)
 
-[https://github.com/richelbilderbeek/Science](https://github.com/richelbilderbeek/Science)  ![CC-BY-NC-SA](CC-BY-NC-SA.png)
+***
 
-References
-========================================================
+[https://github.com/ richelbilderbeek/Science](https://github.com/richelbilderbeek/Science)
 
- * Fennessy, Julian, et al. "Multi-locus analyses reveal four giraffe species instead of one." Current Biology 26.18 (2016): 2543-2549.
+![CC-BY-NC-SA](CC-BY-NC-SA.png)
+
