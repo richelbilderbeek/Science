@@ -1,4 +1,11 @@
-# 
+# TECE meeting 2018-11-14
+
+How to get merge conflicts:
+
+ * Big commits
+ * No coding standard
+ * Big functions
+ * Infrequent merging
 
 Hypothesis: collaborations are rare, because
 
@@ -12,7 +19,7 @@ Examples:
  * Jorik & Kees
  * Elles
  * Joris & Tom
- * Nature Zen
+ * djog_unos_2018/Nature Zen
  * razzo
 
 Rules 'How to do it':
