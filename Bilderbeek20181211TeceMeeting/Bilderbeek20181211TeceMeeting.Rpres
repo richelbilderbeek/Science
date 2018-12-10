@@ -1,4 +1,4 @@
-Asking the right questions?
+Picking the right approach
 ========================================================
 author: Richel J.C. Bilderbeek
 date: 2018-12-11
@@ -8,18 +8,22 @@ autosize: true
 
 ![RuG and GELIFES and TECE logo](footer.png)
 
-```{r echo=FALSE}
-library(ggplot2)
-library(becosys)
-set.seed(2)
-```
 
 Goal
 ========================================================
 
- * Share a question I struggle with
- * Need opinion of others
- * Poll in the end
+ * Make a case
+ * Make a claim
+ * Collect your ideas
+
+***
+
+```{r}
+library(becosys)
+library(ape)
+library(ggplot2)
+set.seed(42)
+```
 
 Research question
 ========================================================
@@ -126,22 +130,29 @@ Context
 
 ![](meme_context.jpg)
 
-Context: Birth-Death model
-========================================================
+***
 
-```{r echo=FALSE}
+```{r}
 out <- becosys::bd_sim(
-  create_bd_params(ext_rate = 2, spec_rate = 5),
+  create_bd_params(
+    ext_rate = 2,
+    spec_rate = 5
+  ),
   crown_age = 1
 )
 ```
 
+
+Context: Birth-Death model
+========================================================
+
+
 ```{r}
-ape::plot.phylo(out$full_tree)
+plot.phylo(out$full_tree)
 ```
 ***
 ```{r}
-ape::plot.phylo(out$reconstructed_tree)
+plot.phylo(out$reconstructed_tree)
 ```
 
 
@@ -153,8 +164,6 @@ Context: Birth-Death model
  * Expected fraction extinct: $< f_{\dagger}> \approx \frac{\mu}{\lambda} = \frac{2}{5}$
 
 ```{r}
-#' Predict the proportion
-#' of taxa that goes extinct
 predict_f_extinct <- function(
   ext_rate,
   spec_rate
@@ -173,35 +182,6 @@ print(
 )
 ```
 
-Context: Birth-Death model
-========================================================
-
-```{r}
-measure_f_extinct <- function(
-  ext_rate,
-  spec_rate
-) {
-  out <- becosys::bd_sim(
-    create_bd_params(ext_rate = ext_rate, spec_rate = spec_rate),
-    crown_age = 1
-  )
-  n <- ape::Ntip(out$full_tree)
-  n_extinct <- n - ape::Ntip(out$reconstructed_tree)
-  f_ext <- n_extinct / n
-  f_ext
-}
-```
-
-Context: Birth-Death model
-========================================================
-
-```{r}
-print(measure_f_extinct(ext_rate = 2, spec_rate = 5))
-```
-
-```{r}
-print(predict_f_extinct(ext_rate = 2, spec_rate = 5))
-```
 
 Generate data: parameter-centric
 ========================================================
@@ -494,3 +474,45 @@ to
 ***
 
 ![](meme_two_options.jpg)
+
+Questions?
+========================================================
+
+
+Measure the fraction extinct
+========================================================
+
+```{r}
+measure_f_extinct <- function(
+  ext_rate,
+  spec_rate
+) {
+  out <- becosys::bd_sim(
+    create_bd_params(
+      ext_rate = ext_rate,
+      spec_rate = spec_rate
+    ),
+    crown_age = 1
+  )
+  n <- Ntip(out$full_tree)
+  n_extinct <- n -
+    Ntip(out$reconstructed_tree)
+  f_ext <- n_extinct / n
+  f_ext
+}
+```
+
+***
+
+![](meme_measure.jpg)
+
+Measure the fraction extinct
+========================================================
+
+```{r}
+print(measure_f_extinct(ext_rate = 2, spec_rate = 5))
+```
+
+```{r}
+print(predict_f_extinct(ext_rate = 2, spec_rate = 5))
+```

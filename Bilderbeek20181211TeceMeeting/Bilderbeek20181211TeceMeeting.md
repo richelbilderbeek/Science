@@ -1,4 +1,4 @@
-Asking the right questions?
+Picking the right approach
 ========================================================
 author: Richel J.C. Bilderbeek
 date: 2018-12-11
@@ -9,13 +9,22 @@ autosize: true
 ![RuG and GELIFES and TECE logo](footer.png)
 
 
-
 Goal
 ========================================================
 
- * Share a question I struggle with
- * Need opinion of others
- * Poll in the end
+ * Make a case
+ * Make a claim
+ * Collect your ideas
+
+***
+
+
+```r
+library(becosys)
+library(ape)
+library(ggplot2)
+set.seed(42)
+```
 
 Research question
 ========================================================
@@ -122,21 +131,34 @@ Context
 
 ![](meme_context.jpg)
 
+***
+
+
+```r
+out <- becosys::bd_sim(
+  create_bd_params(
+    ext_rate = 2,
+    spec_rate = 5
+  ),
+  crown_age = 1
+)
+```
+
+
 Context: Birth-Death model
 ========================================================
 
 
 
-
 ```r
-ape::plot.phylo(out$full_tree)
+plot.phylo(out$full_tree)
 ```
 
 ![plot of chunk unnamed-chunk-3](Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-3-1.png)
 ***
 
 ```r
-ape::plot.phylo(out$reconstructed_tree)
+plot.phylo(out$reconstructed_tree)
 ```
 
 ![plot of chunk unnamed-chunk-4](Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-4-1.png)
@@ -151,8 +173,6 @@ Context: Birth-Death model
 
 
 ```r
-#' Predict the proportion
-#' of taxa that goes extinct
 predict_f_extinct <- function(
   ext_rate,
   spec_rate
@@ -176,46 +196,6 @@ print(
 [1] 0.4
 ```
 
-Context: Birth-Death model
-========================================================
-
-
-```r
-measure_f_extinct <- function(
-  ext_rate,
-  spec_rate
-) {
-  out <- becosys::bd_sim(
-    create_bd_params(ext_rate = ext_rate, spec_rate = spec_rate),
-    crown_age = 1
-  )
-  n <- ape::Ntip(out$full_tree)
-  n_extinct <- n - ape::Ntip(out$reconstructed_tree)
-  f_ext <- n_extinct / n
-  f_ext
-}
-```
-
-Context: Birth-Death model
-========================================================
-
-
-```r
-print(measure_f_extinct(ext_rate = 2, spec_rate = 5))
-```
-
-```
-[1] 0.40625
-```
-
-
-```r
-print(predict_f_extinct(ext_rate = 2, spec_rate = 5))
-```
-
-```
-[1] 0.4
-```
 
 Generate data: parameter-centric
 ========================================================
@@ -425,14 +405,14 @@ Tileplot, rates
 tileplot_rates(df_par)
 ```
 
-<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-20-1.png" title="plot of chunk unnamed-chunk-20" alt="plot of chunk unnamed-chunk-20" width="600" />
+<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="600" />
 ***
 
 ```r
 tileplot_rates(df_proc)
 ```
 
-<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" width="600" />
+<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="600" />
 
 Tileplot, fraction
 ========================================================
@@ -478,14 +458,14 @@ Tileplot, rates
 tileplot_fraction(df_par)
 ```
 
-<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-23-1.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" width="600" />
+<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-20-1.png" title="plot of chunk unnamed-chunk-20" alt="plot of chunk unnamed-chunk-20" width="600" />
 ***
 
 ```r
 tileplot_fraction(df_proc)
 ```
 
-<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-24-1.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" width="600" />
+<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" width="600" />
 
 Lineplot, fraction extinct
 ========================================================
@@ -529,14 +509,14 @@ Lineplot, fraction extinct
 lineplot_f_ext(df_par)
 ```
 
-<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="600" />
+<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-23-1.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" width="600" />
 ***
 
 ```r
 lineplot_f_ext(df_proc)
 ```
 
-<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-27-1.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" width="600" />
+<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-24-1.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" width="600" />
 
 Lineplot, extinction rate
 ========================================================
@@ -580,14 +560,14 @@ Lineplot, extinction rate
 lineplot_ext_rate(df_par)
 ```
 
-<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-29-1.png" title="plot of chunk unnamed-chunk-29" alt="plot of chunk unnamed-chunk-29" width="600" />
+<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="600" />
 ***
 
 ```r
 lineplot_ext_rate(df_proc)
 ```
 
-<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-30-1.png" title="plot of chunk unnamed-chunk-30" alt="plot of chunk unnamed-chunk-30" width="600" />
+<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-27-1.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" width="600" />
 
 Preliminary conclusion
 ========================================================
@@ -611,3 +591,56 @@ to
 ***
 
 ![](meme_two_options.jpg)
+
+Questions?
+========================================================
+
+
+Measure the fraction extinct
+========================================================
+
+
+```r
+measure_f_extinct <- function(
+  ext_rate,
+  spec_rate
+) {
+  out <- becosys::bd_sim(
+    create_bd_params(
+      ext_rate = ext_rate,
+      spec_rate = spec_rate
+    ),
+    crown_age = 1
+  )
+  n <- Ntip(out$full_tree)
+  n_extinct <- n -
+    Ntip(out$reconstructed_tree)
+  f_ext <- n_extinct / n
+  f_ext
+}
+```
+
+***
+
+![](meme_measure.jpg)
+
+Measure the fraction extinct
+========================================================
+
+
+```r
+print(measure_f_extinct(ext_rate = 2, spec_rate = 5))
+```
+
+```
+[1] 0.3809524
+```
+
+
+```r
+print(predict_f_extinct(ext_rate = 2, spec_rate = 5))
+```
+
+```
+[1] 0.4
+```
