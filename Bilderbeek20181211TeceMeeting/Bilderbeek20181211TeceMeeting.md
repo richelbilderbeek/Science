@@ -12,7 +12,7 @@ Goal
 ========================================================
 
  * Share a question I struggle with
- * Am I crazy?
+ * Need opinion of others
  * Poll in the end
 
 Question
@@ -20,11 +20,94 @@ Question
 
 In a theoretical research, should one:
 
- * research question -> parameters
- * parameters -> research question
-  
+ * process -> parameters
 
-Example
+> "We picked scenarions in which 0, 25 and 50% of the taxa went extinct"
+
+ * parameters -> process
+
+> "We picked extinction rates of 0.0, 0.1 and 0.2"
+
+Examples
+========================================================
+
+![Example 1](example_1.png)
+
+Examples
+========================================================
+
+![Example 2](example_2_t.png)
+Examples
+========================================================
+
+![Example 3](example_3_t.png)
+
+Examples
+========================================================
+
+![Example 4](example_4.png)
+
+Setup
+========================================================
+
+
+```r
+library(becosys)
+set.seed(314)
+```
+
+Context: Birth-Death model
+========================================================
+
+ * Constant speciation rate, $\lambda = 4$
+ * Constant extinction rate, $\mu = 2$
+ * Expected fraction extinct: $< f_{\dagger}> = \frac{\mu}{\lambda} = \frac{2}{4}$
+
+
+```r
+out <- becosys::bd_sim(
+  create_bd_params(
+    ext_rate = 2,
+    spec_rate = 4
+  ),
+  crown_age = 1
+)
+```
+***
+
+```r
+n <- ape::Ntip(out$full_tree)
+n_extant <- ape::Ntip(
+  out$reconstructed_tree
+)
+n_extinct <- n - n_extant
+f_ext <- n_extinct / n
+print(f_ext)
+```
+
+```
+[1] 0.5405405
+```
+
+Context: Birth-Death model
+========================================================
+
+
+```r
+ape::plot.phylo(out$full_tree)
+```
+
+![plot of chunk unnamed-chunk-4](Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-4-1.png)
+***
+
+```r
+ape::plot.phylo(out$reconstructed_tree)
+```
+
+![plot of chunk unnamed-chunk-5](Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-5-1.png)
+
+
+Example: parameter-centric
 ========================================================
 
 What is the effect of extinction on a birth-death process?
@@ -42,7 +125,7 @@ speciation rate|extinction rate|percentage extinct
 percentage extinct = speciation rate / extinction rate
 ```
 
-Example
+Example: process-centric
 ========================================================
 
 speciation rate|percentage extinct|extinction rate
@@ -67,7 +150,7 @@ Focus on:
  * research question
 
 Paradox: focus on research question appears rare.
- 
+
 Focus on parameters
 ========================================================
 
