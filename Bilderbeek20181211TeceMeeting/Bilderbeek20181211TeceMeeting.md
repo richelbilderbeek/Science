@@ -15,18 +15,39 @@ Goal
  * Need opinion of others
  * Poll in the end
 
-Question
+Research question: in a theoretical research, should one:
 ========================================================
 
-In a theoretical research, should one:
-
- * process -> parameters
+process -> parameters
 
 > "We picked scenarions in which 0, 25 and 50% of the taxa went extinct"
 
- * parameters -> process
+> ... thus we used extinction rates of ...
+
+***
+
+parameters -> process
 
 > "We picked extinction rates of 0.0, 0.1 and 0.2"
+
+> ... thus the percentages of taxa extinct were ...
+
+Hypothesis
+========================================================
+
+Starting from the process is better ...
+
+> "We picked scenarions in which 0, 25 and 50% of the taxa went extinct"
+
+because reality cares about the things that **happen**.
+
+Reality ignores the parameter combinations underlying those events.
+
+Experiment
+========================================================
+
+ * Download all open access papers from TECE
+ * Scan for figures that use either approach
 
 Examples
 ========================================================
