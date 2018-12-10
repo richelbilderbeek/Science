@@ -203,8 +203,7 @@ print(measure_f_extinct(ext_rate = 2, spec_rate = 5))
 print(predict_f_extinct(ext_rate = 2, spec_rate = 5))
 ```
 
-
-Example: parameter-centric
+Generate data: parameter-centric
 ========================================================
 
 What is the effect of extinction on a birth-death process?
@@ -212,8 +211,7 @@ What is the effect of extinction on a birth-death process?
 ```{r}
 df_par <- expand.grid(
   spec_rate = c(0.2, 0.4),
-  ext_rate = c(0.0, 0.1, 0.2),
-  frac_ext = NA
+  ext_rate = c(0.0, 0.1, 0.2)
 )
 ```
 ***
@@ -221,14 +219,15 @@ df_par <- expand.grid(
 knitr::kable(df_par)
 ```
 
-Example: process-centric
+Generate data: process-centric
 ========================================================
+
+What is the effect of extinction on a birth-death process?
 
 ```{r}
 df_proc <- expand.grid(
   spec_rate = c(0.2, 0.4),
-  frac_ext = c(0.0, 0.25, 0.5),
-  ext_rate = NA
+  frac_ext = c(0.0, 0.25, 0.5)
 )
 ```
 ***
@@ -236,7 +235,7 @@ df_proc <- expand.grid(
 knitr::kable(df_proc)
 ```
 
-Compare
+Generate data: compare
 ========================================================
 
 ```{r}
@@ -252,7 +251,7 @@ df_proc$ext_rate <-
 knitr::kable(df_proc)
 ```
 
-Effect
+Generate data: add effect
 ========================================================
 
 Assume the effect $e$ is dependent on the fraction that went exinct.
@@ -262,21 +261,42 @@ e = f_{\dagger}^2 + 2 \cdot f_{\dagger} + 1
 $$
 
 ```{r}
-calc_effect <- function(frac_ext) {
-  (frac_ext * frac_ext) + (2.0 * frac_ext) + 1
+calc_effect <- function(df) {
+  (df$frac_ext * df$frac_ext) + (2.0 * df$frac_ext) + 1
+  #(df$ext_rate * df$ext_rate) + (2.0 * df$ext_rate) + 1
+  #(df$spec_rate * df$spec_rate) + (2.0 * df$spec_rate) + 1
+  #1 + (4 * runif(n = nrow(df)))
 }
 ```
 
-```{r}
-df_par$effect <- calc_effect(df_par$frac_ext)
-df_proc$effect <- calc_effect(df_proc$frac_ext)
-```
-
-Tileplot
+Generate data: add effect
 ========================================================
 
 ```{r}
-tileplot <- function(df) {
+df_par$effect <- calc_effect(df_par)
+knitr::kable(df_par)
+```
+
+***
+
+```{r}
+df_proc$effect <- calc_effect(df_proc)
+knitr::kable(df_proc)
+```
+
+Analyse data
+========================================================
+
+Hypothesis: parameter-centric approach looks prettier
+
+ * Tileplot vs lineplot
+ * Extinct rate vs fraction extinct
+
+Tileplot, rates
+========================================================
+
+```{r}
+tileplot_rates <- function(df) {
   ggplot2::ggplot(
     df,
     aes(
@@ -285,86 +305,192 @@ tileplot <- function(df) {
       fill = effect
     )
   ) + geom_tile() +
-  scale_fill_gradientn(colours = rainbow(100)) +
+  scale_fill_gradientn(
+    colours = rainbow(
+      100,
+      end = 0.8
+    ),
+    limits = c(1, 4)
+  ) +
   theme(
-    axis.text = element_text(size = 20),
-    axis.title = element_text(size = 20),
-    legend.text = element_text(size = 20),
-    legend.title = element_text(size = 20)
+    axis.text = element_text(
+      size = 20),
+    axis.title = element_text(
+      size = 20),
+    legend.text = element_text(
+      size = 20),
+    legend.title = element_text(
+      size = 20)
   )
 }
 ```
+***
+![](meme_rainbow.jpg)
 
-Tileplot
+Tileplot, rates
 ========================================================
 
 ```{r out.width=600}
-tileplot(df_par)
+tileplot_rates(df_par)
 ```
 ***
 ```{r out.width=600}
-tileplot(df_proc)
+tileplot_rates(df_proc)
 ```
 
-Lineplot
+Tileplot, fraction
 ========================================================
 
 ```{r}
-lineplot <- function(df) {
+tileplot_fraction <- function(df) {
   ggplot2::ggplot(
     df,
-    aes(frac_ext, effect, color = as.factor(spec_rate))
-) + geom_jitter(size = 5, width = 0.01, height = 0.01) +
-  geom_smooth(method = "lm") +
+    aes(
+      as.factor(spec_rate),
+      as.factor(frac_ext),
+      fill = effect
+    )
+  ) + geom_tile() +
+  scale_fill_gradientn(
+    colours = rainbow(
+      100,
+      end = 0.8
+    ),
+    limits = c(1, 4)
+  ) +
   theme(
-    axis.text = element_text(size = 20),
-    axis.title = element_text(size = 20),
-    legend.text = element_text(size = 20),
-    legend.title = element_text(size = 20)
+    axis.text = element_text(
+      size = 20),
+    axis.title = element_text(
+      size = 20),
+    legend.text = element_text(
+      size = 20),
+    legend.title = element_text(
+      size = 20)
   )
 }
 ```
+***
+![](meme_ggplot_2.jpg)
 
-Lineplot
+Tileplot, rates
 ========================================================
 
 ```{r out.width=600}
-lineplot(df_par)
+tileplot_fraction(df_par)
 ```
 ***
 ```{r out.width=600}
-lineplot(df_proc)
+tileplot_fraction(df_proc)
 ```
 
-Two approaches to answer a research question
+Lineplot, fraction extinct
 ========================================================
 
-Focus on:
+```{r}
+lineplot_f_ext <- function(df) {
+  ggplot2::ggplot(
+    df,
+    aes(
+      frac_ext,
+      effect,
+      color = as.factor(spec_rate)
+    )
+  ) + geom_jitter(
+    size = 5,
+    width = 0.01,
+    height = 0.01
+  ) +
+  geom_smooth(method = "lm") +
+  theme(
+    axis.text = element_text(
+      size = 20),
+    axis.title = element_text(
+      size = 20),
+    legend.text = element_text(
+      size = 20),
+    legend.title = element_text(
+      size = 20)
+  )
+}
+```
+***
+![](meme_ggplot.jpg)
 
- * parameters
- * process
-
-Paradox: focus on process appears rare.
-
-Focus on parameters
+Lineplot, fraction extinct
 ========================================================
 
-Issue|Rating
----|---
-Coverage of parameter space|Equally spaced
-Interpretation|Distant from nature
-Plots|Multiple facets
-Appearance|Smart?
-Analysis|?
+```{r out.width=600}
+lineplot_f_ext(df_par)
+```
+***
+```{r out.width=600}
+lineplot_f_ext(df_proc)
+```
 
-
-Focus on research question
+Lineplot, extinction rate
 ========================================================
 
-Issue|Rating
----|---
-Coverage of parameter space|Inequally spaced
-Interpretation|Close to nature
-Plots|Single facet
-Appearance|Oversimplification?
-Analysis|?
+```{r}
+lineplot_ext_rate <- function(df) {
+  ggplot2::ggplot(
+    df,
+    aes(
+      ext_rate,
+      effect,
+      color = as.factor(frac_ext)
+    )
+  ) + geom_jitter(
+    size = 5,
+    width = 0.01,
+    height = 0.01
+  ) +
+  geom_smooth(method = "lm") +
+  theme(
+    axis.text = element_text(
+      size = 20),
+    axis.title = element_text(
+      size = 20),
+    legend.text = element_text(
+      size = 20),
+    legend.title = element_text(
+      size = 20)
+  )
+}
+```
+***
+![](meme_x_tinction.jpg)
+
+Lineplot, extinction rate
+========================================================
+
+```{r out.width=600}
+lineplot_ext_rate(df_par)
+```
+***
+```{r out.width=600}
+lineplot_ext_rate(df_proc)
+```
+
+Preliminary conclusion
+========================================================
+
+I think, the process-centric approach is
+
+ * easier to interpret biologically
+ * resulting in a nicer plot 3 out of the 4 cases
+ * underused
+
+My question to you
+========================================================
+
+Which rule do you suggest,
+when investigating an effect,
+to
+
+ * start from the parameters?
+ * start from the process?
+
+***
+
+![](meme_two_options.jpg)
