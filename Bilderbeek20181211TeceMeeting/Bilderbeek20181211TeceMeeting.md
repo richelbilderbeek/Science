@@ -17,7 +17,21 @@ Goal
  * Need opinion of others
  * Poll in the end
 
-Research question: when to pick which one?
+Research question
+========================================================
+
+When investigating an effect, should one
+
+ * start from the parameters?
+ * start from the process?
+
+Or: when to pick which one?
+
+***
+
+![](meme_pars_vs_process.jpg)
+
+Research question
 ========================================================
 
 ![](meme_ext_rate.jpg)
@@ -35,31 +49,78 @@ Hypothesis
 
 ![](meme_reality_responds_keanu.jpg)
 
-Experiment
+First experiment
 ========================================================
 
- * Download all open access papers from TECE
- * Scan for figures that use either approach
+ * Download all open access papers from TECE 2017 and 2018 (n = 12)
+ * Look for figures that use either approach
 
-Examples
+***
+
+![](tece_logo.png)
+
+Results
 ========================================================
 
 ![Example 1](example_1.png)
 
-Examples
+Results
 ========================================================
 
-![Example 2](example_2_t.png)
-Examples
+![Example 2](example_2_sub.png)
+
+Results
 ========================================================
 
-![Example 3](example_3_t.png)
+![Example 3](example_3_sub.png)
 
-Examples
+Results
 ========================================================
 
 ![Example 4](example_4.png)
 
+Results
+========================================================
+
+![Example 5](example_5_sub.png)
+
+Results
+========================================================
+
+![Example 6](example_6.png)
+
+Results
+========================================================
+
+![Example 7](example_7_sub.png)
+
+First conclusion
+========================================================
+
+Starting from parameters
+appears popular
+
+***
+![](meme_ext_rate.jpg)
+
+Research question again
+========================================================
+
+When investigating an effect, should one
+
+ * start from the parameters?
+ * start from the process?
+
+Or: when to pick which one?
+
+***
+
+![](meme_pars_vs_process.jpg)
+
+Context
+========================================================
+
+![](meme_context.jpg)
 
 Context: Birth-Death model
 ========================================================
@@ -291,7 +352,13 @@ tileplot <- function(df) {
       fill = effect
     )
   ) + geom_tile() +
-  scale_fill_gradientn(colours = rainbow(100))
+  scale_fill_gradientn(colours = rainbow(100)) +
+  theme(
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    legend.text = element_text(size = 20),
+    legend.title = element_text(size = 20)
+  )
 }
 ```
 
@@ -322,7 +389,13 @@ lineplot <- function(df) {
     df,
     aes(frac_ext, effect, color = as.factor(spec_rate))
 ) + geom_jitter(size = 5, width = 0.01, height = 0.01) +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm") +
+  theme(
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    legend.text = element_text(size = 20),
+    legend.title = element_text(size = 20)
+  )
 }
 ```
 
@@ -334,14 +407,14 @@ Lineplot
 lineplot(df_par)
 ```
 
-<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="650" />
+<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="600" />
 ***
 
 ```r
 lineplot(df_proc)
 ```
 
-<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-23-1.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" width="650" />
+<img src="Bilderbeek20181211TeceMeeting-figure/unnamed-chunk-23-1.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" width="600" />
 
 Two approaches to answer a research question
 ========================================================
