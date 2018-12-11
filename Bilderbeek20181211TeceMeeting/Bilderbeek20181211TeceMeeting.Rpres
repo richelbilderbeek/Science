@@ -8,7 +8,6 @@ autosize: true
 
 ![RuG and GELIFES and TECE logo](footer.png)
 
-
 Goal
 ========================================================
 
