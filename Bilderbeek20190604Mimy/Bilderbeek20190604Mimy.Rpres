@@ -90,7 +90,7 @@ And MHC-II?
 Method
 ========================================================
 
-```{r}
+```{r cached=TRUE}
 library(tmhmm)
 ```
 
@@ -102,7 +102,7 @@ A. Krogh, B. Larsson, G. von Heijne, and E. L. L. Sonnhammer. Predicting transme
 Method
 ========================================================
 
-```{r}
+```{r cached=TRUE}
 library(netmhc2pan)
 ```
 
@@ -114,7 +114,7 @@ Improved methods for predicting peptide binding affinity to MHC class II molecul
 Method
 ========================================================
 
-```{r}
+```{r cached=TRUE}
 library(epitopeome)
 ```
 
@@ -131,7 +131,18 @@ Outside|O|o
 Method
 ========================================================
 
-```{r}
+```{r cached=TRUE}
+library(bbbq)
+```
+
+ * [https://github.com/richelbilderbeek/bbbq](https://github.com/richelbilderbeek/bbbq)
+
+Answers the bigger questions. Private until publication of the article.
+
+Method
+========================================================
+
+```{r cached=TRUE}
 fasta_filename <- system.file("extdata", "tmhmm.fasta", package = "tmhmm")
 cat(readLines(fasta_filename), sep = "\n")
 ```
@@ -156,10 +167,16 @@ cat(epitopeome[1])
 cat(strsplit(gsub("([[:alnum:]]{70})", "\\1 ", epitopeome[2]), " ")[[1]])
 ```
 
+Method
+========================================================
+
+```{r cached=TRUE}
+knitr::kable(answer_bbbq_1(fasta_filename, alleles = my_allele))
+```
+
 ========================================================
 
 ![](figure_1_5_33.png)
-
 
 Future
 ========================================================
@@ -173,7 +190,50 @@ Future
 Method
 ========================================================
 
- *
+```{r cached=TRUE}
+library(babette)
+```
+
+Bilderbeek, Richèl JC, and Rampal S. Etienne. "babette: BEAUti 2, BEAST 2 and Tracer for R." Methods in Ecology and Evolution (2018). https://doi.org/10.1111/2041-210X.13032
+
+![](ropensci.jpeg)
+
+***
+
+![](richel.png)|![](rampal.png)
+---|---
+Bilderbeek|Etienne
+
+Method
+========================================================
+
+```{r cached=TRUE}
+fasta_file <- get_babette_path("anthus_aco_sub.fas")
+image(ape::read.FASTA(fasta_file))
+```
+
+Method
+========================================================
+
+```{r cached=TRUE}
+plot_densitree(bbt_run(
+    fasta_file, mcmc = create_mcmc(chain_length = 100000)
+  )$anthus_aco_sub_trees[50:100], alpha = 0.5)
+```
+
+Method
+========================================================
+
+ * Estimating mutation rates of TMH and non-TMH part
+ * Per protein:
+
+Ptn|Sequence
+---|------------------------------------
+MT |`MEILCEDNTSLSSIPNSLMQVD`
+loc|`iiimmmmmmmmmmmmmmmoooo`
+SP1|`.X................X...`
+SP2|`........X.............`
+SP3|`..X.................X.`
 
 ***
 
@@ -181,7 +241,12 @@ Method
 
 *Mycobacterium tuberculosis*
 
-References
+Conclusion
 ========================================================
 
- * [1] Bianchi, F., Textor, J., & van den Bogaart, G. (2017) Transmembrane helices are an overlooked source of MHC class I epitopes. Front. Immunol. 8: 1118. Pubmed.
+ * Transmembrane helices are also an overlooked source of MHCII II epitopes
+ * Evolutionary conservation yet unknown
+
+Questions?
+========================================================
+
