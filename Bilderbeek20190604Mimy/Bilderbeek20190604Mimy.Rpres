@@ -15,6 +15,12 @@ autosize: true
 .reveal li {
    font-size: 1.25em
 }
+
+.reveal table {
+   margin-bottom: 1em;
+   font-size: 1.25em
+}
+
 </style>
 
 [https://github.com/richelbilderbeek/Science](https://github.com/richelbilderbeek/Science) ![](CC-BY-NC-SA.png)
@@ -25,6 +31,10 @@ We are all fighters
 ========================================================
 
 ![](dr_mario.png)
+
+***
+
+![](virus_bros.jpg)
 
 We know how it works
 ========================================================
@@ -72,21 +82,106 @@ Conclusion
 
 From [1]
 
-Goal
+And MHC-II?
 ========================================================
 
-- Share some earlier work by MIMY
-- Share new work my MIMY and me
+![](mhc1_and_mhc2_presentation_150.png)
 
-Slide With Code
+Method
 ========================================================
 
 ```{r}
-summary(cars)
+library(tmhmm)
 ```
+
+ * [https://github.com/richelbilderbeek/tmhmm](https://github.com/richelbilderbeek/tmhmm)
+
+
+A. Krogh, B. Larsson, G. von Heijne, and E. L. L. Sonnhammer. Predicting transmembrane protein topology with a hidden Markov model: Application to complete genomes. Journal of Molecular Biology, 305(3):567-580, January 2001.
+
+Method
+========================================================
+
+```{r}
+library(netmhc2pan)
+```
+
+ * [https://github.com/richelbilderbeek/netmhc2pan](https://github.com/richelbilderbeek/netmhc2pan)
+
+
+Improved methods for predicting peptide binding affinity to MHC class II molecules. Jensen KK, Andreatta M, Marcatili P, Buus S, Greenbaum JA, Yan Z, Sette A, Peters B, Nielsen M. Immunology. 2018 Jan 6. doi: 10.1111/imm.12889. PubMed: 29315598
+
+Method
+========================================================
+
+```{r}
+library(epitopeome)
+```
+
+ * [https://github.com/richelbilderbeek/epitopeome](https://github.com/richelbilderbeek/epitopeome)
+
+Combines both!
+
+Location|Binds strongly|Does not bind
+-------|-------|----
+Inside |I|i
+TMH    |M|m
+Outside|O|o
+
+Method
+========================================================
+
+```{r}
+fasta_filename <- system.file("extdata", "tmhmm.fasta", package = "tmhmm")
+cat(readLines(fasta_filename), sep = "\n")
+```
+
+Method
+========================================================
+
+```{r cached=TRUE}
+all_alleles <- get_netmhc2pan_alleles()
+my_allele <- all_alleles[1]
+cat(my_allele)
+cat(length(all_alleles))
+cat(head(all_alleles, n = 14))
+```
+
+Method
+========================================================
+
+```{r cached=TRUE}
+epitopeome <- create_epitopeome(fasta_filename, alleles = my_allele)
+cat(epitopeome[1])
+cat(strsplit(gsub("([[:alnum:]]{70})", "\\1 ", epitopeome[2]), " ")[[1]])
+```
+
+========================================================
+
+![](figure_1_5_33.png)
+
+
+Future
+========================================================
+
+![](Darwin_Tree_1837_50.png)
+
+***
+
+# Are TMHs evolutionary conserved?
+
+Method
+========================================================
+
+ *
+
+***
+
+![](Mycobacterium_tuberculosis_8438_lores.jpg)
+
+*Mycobacterium tuberculosis*
 
 References
 ========================================================
-
 
  * [1] Bianchi, F., Textor, J., & van den Bogaart, G. (2017) Transmembrane helices are an overlooked source of MHC class I epitopes. Front. Immunol. 8: 1118. Pubmed.
