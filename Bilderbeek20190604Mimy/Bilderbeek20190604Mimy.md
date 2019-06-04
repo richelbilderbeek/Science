@@ -90,7 +90,8 @@ And MHC-II?
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 library(tmhmm)
 ```
 
@@ -102,7 +103,8 @@ A. Krogh, B. Larsson, G. von Heijne, and E. L. L. Sonnhammer. Predicting transme
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 library(netmhc2pan)
 ```
 
@@ -114,7 +116,8 @@ Improved methods for predicting peptide binding affinity to MHC class II molecul
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 library(epitopeome)
 ```
 
@@ -131,7 +134,8 @@ Outside|O|o
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 library(bbbq)
 ```
 
@@ -142,37 +146,92 @@ Answers the bigger questions. Private until publication of the article.
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 fasta_filename <- system.file("extdata", "tmhmm.fasta", package = "tmhmm")
 cat(readLines(fasta_filename), sep = "\n")
 ```
 
+```
+>5H2A_CRIGR you can have comments after the ID
+MEILCEDNTSLSSIPNSLMQVDGDSGLYRNDFNSRDANSSDASNWTIDGENRTNLSFEGYLPPTCLSILHL
+QEKNWSALLTAVVIILTIAGNILVIMAVSLEKKLQNATNYFLMSLAIADMLLGFLVMPVSMLTILYGYRWP
+LPSKLCAVWIYLDVLFSTASIMHLCAISLDRYVAIQNPIHHSRFNSRTKAFLKIIAVWTISVGVSMPIPVF
+GLQDDSKVFKQGSCLLADDNFVLIGSFVAFFIPLTIMVITYFLTIKSLQKEATLCVSDLSTRAKLASFSFL
+PQSSLSSEKLFQRSIHREPGSYTGRRTMQSISNEQKACKVLGIVFFLFVVMWCPFFITNIMAVICKESCNE
+HVIGALLNVFVWIGYLSSAVNPLVYTLFNKTYRSAFSRYIQCQYKENRKPLQLILVNTIPALAYKSSQLQA
+GQNKDSKEDAEPTDNDCSMVTLGKQQSEETCTDNINTVNEKVSCV
+```
+
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 all_alleles <- get_netmhc2pan_alleles()
 my_allele <- all_alleles[1]
 cat(my_allele)
+```
+
+```
+DRB1_0101
+```
+
+```r
 cat(length(all_alleles))
+```
+
+```
+5631
+```
+
+```r
 cat(head(all_alleles, n = 14))
 ```
 
+```
+DRB1_0101 DRB1_0102 DRB1_0103 DRB1_0104 DRB1_0105 DRB1_0106 DRB1_0107 DRB1_0108 DRB1_0109 DRB1_0110 DRB1_0111 DRB1_0112 DRB1_0113 DRB1_0114
+```
+
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 epitopeome <- create_epitopeome(fasta_filename, alleles = my_allele)
 cat(epitopeome[1])
+```
+
+```
+>5H2A_CRIGR
+```
+
+```r
 cat(strsplit(gsub("([[:alnum:]]{70})", "\\1 ", epitopeome[2]), " ")[[1]])
 ```
 
+```
+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo oooooommmmmmmmmmmmmmmmmmmmmmmiiiiiiiIIIIIMMMMMMMMMMMMMMMMMMMMMMMOOOOoo oooooooommmmmmmmmmmmmmmmmmmmMMMIIIIIIIIIIIIIIIIiiiimmmmmmmmmmmmmmmmmmm mmmmooooooooooooooooooommmmmmmmmmmmmmmMMMMMMMMIIIIIIIIIIIIiiiiiiiIIIII IIIIIIIIIIIIIIIIiiiiiiiiiiiiiiiiiiiiiiiiiiiimmmmmmmmmmmmmmmmmmmmmmmooo oooooommmmmmmMMMMMMMMMMMMMMMMIIIIIIIIIIIIIIIIIIIIIiiIIIIIIIIIIIIIIIIII IIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+```
+
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 knitr::kable(answer_bbbq_1(fasta_filename, alleles = my_allele))
 ```
+
+
+
+|epitopium |   n|
+|:---------|---:|
+|i         |  97|
+|m         | 111|
+|o         | 114|
+|I         |  95|
+|M         |  50|
+|O         |   4|
 
 ========================================================
 
@@ -190,7 +249,8 @@ Future
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 library(babette)
 ```
 
@@ -207,19 +267,25 @@ Bilderbeek|Etienne
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 fasta_file <- get_babette_path("anthus_aco_sub.fas")
 image(ape::read.FASTA(fasta_file))
 ```
 
+![plot of chunk unnamed-chunk-10](Bilderbeek20190604Mimy-figure/unnamed-chunk-10-1.png)
+
 Method
 ========================================================
 
-```{r cached=TRUE}
+
+```r
 plot_densitree(bbt_run(
     fasta_file, mcmc = create_mcmc(chain_length = 100000)
   )$anthus_aco_sub_trees[50:100], alpha = 0.5)
 ```
+
+![plot of chunk unnamed-chunk-11](Bilderbeek20190604Mimy-figure/unnamed-chunk-11-1.png)
 
 Method
 ========================================================
