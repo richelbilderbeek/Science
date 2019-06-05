@@ -27,7 +27,6 @@ autosize: true
 
 ![](footer_50.png)
 
-We are all fighters
 ========================================================
 
 ![](dr_mario.png)
@@ -52,8 +51,8 @@ Bianchi|Textor|van den Bogaart
 
 ## Membrane proteins
 
- * Presented at all?
- * How much would bind to MHC-I?
+ * Presented?
+ * Detected?
 
 ![](tmh_50.jpg)
 
@@ -244,7 +243,7 @@ Future
 
 ***
 
-# Are TMHs evolutionary conserved?
+# Are pathogen TMHs evolutionary conserved?
 
 Method
 ========================================================
@@ -290,6 +289,7 @@ plot_densitree(bbt_run(
 Method
 ========================================================
 
+ * Pathogen: *Mycobacterium tuberculosis*
  * Estimating mutation rates of TMH and non-TMH part
  * Per protein:
 
@@ -304,8 +304,6 @@ SP3|`..X.................X.`
 ***
 
 ![](Mycobacterium_tuberculosis_8438_lores.jpg)
-
-*Mycobacterium tuberculosis*
 
 Conclusion
 ========================================================
