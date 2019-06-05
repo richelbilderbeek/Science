@@ -1,4 +1,4 @@
-Transmembrane Helices Are Also An Overlooked Source Of MHCII II Epitopes
+Transmembrane Helices Are Also An Overlooked Source Of MHC-II Epitopes
 ========================================================
 author: Richèl J.C. Bilderbeek
 date: 2019-06-04
@@ -308,7 +308,7 @@ SP3|`..X.................X.`
 Conclusion
 ========================================================
 
- * TMHs are also an overlooked source of MHCII II epitopes
+ * TMHs are also an overlooked source of MHC-II epitopes
  * Evolutionary conservation of TMHs yet unknown
 
 Questions?
