@@ -1,5 +1,9 @@
 # Science
 
+Branch|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)
+---|---
+`master`|[![Build Status](https://travis-ci.org/richelbilderbeek/Science.svg?branch=master)](https://travis-ci.org/richelbilderbeek/Science)
+
 This is the place where I store my (public) science work.
 Most recent work is at the top. 
 
